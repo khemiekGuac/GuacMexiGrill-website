@@ -102,9 +102,11 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .form-label{font-family:var(--font-display);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(22,33,31,.45)}
 .form-input-light{background:transparent;border:none;border-bottom:1px solid rgba(22,33,31,.18);padding:12px 0;font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--dark);outline:none;transition:border-color .2s;width:100%} .form-input-light:focus{border-color:var(--olive)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .form-input-light::placeholder{color:rgba(22,33,31,.28)}
 textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(22,33,31,.18);border-radius:2px;padding:12px;margin-top:4px}
-@media(max-width:1024px){.fran-hero{grid-template-columns:1fr}.fran-hero__img{height:360px;position:relative}.fran-hero__content{padding:64px 32px}.fran-stats{grid-template-columns:repeat(2,1fr);padding:56px 32px;gap:32px}.fran-stat{border:none;padding:0}.fran-why{grid-template-columns:1fr;padding:60px 32px;gap:44px}.fran-steps{padding:60px 32px}.fran-steps__grid{grid-template-columns:repeat(2,1fr)}.fran-apply{grid-template-columns:1fr;padding:60px 32px;gap:40px}}</style>
+@media(max-width:1024px){.fran-hero{grid-template-columns:1fr}.fran-hero__img{height:360px;position:relative}.fran-hero__content{padding:64px 32px}.fran-stats{grid-template-columns:repeat(2,1fr);padding:56px 32px;gap:32px}.fran-stat{border:none;padding:0}.fran-why{grid-template-columns:1fr;padding:60px 32px;gap:44px}.fran-steps{padding:60px 32px}.fran-steps__grid{grid-template-columns:repeat(2,1fr)}.fran-apply{grid-template-columns:1fr;padding:60px 32px;gap:40px}}
+@media(max-width:640px){.form-row{grid-template-columns:1fr}}</style>
 </head>
 <body>
 <div class="topbar">
@@ -185,19 +187,34 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
     </div>
   </div>
   <div class="reveal d1">
-    
-    <form id="fran-form" action="https://formspree.io/franchising@guacmexigrill.ca" method="POST">
-    <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input-light" placeholder="Your full name" required></div>
-    <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input-light" placeholder="your@email.com" required></div>
-    <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-input-light" placeholder="(416) 555-0100"></div>
-    <div class="form-group"><label class="form-label">Target City / Market</label><input type="text" name="city" class="form-input-light" placeholder="e.g. Calgary, AB"></div>
-    <div class="form-group"><label class="form-label">Business Background</label><textarea name="background" class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
-    <button type="submit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">Submit Application</button>
+    <!-- Zoho CRM Web-to-Lead Form — DO NOT remove hidden inputs or scripts -->
+    <form id="webform6671574000017402003" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads6671574000017402003" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory6671574000017402003()' accept-charset="UTF-8">
+      <!-- Required Zoho security fields — DO NOT remove -->
+      <input type="text" style="display:none;" name="xnQsjsdp" value="6529e0e6ffaea1d41bfa77c7995ccdb6725e53d8633c621247adcdc3a7fe372a">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="text" style="display:none;" name="xmIwtLD" value="b262ad8ae385939aa73938515a3be34a88a29c8096a9ce98b01bfa14b5d04c2068f77ca6bbf06c6b8be7254e1152c48f">
+      <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+      <input type="text" style="display:none;" name="returnURL" value="https://guacmexigrill.ca">
+      <!-- Honeypot — DO NOT remove -->
+      <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+      <!-- Form fields styled to match GUAC brand -->
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" class="form-input-light" placeholder="First name" required></div>
+        <div class="form-group"><label class="form-label">Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" class="form-input-light" placeholder="Last name" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email <span style="color:var(--rust)">*</span></label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" class="form-input-light" placeholder="your@email.com" required></div>
+      <div class="form-group"><label class="form-label">Phone <span style="color:var(--rust)">*</span></label><input type="text" id="Phone" name="Phone" maxlength="30" class="form-input-light" placeholder="(416) 555-0100" required></div>
+      <div class="form-group"><label class="form-label">Target City / Market <span style="color:var(--rust)">*</span></label><input type="text" id="LEADCF14" name="LEADCF14" maxlength="255" class="form-input-light" placeholder="e.g. Calgary, AB" required></div>
+      <div class="form-group"><label class="form-label">Business Background <span style="color:var(--rust)">*</span></label><textarea id="LEADCF9" name="LEADCF9" class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
+      <button type="submit" id="formsubmit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">Submit Application</button>
     </form>
-    <div id="fran-form-success" style="display:none;padding:28px;background:rgba(97,110,69,.1);border:1px solid rgba(97,110,69,.22);border-radius:2px;text-align:center">
-      <div style="font-family:var(--font-display);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--olive);margin-bottom:10px">Application Received</div>
-      <p style="font-size:13px;color:rgba(22,33,31,.55);line-height:1.75">Thank you. A member of our franchising team will be in touch within 3 business days.</p>
-    </div>
+    <!-- Zoho validation scripts — DO NOT remove -->
+    <script>
+    function validateEmail6671574000017402003(){var form=document.forms['WebToLeads6671574000017402003'];var emailFld=form.querySelectorAll('[ftype=email]');for(var i=0;i<emailFld.length;i++){var emailVal=emailFld[i].value;if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){var atpos=emailVal.indexOf('@');var dotpos=emailVal.lastIndexOf('.');if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){alert('Please enter a valid email address.');emailFld[i].focus();return false;}}}return true;}
+    function checkMandatory6671574000017402003(){var mndFileds=new Array('First Name','Last Name','Email','Phone','LEADCF9','LEADCF14');var fldLangVal=new Array('First Name','Last Name','Email','Phone','Business Background','Target City/Market');for(var i=0;i<mndFileds.length;i++){var fieldObj=document.forms['WebToLeads6671574000017402003'][mndFileds[i]];if(fieldObj){if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){if(fieldObj.type=='file'){alert('Please select a file to upload.');fieldObj.focus();return false;}alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}else if(fieldObj.nodeName=='SELECT'){if(fieldObj.options[fieldObj.selectedIndex].value=='-None-'){alert(fldLangVal[i]+' cannot be none.');fieldObj.focus();return false;}}else if(fieldObj.type=='checkbox'){if(fieldObj.checked==false){alert('Please accept '+fldLangVal[i]);fieldObj.focus();return false;}}try{if(fieldObj.name=='Last Name'){name=fieldObj.value;}}catch(e){}}}if(!validateEmail6671574000017402003()){return false;}var urlparams=new URLSearchParams(window.location.search);if(urlparams.has('service')&&(urlparams.get('service')==='smarturl')){var webform=document.getElementById('webform6671574000017402003');var smarturlfield=document.createElement('input');smarturlfield.setAttribute('type','hidden');smarturlfield.setAttribute('value',urlparams.get('service'));smarturlfield.setAttribute('name','service');webform.appendChild(smarturlfield);}document.querySelector('#webform6671574000017402003 .btn').setAttribute('disabled',true);}
+    </script>
+    <!-- Zoho Analytics — DO NOT remove -->
+    <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=882f48d0508fcf120acab265d059924784a6aadf4397466c739f5fe6ea33bd521b474def7f29d6e17d665534e4600327gid9cb80aa9b8166daeebc6dafbc07b4d32f357020cce55e5ea080954faa6bc1eb6gid950f00b4071bd582bd6be09c2146ca99b622df0bf8fca6e1a2cafab9a4109804gid11d54feed039bb88c59f15bad8692bfb01b74d38345c90363d3ab7854331d9be&tw=1fdd1274b55343122211395d15fc40ec3cc1dd3ce7f11965c40c0050fe91c015"></script>
   </div>
 </div>
 <footer class="footer">
@@ -247,9 +264,6 @@ function closeMobileNav(){mobileNav.classList.remove('open');document.body.style
 closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-// Franchise application form handler
-const franForm=document.getElementById('fran-form');
-if(franForm){franForm.addEventListener('submit',async function(e){e.preventDefault();const data=new FormData(this);try{const res=await fetch(this.action,{method:'POST',body:data,headers:{Accept:'application/json'}});if(res.ok){this.style.display='none';document.getElementById('fran-form-success').style.display='block';}}catch(err){}});}
 </script>
 </body>
 </html>
