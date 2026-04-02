@@ -147,7 +147,7 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
   <div class="fran-stat reveal"><div class="fran-stat__num">56+</div><div class="fran-stat__label">Locations Open</div></div>
   <div class="fran-stat reveal d1"><div class="fran-stat__num">10+</div><div class="fran-stat__label">Years in Market</div></div>
   <div class="fran-stat reveal d2"><div class="fran-stat__num">100%</div><div class="fran-stat__label">Canadian-Owned</div></div>
-  <div class="fran-stat reveal d3"><div class="fran-stat__num">∞</div><div class="fran-stat__label">Bold Flavour</div></div>
+  <div class="fran-stat reveal d3"><div class="fran-stat__num"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="52" height="52" style="display:block;margin:0 auto 2px"><g fill="rgba(226,221,203,0.82)" transform="translate(50,50)"><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(0.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(22.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(45.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(67.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(90.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(112.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(135.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(157.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(180.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(202.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(225.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(247.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(270.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(292.5)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(315.0)"/><polygon points="-3,-18 3,-18 5,-44 -5,-44" transform="rotate(337.5)"/></g></svg></div><div class="fran-stat__label">Bold Flavour</div></div>
 </div>
 <div class="fran-why">
   <div class="reveal">
@@ -185,12 +185,19 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
     </div>
   </div>
   <div class="reveal d1">
-    <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input-light" placeholder="Your full name"></div>
-    <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input-light" placeholder="your@email.com"></div>
-    <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input-light" placeholder="(416) 555-0100"></div>
-    <div class="form-group"><label class="form-label">Target City / Market</label><input type="text" class="form-input-light" placeholder="e.g. Calgary, AB"></div>
-    <div class="form-group"><label class="form-label">Business Background</label><textarea class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
-    <button class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">Submit Application</button>
+    
+    <form id="fran-form" action="https://formspree.io/franchising@guacmexigrill.ca" method="POST">
+    <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input-light" placeholder="Your full name" required></div>
+    <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input-light" placeholder="your@email.com" required></div>
+    <div class="form-group"><label class="form-label">Phone</label><input type="tel" name="phone" class="form-input-light" placeholder="(416) 555-0100"></div>
+    <div class="form-group"><label class="form-label">Target City / Market</label><input type="text" name="city" class="form-input-light" placeholder="e.g. Calgary, AB"></div>
+    <div class="form-group"><label class="form-label">Business Background</label><textarea name="background" class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
+    <button type="submit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">Submit Application</button>
+    </form>
+    <div id="fran-form-success" style="display:none;padding:28px;background:rgba(97,110,69,.1);border:1px solid rgba(97,110,69,.22);border-radius:2px;text-align:center">
+      <div style="font-family:var(--font-display);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--olive);margin-bottom:10px">Application Received</div>
+      <p style="font-size:13px;color:rgba(22,33,31,.55);line-height:1.75">Thank you. A member of our franchising team will be in touch within 3 business days.</p>
+    </div>
   </div>
 </div>
 <footer class="footer">
@@ -240,6 +247,9 @@ function closeMobileNav(){mobileNav.classList.remove('open');document.body.style
 closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// Franchise application form handler
+const franForm=document.getElementById('fran-form');
+if(franForm){franForm.addEventListener('submit',async function(e){e.preventDefault();const data=new FormData(this);try{const res=await fetch(this.action,{method:'POST',body:data,headers:{Accept:'application/json'}});if(res.ok){this.style.display='none';document.getElementById('fran-form-success').style.display='block';}}catch(err){}});}
 </script>
 </body>
 </html>
