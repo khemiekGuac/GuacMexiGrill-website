@@ -164,7 +164,7 @@ textarea{resize:vertical;min-height:130px}
       <div class="contact-channel__icon">&#128205;</div>
       <div>
         <div class="contact-channel__title">Find a Location</div>
-        <div class="contact-channel__info">56 locations across Canada. Find the one nearest you.</div>
+        <div class="contact-channel__info">56+ locations across Canada. Find the one nearest you.</div>
         <a href="locations.html" class="contact-channel__link">View all locations &#8594;</a>
       </div>
     </div>
@@ -194,13 +194,32 @@ textarea{resize:vertical;min-height:130px}
     <p class="contact-form-block__body">Whether it&#8217;s praise, feedback, or a good idea &#8212; we want to hear it. Our team personally reviews every message.</p>
   </div>
   <div class="reveal d1">
-    <div class="form-row">
-      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
-    </div>
-    <div class="form-group"><label>Subject</label><input type="text" placeholder="What&#8217;s this about?"></div>
-    <div class="form-group"><label>Message</label><textarea placeholder="Tell us what&#8217;s on your mind..."></textarea></div>
-    <button class="form-submit">Send Message</button>
+    <!-- Zoho CRM Web-to-Contact Form — DO NOT remove hidden inputs or scripts -->
+    <form id="webform6671574000017402027" action="https://crm.zoho.com/crm/WebToContactForm" name="WebToContacts6671574000017402027" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory6671574000017402027()' accept-charset="UTF-8">
+      <!-- Required Zoho security fields — DO NOT remove -->
+      <input type="text" style="display:none;" name="xnQsjsdp" value="319a3f65dc164b89ca35216727ef4a0c9019d79931136a7c48c7ebf9a9422610">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="text" style="display:none;" name="xmIwtLD" value="085115fa54b72e7edf7c28bb0c4fe2d00f5fdfce9ea81d2a5f2a21e6259546e9f080f4c368f6faad183ad2e782201a2a">
+      <input type="text" style="display:none;" name="actionType" value="Q29udGFjdHM=">
+      <input type="text" style="display:none;" name="returnURL" value="https://guacmexigrill.ca">
+      <!-- Honeypot — DO NOT remove -->
+      <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+      <!-- Form fields styled to match GUAC brand -->
+      <div class="form-row">
+        <div class="form-group"><label>First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" placeholder="First name" required></div>
+        <div class="form-group"><label>Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" placeholder="Last name" required></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Message <span style="color:var(--rust)">*</span></label><textarea id="CONTACTCF5" name="CONTACTCF5" placeholder="Tell us what&#8217;s on your mind..." required></textarea></div>
+      <button type="submit" id="formsubmit" class="form-submit">Send Message</button>
+    </form>
+    <!-- Zoho validation scripts — DO NOT remove -->
+    <script>
+    function validateEmail6671574000017402027(){var form=document.forms['WebToContacts6671574000017402027'];var emailFld=form.querySelectorAll('[ftype=email]');for(var i=0;i<emailFld.length;i++){var emailVal=emailFld[i].value;if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){var atpos=emailVal.indexOf('@');var dotpos=emailVal.lastIndexOf('.');if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){alert('Please enter a valid email address.');emailFld[i].focus();return false;}}}return true;}
+    function checkMandatory6671574000017402027(){var mndFileds=new Array('First Name','Last Name','CONTACTCF5');var fldLangVal=new Array('First Name','Last Name','Message');for(var i=0;i<mndFileds.length;i++){var fieldObj=document.forms['WebToContacts6671574000017402027'][mndFileds[i]];if(fieldObj){if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){if(fieldObj.type=='file'){alert('Please select a file to upload.');fieldObj.focus();return false;}alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}else if(fieldObj.nodeName=='SELECT'){if(fieldObj.options[fieldObj.selectedIndex].value=='-None-'){alert(fldLangVal[i]+' cannot be none.');fieldObj.focus();return false;}}else if(fieldObj.type=='checkbox'){if(fieldObj.checked==false){alert('Please accept '+fldLangVal[i]);fieldObj.focus();return false;}}try{if(fieldObj.name=='Last Name'){name=fieldObj.value;}}catch(e){}}}if(!validateEmail6671574000017402027()){return false;}var urlparams=new URLSearchParams(window.location.search);if(urlparams.has('service')&&(urlparams.get('service')==='smarturl')){var webform=document.getElementById('webform6671574000017402027');var smarturlfield=document.createElement('input');smarturlfield.setAttribute('type','hidden');smarturlfield.setAttribute('value',urlparams.get('service'));smarturlfield.setAttribute('name','service');webform.appendChild(smarturlfield);}document.querySelector('#webform6671574000017402027[type=submit],.form-submit').setAttribute('disabled',true);}
+    </script>
+    <!-- Zoho Analytics — DO NOT remove -->
+    <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=21650dc999c36c67a0d1320f678a53de3f5defbd8d3e514f9937b1c24864188461fd77a895f7819717a545f3d479804bgid34fac0d4ea05c3baa71f3420693a251b7957111625a90c3edbfa1a1dd4bb825egid20dd3847527ab2095c597199faaabff049066636bb5276b6bad66572a54e639bgidfc330a0f30a487fad23c9fc56b94fbc240acc4d0b33b379d3b892cced4581cc7&tw=73b7133d61036d863724c4fdf774074ac82b3981e2f32cc7d588f33f90ad6073"></script>
   </div>
 </div>
 
@@ -212,11 +231,11 @@ textarea{resize:vertical;min-height:130px}
   <div class="faq-list reveal d1">
     <div class="faq-item">
       <div class="faq-q">Do you offer catering?</div>
-      <div class="faq-a">Yes &#8212; order catering directly online at all 56 locations. No quotes, no forms. Just order online.</div>
+      <div class="faq-a">Yes &#8212; order catering directly online at all 56+ locations. No quotes, no forms. Just order online.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Where are your locations?</div>
-      <div class="faq-a">56 locations across Ontario, Alberta, Saskatchewan, Manitoba, and PEI. Use our locations page to find the one nearest you.</div>
+      <div class="faq-a">56+ locations across Canada — Ontario, Alberta, Saskatchewan, Manitoba, PEI, and more. Use our locations page to find the one nearest you.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I give feedback about my visit?</div>
@@ -313,6 +332,7 @@ document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 document.querySelectorAll('.faq-q').forEach(function(q) {
   q.addEventListener('click', function() { q.parentElement.classList.toggle('open'); });
 });
+
 </script>
 </body>
 </html>
