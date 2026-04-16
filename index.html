@@ -230,7 +230,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     <p class="hero__sub">Real ingredients. House-made everything. Fire-roasted flavour you can taste in every bite.</p>
     <div class="hero__actions"><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--dark">View Menu</a><a href="#" class="underline-link">Order Now</a></div>
   </div>
-  <div class="hero__right"><img src="images/hero-food.jpg" alt="Bold Tex-Mex"></div>
+  <div class="hero__right"><img data-img="HERO_FOOD" alt="Bold Tex-Mex"></div>
   <div class="hero__scroll">Scroll to explore</div>
 </section>
 
@@ -266,7 +266,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   </div>
   <div class="lto-grid">
     <a href="ltos.html#lunch-ritual" class="lto-card reveal">
-  <div class="lto-card__img"><img src="images/lto-card-lunch-ritual.jpg" alt="The Lunch Ritual"><div class="lto-card__overlay"></div></div>
+  <div class="lto-card__img"><img data-img="LTO_CARD_LUNCH_RITUAL" alt="The Lunch Ritual"><div class="lto-card__overlay"></div></div>
   <div class="lto-card__badge">$9.99</div>
   <div class="lto-card__info">
     <div class="lto-card__name">The Lunch Ritual</div>
@@ -298,7 +298,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 </section>
 
 <section class="gc-band">
-  <img class="gc-band__bg" src="images/gift-card-bg.jpg" alt="">
+  <img class="gc-band__bg" data-img="GIFT_CARD_BG" alt="">
   <div class="gc-band__overlay"></div>
   <div class="gc-band__content">
     <div class="eyebrow eyebrow--light reveal">Gift Cards</div>
@@ -359,6 +359,20 @@ document.getElementById('subBtn').addEventListener('click',function(){
   </div>
 </footer>
 <script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    HERO_FOOD: "images/hero-food.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LTO_CARD_LUNCH_RITUAL: "images/lto-card-lunch-ritual.jpg",
+    // REPLACEABLE — update path here to swap this image
+    GIFT_CARD_BG: "images/gift-card-bg.jpg",
+  };
+  // Apply image config — resolves data-img attributes to src paths
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 const burgerBtn=document.getElementById('burgerBtn');

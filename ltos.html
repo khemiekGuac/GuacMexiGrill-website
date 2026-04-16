@@ -134,7 +134,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <p class="lto-page-hero__sub">Bold, seasonal, house-made. These are our current LTOs — they won&rsquo;t be here forever.</p>
 </div>
 <div id="lunch-ritual" class="lto-entry lto-entry--dark reveal">
-  <div class="lto-entry__img"><img src="images/lto-lunch-ritual.jpg" alt="The Lunch Ritual"></div>
+  <div class="lto-entry__img"><img data-img="LTO_LUNCH_RITUAL" alt="The Lunch Ritual"></div>
   <div class="lto-entry__content">
     <div class="lto-entry__badge">Limited Time Only</div>
     <div class="lto-entry__name">The Lunch<br>Ritual</div>
@@ -170,6 +170,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
 </footer>
 <script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    LTO_LUNCH_RITUAL: "images/lto-lunch-ritual.jpg",
+  };
+  // Apply image config — resolves data-img attributes to src paths
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 document.getElementById('burgerBtn').addEventListener('click',()=>{

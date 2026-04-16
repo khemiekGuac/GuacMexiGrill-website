@@ -142,7 +142,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 </div>
 
 <div class="gc-hero">
-  <img class="gc-hero__bg" src="images/gift-card-hero.jpg" alt="">
+  <img class="gc-hero__bg" data-img="GIFT_CARD_HERO" alt="">
   <div class="gc-hero__overlay"></div>
   <div class="gc-hero__content">
     <div class="eyebrow eyebrow--light reveal">Gift Cards</div>
@@ -168,7 +168,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     </div>
   </div>
   <div class="gc-howit__img reveal" style="transition-delay:.15s">
-    <img src="images/gift-card-product.jpg" alt="GUAC Bold Flavour">
+    <img data-img="GIFT_CARD_PRODUCT" alt="GUAC Bold Flavour">
   </div>
 </section>
 
@@ -260,6 +260,18 @@ document.querySelectorAll('.faq-item').forEach(function(item){
   </div>
 </footer>
 <script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    GIFT_CARD_HERO: "images/gift-card-hero.jpg",
+    // REPLACEABLE — update path here to swap this image
+    GIFT_CARD_PRODUCT: "images/gift-card-product.jpg",
+  };
+  // Apply image config — resolves data-img attributes to src paths
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 document.getElementById('burgerBtn').addEventListener('click',()=>{

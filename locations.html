@@ -153,7 +153,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     </div>
   </div>
   <div class="loc-hero__img reveal" style="transition-delay:.12s">
-    <img src="images/locations-storefront.jpg" alt="GUAC Storefront">
+    <img data-img="LOCATIONS_STOREFRONT" alt="GUAC Storefront">
   </div>
 </div>
 
@@ -727,7 +727,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 </div>
 
 <div class="catering-strip">
-  <div class="catering-strip__img"><img src="images/locations-kitchen.jpg" alt="GUAC Kitchen"></div>
+  <div class="catering-strip__img"><img data-img="LOCATIONS_KITCHEN" alt="GUAC Kitchen"></div>
   <div class="catering-strip__content">
     <div class="eyebrow eyebrow--light reveal">Catering</div>
     <h2 class="catering-strip__headline reveal" style="transition-delay:.1s">Bring GUAC<br>To Your Event.</h2>
@@ -790,6 +790,18 @@ function filterProv(btn){
   </div>
 </footer>
 <script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    LOCATIONS_STOREFRONT: "images/locations-storefront.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LOCATIONS_KITCHEN: "images/locations-kitchen.jpg",
+  };
+  // Apply image config — resolves data-img attributes to src paths
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 document.getElementById('burgerBtn').addEventListener('click',()=>{

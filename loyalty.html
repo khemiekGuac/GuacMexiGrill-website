@@ -171,7 +171,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     </div>
   </div>
   <div class="loy-hero__img">
-    <img src="images/loyalty-hero.jpg" alt="GUAC Bold Flavour">
+    <img data-img="LOYALTY_HERO" alt="GUAC Bold Flavour">
     <div class="loy-hero__img-overlay"></div>
   </div>
 </div>
@@ -333,6 +333,16 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',functi
   </div>
 </footer>
 <script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    LOYALTY_HERO: "images/loyalty-hero.jpg",
+  };
+  // Apply image config — resolves data-img attributes to src paths
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 document.getElementById('burgerBtn').addEventListener('click',()=>{
