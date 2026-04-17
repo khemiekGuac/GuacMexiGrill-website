@@ -45,7 +45,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;height:72px;background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 48px;transition:box-shadow .3s,background .3s}
 .nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.4)}
-.nav__logo img{height:60px;image-rendering:-webkit-optimize-contrast;width:auto;filter:invert(1)}
+.nav__logo img{height:36px;width:auto;filter:invert(1)}
 .nav__links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav__links a{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.6);transition:color .2s;position:relative;padding-bottom:4px}
 .nav__links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--olive);transition:width .3s var(--ease)}
@@ -67,7 +67,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 /* FOOTER */
 .footer{background:var(--dark);border-top:1px solid rgba(203,180,129,.06)}
 .footer__main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:56px;padding:72px 80px 60px}
-.footer__brand img{height:56px;margin-bottom:22px;filter:invert(1)}
+.footer__brand img{height:40px;margin-bottom:22px;filter:invert(1)}
 .footer__tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:13px;color:rgba(226,221,203,.38);line-height:1.7;max-width:230px;margin-bottom:26px}
 .footer__social{display:flex;gap:12px} .footer__social a{width:34px;height:34px;border:1px solid rgba(203,180,129,.16);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(203,180,129,.45);font-size:13px;transition:all .2s} .footer__social a:hover{border-color:var(--olive);color:var(--olive)}
 .footer__col-title{font-family:var(--font-display);font-weight:600;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
@@ -78,7 +78,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 /* RESPONSIVE */
 @media(max-width:1024px){.nav__links,.nav__cta{display:none} .nav__burger{display:flex} .topbar{padding:0 20px} .nav{padding:0 20px} .page-hero{padding:72px 32px 60px} .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px} .footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}}
 @media(max-width:640px){.footer__main{grid-template-columns:1fr}}
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.about-sourcing{background:var(--dark);padding:80px;display:flex;justify-content:center}.about-sourcing__inner{max-width:680px;text-align:center}.about-sourcing .eyebrow{color:var(--gold);margin-bottom:18px}.about-sourcing__body{font-size:15px;line-height:1.85;color:rgba(226,221,203,.55);margin-bottom:0}.about-sourcing__manifesto{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3vw,34px);text-transform:uppercase;color:var(--cream);letter-spacing:-.01em;line-height:1.05;margin-top:32px}.about-space{background:var(--cream);padding:80px;display:flex;justify-content:center}.about-space__inner{max-width:680px;text-align:center}.about-space .eyebrow{margin-bottom:18px}.about-space__body{font-size:15px;line-height:1.85;color:rgba(22,33,31,.6);margin-bottom:0}.about-space__manifesto{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3vw,34px);text-transform:uppercase;color:var(--dark);letter-spacing:-.01em;line-height:1.05;margin-top:32px}</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.about-details{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:60px;padding-top:56px;margin-top:40px;border-top:1px solid rgba(22,33,31,.1)}.about-detail .eyebrow{margin-bottom:14px}.about-detail__body{font-size:15px;line-height:1.85;color:rgba(22,33,31,.6);margin-bottom:0}.about-detail__statement{font-family:var(--font-display);font-weight:800;font-size:clamp(15px,1.6vw,19px);text-transform:uppercase;color:var(--dark);letter-spacing:-.01em;line-height:1.15;margin-top:20px}</style>
 <style>
 .about-hero{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;min-height:560px}
 .about-hero__img{position:relative;overflow:hidden}
@@ -155,21 +155,20 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     <p class="about-story__body">Today, GUAC Mexi Grill has grown to 56+ locations across Canada, and we're just getting started.</p>
   </div>
   <div class="about-story__img reveal d2"><img data-img="ABOUT_KITCHEN" alt="GUAC Kitchen"></div>
+
+  <div class="about-details reveal">
+    <div class="about-detail">
+      <div class="eyebrow">What Goes In</div>
+      <p class="about-detail__body">100% grain-fed chicken. Canadian Triple-A beef, marinated overnight in house-made seasonings and charred to order. No artificial flavours, no artificial colours, no preservatives. Every item built from scratch, every day.</p>
+      <p class="about-detail__statement">We don&#8217;t source for convenience. We source for flavour.</p>
+    </div>
+    <div class="about-detail">
+      <div class="eyebrow">The Space</div>
+      <p class="about-detail__body">Our restaurants are designed to match what&#8217;s on the tray &#8212; industrial, intentional, and built for a premium fast-casual experience. Bold food deserves a space that takes it seriously.</p>
+    </div>
+  </div>
 </section>
 
-<section class="about-sourcing">
-  <div class="about-sourcing__inner reveal">
-    <div class="eyebrow eyebrow--light">What Goes In</div>
-    <p class="about-sourcing__body">100% grain-fed chicken. Canadian Triple-A beef, marinated overnight in house-made seasonings and charred to order. No artificial flavours, no artificial colours, no preservatives. Every item built from scratch, every day.</p>
-    <p class="about-sourcing__manifesto">We don&#8217;t source for convenience.<br>We source for flavour.</p>
-  </div>
-</section>
-<section class="about-space">
-  <div class="about-space__inner reveal">
-    <div class="eyebrow">The Space</div>
-    <p class="about-space__body">Our restaurants are designed to match what&#8217;s on the tray &#8212; industrial, intentional, and built for a premium fast-casual experience. Bold food deserves a space that takes it seriously.</p>
-  </div>
-</section>
 <section class="values-grid" id="values">
   <div class="value-block reveal">
     <img data-img="ICON_BOLD_FLAVOUR" class="value-block__icon" alt="Bold Flavour">
