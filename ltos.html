@@ -105,7 +105,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}
 }
 @media(max-width:640px){.footer__main{grid-template-columns:1fr}}
-</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style>
 </head>
 <body>
 <div class="topbar">
@@ -117,14 +117,15 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     </div>
   </div>
 </div>
-<nav class="nav" id="mainNav">
+<nav class="nav" aria-label="Main navigation" id="mainNav">
   <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
   <ul class="nav__links"><li><a href="index.html"  class="">Home</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target='_blank' class="">Menu</a></li><li><a href="about.html"  class="">Our Story</a></li><li><a href="locations.html"  class="">Locations</a></li><li><a href="contact.html"  class="">Contact</a></li><li><a href="franchising.html"  class="">Franchising</a></li></ul>
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream nav__cta">Order Now</a>
-  <button class="nav__burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
 </nav>
+<div id="main-content" tabindex="-1"></div>
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav__close" id="closeNav">✕</button>
+  <button class="mobile-nav__close" id="closeNav" aria-label="Close menu">✕</button>
   <a href="index.html"  onclick="closeMobileNav()">Home</a><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target='_blank' onclick="closeMobileNav()">Menu</a><a href="about.html"  onclick="closeMobileNav()">Our Story</a><a href="locations.html"  onclick="closeMobileNav()">Locations</a><a href="contact.html"  onclick="closeMobileNav()">Contact</a><a href="franchising.html"  onclick="closeMobileNav()">Franchising</a>
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream" style="margin-top:16px" onclick="closeMobileNav()">Order Now</a>
 </div>
@@ -160,7 +161,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div><div class="footer__col-title">About Us</div>
       <ul class="footer__col-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li><li><a href="contact.html#faq">FAQs</a></li></ul></div>
     <div><div class="footer__col-title">Explore More</div>
-      <ul class="footer__col-links"><li><a href="gift-card.html">Gift Card</a></li><li><a href="loyalty.html">Loyalty Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
+      <ul class="footer__col-links"><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
     <div><div class="footer__col-title">Connect</div>
       <ul class="footer__col-links"><li><a href="contact.html">Contact Us</a></li><li><a href="https://www.facebook.com/guacmexigrill" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/guacmexigrill/" target="_blank">Instagram</a></li></ul></div>
   </div>

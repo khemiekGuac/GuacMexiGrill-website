@@ -78,7 +78,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 /* RESPONSIVE */
 @media(max-width:1024px){.nav__links,.nav__cta{display:none} .nav__burger{display:flex} .topbar{padding:0 20px} .nav{padding:0 20px} .page-hero{padding:72px 32px 60px} .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px} .footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}}
 @media(max-width:640px){.footer__main{grid-template-columns:1fr}}
-</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style>
 <style>
 .fran-hero{background:var(--dark);min-height:560px;display:grid;grid-template-columns:1fr 1fr}
 .fran-hero__img{position:relative;overflow:hidden}
@@ -133,14 +133,15 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
     </div>
   </div>
 </div>
-<nav class="nav" id="mainNav">
+<nav class="nav" aria-label="Main navigation" id="mainNav">
   <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
   <ul class="nav__links"><li><a href="index.html" class="">Home</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="">Menu</a></li><li><a href="about.html" class="">Our Story</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="">Catering</a></li><li><a href="locations.html" class="">Locations</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="franchising.html" class="active">Franchising</a></li></ul>
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream nav__cta">Order Now</a>
-  <button class="nav__burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
 </nav>
+<div id="main-content" tabindex="-1"></div>
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav__close" id="closeNav">✕</button>
+  <button class="mobile-nav__close" id="closeNav" aria-label="Close menu">✕</button>
   <a href="index.html" onclick="closeMobileNav()">Home</a><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" onclick="closeMobileNav()">Menu</a><a href="about.html" onclick="closeMobileNav()">Our Story</a><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" onclick="closeMobileNav()">Catering</a><a href="locations.html" onclick="closeMobileNav()">Locations</a><a href="contact.html" onclick="closeMobileNav()">Contact</a><a href="franchising.html" onclick="closeMobileNav()">Franchising</a>
   <a href="#" class="btn btn--cream" style="margin-top:16px">Order Now</a>
 </div>
@@ -211,13 +212,13 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
       <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
       <!-- Form fields styled to match GUAC brand -->
       <div class="form-row">
-        <div class="form-group"><label class="form-label">First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" class="form-input-light" placeholder="First name" required></div>
-        <div class="form-group"><label class="form-label">Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" class="form-input-light" placeholder="Last name" required></div>
+        <div class="form-group"><label class="form-label" for="First_Name">First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" class="form-input-light" placeholder="First name" required></div>
+        <div class="form-group"><label class="form-label" for="Last_Name">Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" class="form-input-light" placeholder="Last name" required></div>
       </div>
-      <div class="form-group"><label class="form-label">Email <span style="color:var(--rust)">*</span></label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" class="form-input-light" placeholder="your@email.com" required></div>
-      <div class="form-group"><label class="form-label">Phone <span style="color:var(--rust)">*</span></label><input type="text" id="Phone" name="Phone" maxlength="30" class="form-input-light" placeholder="(416) 555-0100" required></div>
-      <div class="form-group"><label class="form-label">Target City / Market <span style="color:var(--rust)">*</span></label><input type="text" id="LEADCF14" name="LEADCF14" maxlength="255" class="form-input-light" placeholder="e.g. Calgary, AB" required></div>
-      <div class="form-group"><label class="form-label">Business Background <span style="color:var(--rust)">*</span></label><textarea id="LEADCF9" name="LEADCF9" class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
+      <div class="form-group"><label class="form-label" for="Email">Email <span style="color:var(--rust)">*</span></label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" class="form-input-light" placeholder="your@email.com" required></div>
+      <div class="form-group"><label class="form-label" for="Phone">Phone <span style="color:var(--rust)">*</span></label><input type="text" id="Phone" name="Phone" maxlength="30" class="form-input-light" placeholder="(416) 555-0100" required></div>
+      <div class="form-group"><label class="form-label" for="LEADCF14">Target City / Market <span style="color:var(--rust)">*</span></label><input type="text" id="LEADCF14" name="LEADCF14" maxlength="255" class="form-input-light" placeholder="e.g. Calgary, AB" required></div>
+      <div class="form-group"><label class="form-label" for="LEADCF9">Business Background <span style="color:var(--rust)">*</span></label><textarea id="LEADCF9" name="LEADCF9" class="form-input-light" placeholder="Brief description of your experience..."></textarea></div>
       <button type="submit" id="formsubmit" class="btn btn--dark" style="width:100%;justify-content:center;margin-top:8px">Submit Application</button>
     </form>
     <!-- Zoho validation scripts — DO NOT remove -->
@@ -251,7 +252,7 @@ textarea.form-input-light{resize:vertical;min-height:90px;border:1px solid rgba(
       </ul></div>
     <div><div class="footer__col-title">Explore More</div>
       <ul class="footer__col-links">
-        <li><a href="gift-card.html">Gift Card</a></li><li><a href="loyalty.html">Loyalty Card</a></li>
+        <li><a href="gift-card.html">Gift Card</a></li>
         <li><a href="franchising.html">Franchising</a></li>
       </ul></div>
     <div><div class="footer__col-title">Connect</div>

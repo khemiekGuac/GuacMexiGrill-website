@@ -115,7 +115,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:900px){.lto-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1024px){.lto-section__header{padding:56px 32px 36px;flex-direction:column;align-items:flex-start}.lto-section__cta-wrap{align-items:flex-start}.lto-grid{grid-template-columns:repeat(2,1fr);padding:0 32px;gap:3px}}
 @media(max-width:540px){.lto-grid{grid-template-columns:1fr}}
-</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}</style>
 <style>
 .hero{position:relative;background:var(--cream);min-height:calc(100vh - 108px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
 .hero__left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;z-index:2}
@@ -203,17 +203,18 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     </div>
   </div>
 </div>
-<nav class="nav" id="mainNav">
+<nav class="nav" aria-label="Main navigation" id="mainNav">
   <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
   <ul class="nav__links"><li><a href="index.html" class="active">Home</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="">Menu</a></li><li><a href="about.html" class="">Our Story</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="">Catering</a></li><li><a href="locations.html" class="">Locations</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="franchising.html" class="">Franchising</a></li></ul>
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream nav__cta">Order Now</a>
-  <button class="nav__burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav__close" id="closeNav">✕</button>
+  <button class="mobile-nav__close" id="closeNav" aria-label="Close menu">✕</button>
   <a href="index.html" onclick="closeMobileNav()">Home</a><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" onclick="closeMobileNav()">Menu</a><a href="about.html" onclick="closeMobileNav()">Our Story</a><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" onclick="closeMobileNav()">Catering</a><a href="locations.html" onclick="closeMobileNav()">Locations</a><a href="contact.html" onclick="closeMobileNav()">Contact</a><a href="franchising.html" onclick="closeMobileNav()">Franchising</a>
   <a href="#" class="btn btn--cream" style="margin-top:16px">Order Now</a>
 </div>
+<div id="main-content" tabindex="-1"></div>
 
 <!-- ══ LTO BANNER — edit .lto-item elements to update promotions ══ -->
 <div class="lto-banner" id="ltoBanner">
@@ -232,6 +233,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   </div>
   <div class="hero__right"><img data-img="HERO_FOOD" alt="Bold Tex-Mex"></div>
   <div class="hero__scroll">Scroll to explore</div>
+<p class="newsletter__consent">By subscribing you consent to receive marketing emails from GUAC Mexi Grill. Unsubscribe any time. <a href="privacy.html">Privacy Policy</a>.</p>
 </section>
 
 <div class="pillars reveal">
@@ -313,7 +315,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   <h2 class="newsletter__headline reveal d1">First to know.<br>First to eat.</h2>
   <p class="newsletter__sub reveal d2">New menu items, openings, and exclusive offers.</p>
   <div class="newsletter__form reveal d3">
-    <input type="email" class="newsletter__input" placeholder="your@email.com">
+    <input type="email" class="newsletter__input" id="newsletterEmail" aria-label="Email address" placeholder="your@email.com">
     <button class="newsletter__submit" id="subBtn">Subscribe</button>
   </div>
 </section>
@@ -344,7 +346,7 @@ document.getElementById('subBtn').addEventListener('click',function(){
       </ul></div>
     <div><div class="footer__col-title">Explore More</div>
       <ul class="footer__col-links">
-        <li><a href="gift-card.html">Gift Card</a></li><li><a href="loyalty.html">Loyalty Card</a></li>
+        <li><a href="gift-card.html">Gift Card</a></li>
         <li><a href="franchising.html">Franchising</a></li>
       </ul></div>
     <div><div class="footer__col-title">Connect</div>

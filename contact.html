@@ -120,7 +120,7 @@ textarea{resize:vertical;min-height:130px}
   .form-row{grid-template-columns:1fr}
   .footer__main{grid-template-columns:1fr}
 }
-</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style>
 </head>
 <body>
 
@@ -134,7 +134,7 @@ textarea{resize:vertical;min-height:130px}
   </div>
 </div>
 
-<nav class="nav" id="mainNav">
+<nav class="nav" aria-label="Main navigation" id="mainNav">
   <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
   <ul class="nav__links">
     <li><a href="index.html">Home</a></li>
@@ -145,8 +145,9 @@ textarea{resize:vertical;min-height:130px}
     <li><a href="franchising.html">Franchising</a></li>
   </ul>
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream nav__cta">Order Now</a>
-  <button class="nav__burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
 </nav>
+<div id="main-content" tabindex="-1"></div>
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav__close" id="closeNav">&#x2715;</button>
   <a href="index.html" onclick="closeMobileNav()">Home</a>
@@ -220,11 +221,11 @@ textarea{resize:vertical;min-height:130px}
       <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
       <!-- Form fields styled to match GUAC brand -->
       <div class="form-row">
-        <div class="form-group"><label>First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" placeholder="First name" required></div>
-        <div class="form-group"><label>Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" placeholder="Last name" required></div>
+        <div class="form-group"><label for="First_Name">First Name <span style="color:var(--rust)">*</span></label><input type="text" id="First_Name" name="First Name" maxlength="40" placeholder="First name" required></div>
+        <div class="form-group"><label for="Last_Name">Last Name <span style="color:var(--rust)">*</span></label><input type="text" id="Last_Name" name="Last Name" maxlength="80" placeholder="Last name" required></div>
       </div>
-      <div class="form-group"><label>Email</label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" placeholder="your@email.com"></div>
-      <div class="form-group"><label>Message <span style="color:var(--rust)">*</span></label><textarea id="CONTACTCF5" name="CONTACTCF5" placeholder="Tell us what&#8217;s on your mind..." required></textarea></div>
+      <div class="form-group"><label for="Email">Email</label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" placeholder="your@email.com"></div>
+      <div class="form-group"><label for="CONTACTCF5">Message <span style="color:var(--rust)">*</span></label><textarea id="CONTACTCF5" name="CONTACTCF5" placeholder="Tell us what&#8217;s on your mind..." required></textarea></div>
       <button type="submit" id="formsubmit" class="form-submit">Send Message</button>
     </form>
     <!-- Zoho validation scripts — DO NOT remove -->
@@ -266,8 +267,8 @@ textarea{resize:vertical;min-height:130px}
       <div class="faq-a">Use the form above &#8212; our team personally reviews every message.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Do you have a loyalty program?</div>
-      <div class="faq-a">Yes &#8212; the GUAC Loyalty Card earns you points on every visit. Ask in-store to sign up or visit our loyalty page.</div>
+      <div class="faq-q">Do you have a rewards program?</div>
+      <div class="faq-a">Yes &#8212; the GUAC Cash Back card earns you cash back on every purchase. Ask in-store to sign up &#8212; it&#8217;s free and instant.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Are your ingredients halal?</div>
@@ -311,7 +312,7 @@ textarea{resize:vertical;min-height:130px}
       <div class="footer__col-title">Explore More</div>
       <ul class="footer__col-links">
         <li><a href="gift-card.html">Gift Card</a></li>
-        <li><a href="loyalty.html">Loyalty Card</a></li>
+        
         <li><a href="franchising.html">Franchising</a></li>
       </ul>
     </div>
