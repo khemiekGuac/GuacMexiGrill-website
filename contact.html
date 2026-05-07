@@ -65,7 +65,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .contact-channels{display:flex;flex-direction:column;gap:0}
 .contact-channel{display:flex;align-items:flex-start;gap:20px;padding:24px 0;border-bottom:1px solid rgba(226,221,203,.08)}
 .contact-channel:last-child{border-bottom:none}
-.contact-channel__icon{font-size:20px;flex-shrink:0;width:28px;padding-top:2px}
+.contact-channel__icon{flex-shrink:0;width:28px;padding-top:3px;color:var(--sage)}.contact-channel__icon svg{display:block}
 .contact-channel__title{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
 .contact-channel__info{font-size:13px;color:rgba(226,221,203,.45);line-height:1.6;margin-bottom:8px}
 .contact-channel__link{font-family:var(--font-display);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--sage);border-bottom:1px solid rgba(168,173,136,.3);padding-bottom:2px;display:inline-block;transition:color .2s,border-color .2s}
@@ -170,7 +170,7 @@ textarea{resize:vertical;min-height:130px}
   </div>
   <div class="contact-channels reveal d2">
     <div class="contact-channel">
-      <div class="contact-channel__icon">&#9993;</div>
+      <div class="contact-channel__icon"><svg width="22" height="17" viewBox="0 0 22 17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="20" height="15" rx="2"/><path d="M1 4l10 7 10-7"/></svg></div>
       <div>
         <div class="contact-channel__title">Email Us</div>
         <div class="contact-channel__info">For general inquiries, media, and partnerships.</div>
@@ -178,7 +178,7 @@ textarea{resize:vertical;min-height:130px}
       </div>
     </div>
     <div class="contact-channel">
-      <div class="contact-channel__icon">&#128205;</div>
+      <div class="contact-channel__icon"><svg width="16" height="22" viewBox="0 0 16 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1C4.1 1 1 4.1 1 8C1 14 8 21 8 21C8 21 15 14 15 8C15 4.1 11.9 1 8 1Z"/><circle cx="8" cy="8" r="2.5"/></svg></div>
       <div>
         <div class="contact-channel__title">Find a Location</div>
         <div class="contact-channel__info">56+ locations across Canada. Find the one nearest you.</div>
@@ -186,7 +186,7 @@ textarea{resize:vertical;min-height:130px}
       </div>
     </div>
     <div class="contact-channel">
-      <div class="contact-channel__icon">&#127869;</div>
+      <div class="contact-channel__icon"><svg width="20" height="22" viewBox="0 0 20 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1v7c0 1.7 1.3 3 3 3v10"/><path d="M2 1v3M6 1v3"/><path d="M16 1v20"/><path d="M16 1c0 0 4 2.5 4 6h-4"/></svg></div>
       <div>
         <div class="contact-channel__title">Catering</div>
         <div class="contact-channel__info">Planning an event? Order catering directly online.</div>
@@ -194,7 +194,7 @@ textarea{resize:vertical;min-height:130px}
       </div>
     </div>
     <div class="contact-channel">
-      <div class="contact-channel__icon">&#129309;</div>
+      <div class="contact-channel__icon"><svg width="22" height="20" viewBox="0 0 22 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="8" width="20" height="11" rx="1"/><path d="M1 8L5 1h12l4 7"/><path d="M8 19v-6h6v6"/><path d="M11 8v3"/></svg></div>
       <div>
         <div class="contact-channel__title">Franchising</div>
         <div class="contact-channel__info">Interested in bringing GUAC to your city?</div>
@@ -237,10 +237,8 @@ textarea{resize:vertical;min-height:130px}
     LOGO: "images/logo.png",
   };
   // Apply image config — resolves data-img attributes to src paths
-  document.querySelectorAll('[data-img]').forEach(function(el){
-    var k = el.getAttribute('data-img');
-    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
-  });
+  function applyImgCfg(){document.querySelectorAll('[data-img]').forEach(function(el){var k=el.getAttribute('data-img');if(IMAGE_CONFIG[k])el.src=IMAGE_CONFIG[k];});}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyImgCfg);}else{applyImgCfg();}
 
     function validateEmail6671574000017402027(){var form=document.forms['WebToContacts6671574000017402027'];var emailFld=form.querySelectorAll('[ftype=email]');for(var i=0;i<emailFld.length;i++){var emailVal=emailFld[i].value;if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){var atpos=emailVal.indexOf('@');var dotpos=emailVal.lastIndexOf('.');if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){alert('Please enter a valid email address.');emailFld[i].focus();return false;}}}return true;}
     function checkMandatory6671574000017402027(){var mndFileds=new Array('First Name','Last Name','CONTACTCF5');var fldLangVal=new Array('First Name','Last Name','Message');for(var i=0;i<mndFileds.length;i++){var fieldObj=document.forms['WebToContacts6671574000017402027'][mndFileds[i]];if(fieldObj){if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){if(fieldObj.type=='file'){alert('Please select a file to upload.');fieldObj.focus();return false;}alert(fldLangVal[i]+' cannot be empty.');fieldObj.focus();return false;}else if(fieldObj.nodeName=='SELECT'){if(fieldObj.options[fieldObj.selectedIndex].value=='-None-'){alert(fldLangVal[i]+' cannot be none.');fieldObj.focus();return false;}}else if(fieldObj.type=='checkbox'){if(fieldObj.checked==false){alert('Please accept '+fldLangVal[i]);fieldObj.focus();return false;}}try{if(fieldObj.name=='Last Name'){name=fieldObj.value;}}catch(e){}}}if(!validateEmail6671574000017402027()){return false;}var urlparams=new URLSearchParams(window.location.search);if(urlparams.has('service')&&(urlparams.get('service')==='smarturl')){var webform=document.getElementById('webform6671574000017402027');var smarturlfield=document.createElement('input');smarturlfield.setAttribute('type','hidden');smarturlfield.setAttribute('value',urlparams.get('service'));smarturlfield.setAttribute('name','service');webform.appendChild(smarturlfield);}document.querySelector('#webform6671574000017402027[type=submit],.form-submit').setAttribute('disabled',true);}
@@ -271,10 +269,6 @@ textarea{resize:vertical;min-height:130px}
     <div class="faq-item">
       <div class="faq-q">Do you have a rewards program?</div>
       <div class="faq-a">Yes &#8212; the GUAC Cash Back card earns you cash back on every purchase. Ask in-store to sign up &#8212; it&#8217;s free and instant.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Are your ingredients halal?</div>
-      <div class="faq-a">Please contact your nearest location directly for the most up-to-date information on ingredient sourcing and dietary accommodations.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I get a gift card?</div>
