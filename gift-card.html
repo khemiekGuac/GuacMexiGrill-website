@@ -62,10 +62,10 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .footer__legal{display:flex;gap:22px}.footer__legal a{font-family:var(--font-display);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.2);transition:color .2s}.footer__legal a:hover{color:rgba(226,221,203,.5)}
 @media(max-width:1024px){.nav__links,.nav__cta{display:none}.nav__burger{display:flex}.topbar{padding:0 20px}.nav{padding:0 20px}.footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}}
 @media(max-width:640px){.footer__main{grid-template-columns:1fr}}
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style><style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-dot{position:fixed;width:5px;height:5px;background:var(--sand);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .2s var(--ease);will-change:left,top}#cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(203,180,129,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,opacity .3s;will-change:left,top}body.cursor-active #cursor-ring{width:52px;height:52px;border-color:rgba(203,180,129,.85)}body.cursor-active #cursor-dot{transform:translate(-50%,-50%) scale(0)}body.cursor-hidden #cursor-dot,body.cursor-hidden #cursor-ring{opacity:0}}</style><style>
 .gc-hero{position:relative;min-height:calc(100vh - 108px);display:flex;align-items:center;overflow:hidden;background:var(--dark)}
-.gc-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.28);transform:scale(1.04)}
-.gc-hero__overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(22,33,31,.95) 45%,rgba(22,33,31,.4) 100%)}
+.gc-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62);transform:scale(1.04)}
+.gc-hero__overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(22,33,31,.82) 38%,rgba(22,33,31,.15) 100%)}
 .gc-hero__content{position:relative;z-index:2;padding:100px 80px;max-width:680px}
 .gc-hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(62px,9vw,120px);line-height:.87;letter-spacing:-.03em;text-transform:uppercase;color:var(--cream);margin:18px 0 28px}
 .gc-hero__headline span{color:var(--olive)}
@@ -120,6 +120,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 }</style>
 </head>
 <body>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 <div class="topbar">
   <div class="topbar__flag">Proudly Canadian</div>
   <div class="topbar__right">
@@ -148,10 +150,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <div class="gc-hero__content">
     <div class="eyebrow eyebrow--light reveal">Gift Cards</div>
     <h1 class="gc-hero__headline reveal" style="transition-delay:.1s">Give Bold<br><span>Flavour.</span></h1>
-    <p class="gc-hero__sub reveal" style="transition-delay:.18s">The GUAC Gift Card — a premium card for the people who deserve the best Tex-Mex in their life. Never expires. Reloadable. Accepted at all 56 locations.</p>
+    <p class="gc-hero__sub reveal" style="transition-delay:.18s">The GUAC Gift Card — a premium card for the people who deserve the best Tex-Mex in their life. Available in-store at all 56 locations. Never expires.</p>
     <div class="gc-hero__actions reveal" style="transition-delay:.24s">
-      <a href="#buy" class="btn btn--cream">Buy a Gift Card</a>
-      <a href="#check" class="btn btn--outline-light">Check Balance</a>
+      <a href="locations.html" class="btn btn--cream">Find Your Nearest GUAC</a>
     </div>
     <div class="gc-hero__badge reveal" style="transition-delay:.3s;margin-top:32px">Never expires · Any denomination · All locations</div>
   </div>
@@ -162,10 +163,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div class="eyebrow">How It Works</div>
     <h2 class="gc-howit__headline">Simple.<br><em>Thoughtful.</em><br>Bold.</h2>
     <div class="gc-steps">
-      <div class="gc-step"><div class="gc-step__num">01</div><div><div class="gc-step__title">Choose an Amount</div><div class="gc-step__body">Pick any dollar amount you'd like to load onto the card — from $10 to $500. Custom amounts always welcome.</div></div></div>
-      <div class="gc-step"><div class="gc-step__num">02</div><div><div class="gc-step__title">Personalize It</div><div class="gc-step__body">Add a name and a message. We'll make sure it feels like a gift, not just a card.</div></div></div>
-      <div class="gc-step"><div class="gc-step__num">03</div><div><div class="gc-step__title">Pick Up In-Store</div><div class="gc-step__body">Gift cards are available at all GUAC locations. Walk in, load it, and it's ready to use immediately.</div></div></div>
-      <div class="gc-step"><div class="gc-step__num">04</div><div><div class="gc-step__title">Use It Anywhere</div><div class="gc-step__body">Valid at all 56 GUAC locations nationwide. No expiry date. Reloadable at any time.</div></div></div>
+      <div class="gc-step"><div class="gc-step__num">01</div><div><div class="gc-step__title">Visit Any Location</div><div class="gc-step__body">Stop by any GUAC Mexi Grill location and ask a team member for a gift card.</div></div></div>
+      <div class="gc-step"><div class="gc-step__num">02</div><div><div class="gc-step__title">Choose an Amount</div><div class="gc-step__body">Pick any amount from $10 to $500. The team member activates it on the spot &mdash; it&rsquo;s ready to use immediately.</div></div></div>
+      <div class="gc-step"><div class="gc-step__num">03</div><div><div class="gc-step__title">Use It Anywhere</div><div class="gc-step__body">Valid at all 56 GUAC locations nationwide. No expiry date &mdash; your card stays live until you spend it.</div></div></div>
     </div>
   </div>
   <div class="gc-howit__img reveal" style="transition-delay:.15s">
@@ -173,24 +173,6 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
 </section>
 
-<section class="gc-amounts" id="buy">
-  <div class="eyebrow eyebrow--light reveal">Choose Your Amount</div>
-  <h2 class="gc-amounts__headline reveal" style="transition-delay:.1s">How Much<br>Bold Flavour?</h2>
-  <p class="gc-amounts__sub reveal" style="transition-delay:.15s">Select a preset amount or enter your own below.</p>
-  <div class="gc-amounts__grid reveal" style="transition-delay:.18s">
-    <div class="gc-amount" onclick="selectAmount(this,'$25')"><div class="gc-amount__val">$25</div><div class="gc-amount__label">Starter</div></div>
-    <div class="gc-amount" onclick="selectAmount(this,'$50')"><div class="gc-amount__val">$50</div><div class="gc-amount__label">Popular</div></div>
-    <div class="gc-amount selected" onclick="selectAmount(this,'$100')"><div class="gc-amount__val">$100</div><div class="gc-amount__label">Bold Choice</div></div>
-    <div class="gc-amount" onclick="selectAmount(this,'$150')"><div class="gc-amount__val">$150</div><div class="gc-amount__label">Premium</div></div>
-    <div class="gc-amount" onclick="selectAmount(this,'$200')"><div class="gc-amount__val">$200</div><div class="gc-amount__label">The Full Experience</div></div>
-  </div>
-  <div class="gc-custom reveal" style="transition-delay:.22s">
-    <span class="gc-custom__label">$</span>
-    <input class="gc-custom__input" type="number" placeholder="Enter custom amount" min="10" max="500">
-  </div>
-  <p class="reveal" style="transition-delay:.25s;font-family:var(--font-display);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(226,221,203,.28);margin-bottom:32px">Gift cards available for pick-up at all GUAC locations</p>
-  <a href="locations.html" class="btn btn--cream reveal" style="transition-delay:.28s">Find Your Nearest GUAC →</a>
-</section>
 
 <div class="gc-perks">
   <div class="gc-perk reveal">
@@ -199,24 +181,24 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div class="gc-perk__body">Your GUAC gift card balance never expires. Use it today, use it in two years — your flavour, your timeline.</div>
   </div>
   <div class="gc-perk reveal" style="transition-delay:.1s">
-    <div class="gc-perk__icon">↺</div>
-    <div class="gc-perk__title">Reloadable</div>
-    <div class="gc-perk__body">Running low? Top it up at any GUAC location, any time. One card, endless bold flavour.</div>
+    <div class="gc-perk__icon">🎁</div>
+    <div class="gc-perk__title">Any Denomination</div>
+    <div class="gc-perk__body">Choose any amount from $10 to $500. No restrictions, no minimums — gift exactly what you want.</div>
   </div>
   <div class="gc-perk reveal" style="transition-delay:.2s">
     <div class="gc-perk__icon">📍</div>
     <div class="gc-perk__title">All 56 Locations</div>
-    <div class="gc-perk__body">Accepted at every GUAC location at every GUAC location coast to coast. Wherever you find bold flavour, your card works.</div>
+    <div class="gc-perk__body">Accepted at every GUAC Mexi Grill location coast to coast. Wherever you find bold flavour, your card works.</div>
   </div>
 </div>
 
-<section class="gc-faq" id="check">
+<section class="gc-faq" id="faq">
   <div class="reveal">
     <div class="eyebrow">FAQs</div>
     <h2 class="gc-faq__headline">Gift Card<br>Questions.</h2>
   </div>
   <div class="reveal" style="transition-delay:.1s">
-    <div class="faq-item"><div class="faq-q">Do GUAC gift cards expire?</div><div class="faq-a">No. Your gift card balance never expires. There are no dormancy fees or hidden charges — every dollar stays on the card until you spend it.</div></div><div class="faq-item"><div class="faq-q">Can I check my gift card balance?</div><div class="faq-a">Yes. Visit any GUAC location and ask a team member to check your remaining balance. Balance inquiries are always free.</div></div><div class="faq-item"><div class="faq-q">Where can I use my gift card?</div><div class="faq-a">Your GUAC gift card is accepted at all 56 GUAC Mexi Grill locations across Canada.</div></div><div class="faq-item"><div class="faq-q">Can I reload my gift card?</div><div class="faq-a">Absolutely. You can add any amount to your existing card at any GUAC location. Just bring it in and ask a team member.</div></div><div class="faq-item"><div class="faq-q">Can I use a gift card online or for delivery?</div><div class="faq-a">Gift card redemption at the point of sale is supported in-store. Contact your local GUAC for the latest online ordering options.</div></div><div class="faq-item"><div class="faq-q">What if my card is lost or stolen?</div><div class="faq-a">Unfortunately, lost or stolen gift cards cannot be replaced without proof of purchase. Keep your receipt safe.</div></div>
+    <div class="faq-item"><div class="faq-q">Do GUAC gift cards expire?</div><div class="faq-a">No. Your gift card balance never expires. There are no dormancy fees or hidden charges — every dollar stays on the card until you spend it.</div></div><div class="faq-item"><div class="faq-q">Where can I use my gift card?</div><div class="faq-a">Your GUAC gift card is accepted at all 56 GUAC Mexi Grill locations across Canada.</div></div><div class="faq-item"><div class="faq-q">Can I use a gift card online or for delivery?</div><div class="faq-a">Gift cards are for in-store purchases only. Present your card at the register at any GUAC location.</div></div><div class="faq-item"><div class="faq-q">What denominations are available?</div><div class="faq-a">Any amount from $10 to $500 — just ask a team member when you visit. The card is activated in-store on the spot.</div></div><div class="faq-item"><div class="faq-q">What if my card is lost or stolen?</div><div class="faq-a">Unfortunately, lost or stolen gift cards cannot be replaced without proof of purchase. Keep your receipt safe.</div></div>
   </div>
 </section>
 <script>
@@ -285,5 +267,7 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var dot=document.getElementById("cursor-dot");var ring=document.getElementById("cursor-ring");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;dot.style.left=mx+"px";dot.style.top=my+"px";ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animate);})();})();
 </body>
 </html>

@@ -81,7 +81,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   h1:before{content:"GUAC Mexi Grill — Nutrition Information";display:block;
     font-size:16pt;font-weight:900;margin-bottom:12pt;text-transform:uppercase}
 }
-.pdf-btn-wrap{display:flex;justify-content:center;padding:24px 0 8px}.pdf-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase;background:var(--dark);color:var(--cream);border:none;padding:12px 28px;cursor:pointer;border-radius:2px;text-decoration:none}.pdf-btn:hover{background:var(--avocado)}.pdf-btn svg{width:14px;height:14px;fill:currentColor}</style><style>
+.pdf-btn-wrap{display:flex;justify-content:center;padding:24px 0 8px}.pdf-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase;background:var(--dark);color:var(--cream);border:none;padding:12px 28px;cursor:pointer;border-radius:2px;text-decoration:none}.pdf-btn:hover{background:var(--avocado)}.pdf-btn svg{width:14px;height:14px;fill:currentColor}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-dot{position:fixed;width:5px;height:5px;background:var(--sand);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .2s var(--ease);will-change:left,top}#cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(203,180,129,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,opacity .3s;will-change:left,top}body.cursor-active #cursor-ring{width:52px;height:52px;border-color:rgba(203,180,129,.85)}body.cursor-active #cursor-dot{transform:translate(-50%,-50%) scale(0)}body.cursor-hidden #cursor-dot,body.cursor-hidden #cursor-ring{opacity:0}}</style><style>
 .nut-hero{background:var(--dark);padding:100px 80px 72px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .nut-hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(54px,7vw,90px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin:14px 0 22px}
 .nut-hero__headline span{color:var(--olive)}
@@ -114,6 +114,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 @media(max-width:1024px){.nut-hero{grid-template-columns:1fr;padding:72px 32px 56px}.nut-nav{padding:0 32px}.nut-body{padding:48px 32px}.nut-disclaimer{padding:36px 32px;flex-direction:column}}</style>
 </head>
 <body>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 <div class="topbar">
   <div class="topbar__flag">Proudly Canadian</div>
   <div class="topbar__right">
@@ -315,5 +317,7 @@ closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var dot=document.getElementById("cursor-dot");var ring=document.getElementById("cursor-ring");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;dot.style.left=mx+"px";dot.style.top=my+"px";ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animate);})();})();
 </body>
 </html>

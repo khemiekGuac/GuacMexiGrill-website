@@ -120,9 +120,11 @@ textarea{resize:vertical;min-height:130px}
   .form-row{grid-template-columns:1fr}
   .footer__main{grid-template-columns:1fr}
 }
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-dot{position:fixed;width:5px;height:5px;background:var(--sand);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .2s var(--ease);will-change:left,top}#cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(203,180,129,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,opacity .3s;will-change:left,top}body.cursor-active #cursor-ring{width:52px;height:52px;border-color:rgba(203,180,129,.85)}body.cursor-active #cursor-dot{transform:translate(-50%,-50%) scale(0)}body.cursor-hidden #cursor-dot,body.cursor-hidden #cursor-ring{opacity:0}}</style>
 </head>
 <body>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <div class="topbar">
   <div class="topbar__flag">Proudly Canadian</div>
@@ -359,5 +361,7 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 });
 
 </script>
+
+(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var dot=document.getElementById("cursor-dot");var ring=document.getElementById("cursor-ring");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;dot.style.left=mx+"px";dot.style.top=my+"px";ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animate);})();})();
 </body>
 </html>
