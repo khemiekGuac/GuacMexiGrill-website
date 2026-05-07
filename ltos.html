@@ -105,9 +105,11 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}
 }
 @media(max-width:640px){.footer__main{grid-template-columns:1fr}}
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.lto-entry__price-label{font-family:var(--font-display);font-size:9px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:4px;opacity:.5}.lto-entry__price-label{font-family:var(--font-display);font-size:9px;letter-spacing:.35em;text-transform:uppercase;margin-bottom:6px;display:block}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-dot{position:fixed;width:5px;height:5px;background:var(--sand);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .2s var(--ease);will-change:left,top}#cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(203,180,129,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,opacity .3s;will-change:left,top}body.cursor-active #cursor-ring{width:52px;height:52px;border-color:rgba(203,180,129,.85)}body.cursor-active #cursor-dot{transform:translate(-50%,-50%) scale(0)}body.cursor-hidden #cursor-dot,body.cursor-hidden #cursor-ring{opacity:0}}</style>
 </head>
 <body>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 <div class="topbar">
   <div class="topbar__flag">Proudly Canadian</div>
   <div class="topbar__right">
@@ -134,16 +136,57 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <h1 class="lto-page-hero__headline">What&rsquo;s<br><span>On Now.</span></h1>
   <p class="lto-page-hero__sub">Bold, seasonal, house-made. These are our current LTOs — they won&rsquo;t be here forever.</p>
 </div>
-<div id="lunch-ritual" class="lto-entry lto-entry--dark reveal">
-  <div class="lto-entry__img"><img data-img="LTO_1" alt="The Lunch Ritual"></div>
+<div id="mango-chipotle" class="lto-entry lto-entry--dark reveal">
+  <div class="lto-entry__img"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado"></div>
+  <div class="lto-entry__content">
+    <div class="lto-entry__badge">Limited Time Only</div>
+    <div class="lto-entry__name">Mango Chipotle<br>Pollo Asado</div>
+    <p class="lto-entry__desc">House-Made Flavour. Built to Order. Done Right. Fire-grilled pollo asado layered with sweet mango heat, smoky chipotle flavour, and made fresh your way. Served in bowls, burritos, tacos, or quesadillas. Comes with a complimentary Passion Fruit Agua.</p>
+    <div class="lto-entry__price"><div class="lto-entry__price-label">Starting at</div><sup>$</sup>14<sup>.19</sup></div>
+    <div class="lto-entry__details">
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Includes</span><span class="lto-entry__detail-val">Choice of Bowl, Burrito, Tacos, or Quesadilla &middot; Mango Chipotle Pollo Asado &middot; Complimentary Passion Fruit Agua</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Feature</span><span class="lto-entry__detail-val">Sweet mango heat balanced with smoky chipotle flavour</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Gluten Free</span><span class="lto-entry__detail-val">Gluten free option available</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Available</span><span class="lto-entry__detail-val">Participating locations</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Expires</span><span class="lto-entry__detail-val">July 31, 2026</span></div>
+    </div>
+    <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream">Try the Mango Chipotle Pollo Asado &#x2192;</a>
+    <p class="lto-entry__legal">*Valid at participating Guac Mexi Grill locations in Canada until July 31, 2026. Complimentary Passion Fruit Agua available for a limited time while supplies last. Prices may vary by location. Conditions apply.</p>
+  </div>
+</div>
+<div id="lunch-ritual" class="lto-entry lto-entry--cream lto-entry--flip reveal">
+  <div class="lto-entry__img"><img data-img="LTO_2" alt="The Lunch Ritual"></div>
   <div class="lto-entry__content">
     <div class="lto-entry__badge">Limited Time Only</div>
     <div class="lto-entry__name">The Lunch<br>Ritual</div>
-    <p class="lto-entry__desc">House-Made Flavour. Built to Order. Done Right. A small burrito with rice, beans, and your choice of protein — the lunch that means business. Students save 15% with a valid student ID.</p>
+    <p class="lto-entry__desc">House-Made Flavour. Built to Order. Done Right. A small burrito with rice, beans, and your choice of protein &mdash; the lunch that means business. Students save 15% with a valid student ID.</p>
     <div class="lto-entry__price"><sup>$</sup>9<sup>.99</sup></div>
-    <div class="lto-entry__details"><div class="lto-entry__detail"><span class="lto-entry__detail-label">Includes</span><span class="lto-entry__detail-val">Small burrito · Rice · Beans · Your choice of protein</span></div><div class="lto-entry__detail"><span class="lto-entry__detail-label">Student Deal</span><span class="lto-entry__detail-val">15% off with valid student ID</span></div><div class="lto-entry__detail"><span class="lto-entry__detail-label">Available</span><span class="lto-entry__detail-val">Participating locations</span></div><div class="lto-entry__detail"><span class="lto-entry__detail-label">Expires</span><span class="lto-entry__detail-val">August 31, 2026</span></div></div>
-    <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream">Order The Lunch Ritual →</a>
+    <div class="lto-entry__details">
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Includes</span><span class="lto-entry__detail-val">Small burrito &middot; Rice &middot; Beans &middot; Your choice of protein</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Student Deal</span><span class="lto-entry__detail-val">15% off with valid student ID</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Available</span><span class="lto-entry__detail-val">Participating locations</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Expires</span><span class="lto-entry__detail-val">August 31, 2026</span></div>
+    </div>
+    <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--dark">Order The Lunch Ritual &#x2192;</a>
     <p class="lto-entry__legal">*Valid at participating Guac Mexi Grill locations in Canada until August 31, 2026. Offer applies to a small sized burrito. Student Advantage discount expires June 30, 2026. Not combinable with other offers. No cash value. Conditions apply.</p>
+  </div>
+</div>
+<div id="guac-crunch" class="lto-entry lto-entry--dark reveal">
+  <div class="lto-entry__img"><img data-img="LTO_3" alt="The Guac Crunch"></div>
+  <div class="lto-entry__content">
+    <div class="lto-entry__badge">Limited Time Feature</div>
+    <div class="lto-entry__name">The Guac<br>Crunch</div>
+    <p class="lto-entry__desc">House-Made Flavour. Built to Order. Done Right. A grilled crunch wrap layered with queso, a crisp tostada shell, fresh toppings, and your choice of house protein. Built for bold flavour and serious crunch.</p>
+    <div class="lto-entry__price"><sup>$</sup>7<sup>.99</sup></div>
+    <div class="lto-entry__details">
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Includes</span><span class="lto-entry__detail-val">Grilled crunch wrap &middot; Crisp tostada shell &middot; Queso &middot; Fresh toppings &middot; Your choice of house protein</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Feature</span><span class="lto-entry__detail-val">Crispy texture layered with bold Guac flavour</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Protein</span><span class="lto-entry__detail-val">Chicken &middot; Ground Beef &middot; Carnitas &middot; Veggies</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Available</span><span class="lto-entry__detail-val">Participating locations</span></div>
+      <div class="lto-entry__detail"><span class="lto-entry__detail-label">Launch Date</span><span class="lto-entry__detail-val">May 5, 2026</span></div>
+    </div>
+    <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream">Try The Guac Crunch &#x2192;</a>
+    <p class="lto-entry__legal">*Valid at participating Guac Mexi Grill locations in Canada from May 5&ndash;13, 2026. Your choice of chicken, ground beef, carnitas, or veggies. Not combinable with other offers. No cash value. Conditions apply.</p>
   </div>
 </div>
 <footer class="footer">
@@ -175,6 +218,14 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     // REPLACEABLE — update path here to swap this image
     LTO_1: "images/lto-1.jpg",
     // REPLACEABLE — update path here to swap this image
+    LTO_2: "images/lto-2.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LTO_3: "images/lto-3.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LTO_2: "images/lto-2.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LTO_3: "images/lto-3.jpg",
+    // REPLACEABLE — update path here to swap this image
     LOGO: "images/logo.png",
   };
   // Apply image config — resolves data-img attributes to src paths
@@ -193,5 +244,7 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.06});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var dot=document.getElementById("cursor-dot");var ring=document.getElementById("cursor-ring");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;dot.style.left=mx+"px";dot.style.top=my+"px";ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animate);})();})();
 </body>
 </html>

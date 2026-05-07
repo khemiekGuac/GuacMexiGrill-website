@@ -115,7 +115,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:900px){.lto-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1024px){.lto-section__header{padding:56px 32px 36px;flex-direction:column;align-items:flex-start}.lto-section__cta-wrap{align-items:flex-start}.lto-grid{grid-template-columns:repeat(2,1fr);padding:0 32px;gap:3px}}
 @media(max-width:540px){.lto-grid{grid-template-columns:1fr}}
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-dot{position:fixed;width:5px;height:5px;background:var(--sand);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .2s var(--ease);will-change:left,top}#cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(203,180,129,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,opacity .3s;will-change:left,top}body.cursor-active #cursor-ring{width:52px;height:52px;border-color:rgba(203,180,129,.85)}body.cursor-active #cursor-dot{transform:translate(-50%,-50%) scale(0)}body.cursor-hidden #cursor-dot,body.cursor-hidden #cursor-ring{opacity:0}}</style>
 <style>
 .hero{position:relative;background:var(--cream);min-height:calc(100vh - 108px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
 .hero__left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;z-index:2}
@@ -194,6 +194,8 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
 </head>
 <body>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 <div class="topbar">
   <div class="topbar__flag">Proudly Canadian</div>
   <div class="topbar__right">
@@ -267,13 +269,31 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     </div>
   </div>
   <div class="lto-grid">
-    <a href="ltos.html#lunch-ritual" class="lto-card reveal">
-  <div class="lto-card__img"><img data-img="LTO_1_CARD" alt="The Lunch Ritual"><div class="lto-card__overlay"></div></div>
+    <a href="ltos.html#mango-chipotle" class="lto-card reveal">
+  <div class="lto-card__img"><img data-img="LTO_1_CARD" alt="Mango Chipotle Pollo Asado"><div class="lto-card__overlay"></div></div>
+  <div class="lto-card__badge">From $14.19</div>
+  <div class="lto-card__info">
+    <div class="lto-card__name">Mango Chipotle<br>Pollo Asado</div>
+    <div class="lto-card__desc">Bowl &middot; Burrito &middot; Tacos &middot; Quesadilla</div>
+    <span class="lto-card__cta">See Details &#x2192;</span>
+  </div>
+</a>
+<a href="ltos.html#lunch-ritual" class="lto-card reveal" style="transition-delay:.1s">
+  <div class="lto-card__img"><img data-img="LTO_2_CARD" alt="The Lunch Ritual"><div class="lto-card__overlay"></div></div>
   <div class="lto-card__badge">$9.99</div>
   <div class="lto-card__info">
-    <div class="lto-card__name">The Lunch Ritual</div>
-    <div class="lto-card__desc">Small burrito · Rice · Beans</div>
-    <span class="lto-card__cta">See Details →</span>
+    <div class="lto-card__name">The Lunch<br>Ritual</div>
+    <div class="lto-card__desc">Small burrito &middot; Rice &middot; Beans</div>
+    <span class="lto-card__cta">See Details &#x2192;</span>
+  </div>
+</a>
+<a href="ltos.html#guac-crunch" class="lto-card reveal" style="transition-delay:.2s">
+  <div class="lto-card__img"><img data-img="LTO_3_CARD" alt="The Guac Crunch"><div class="lto-card__overlay"></div></div>
+  <div class="lto-card__badge">$7.99</div>
+  <div class="lto-card__info">
+    <div class="lto-card__name">The Guac<br>Crunch</div>
+    <div class="lto-card__desc">Crunch wrap &middot; Queso &middot; House protein</div>
+    <span class="lto-card__cta">See Details &#x2192;</span>
   </div>
 </a>
 
@@ -367,6 +387,10 @@ document.getElementById('subBtn').addEventListener('click',function(){
     // REPLACEABLE — update path here to swap this image
     LTO_1_CARD: "images/lto-1-card.jpg",
     // REPLACEABLE — update path here to swap this image
+    LTO_2_CARD: "images/lto-2-card.jpg",
+    // REPLACEABLE — update path here to swap this image
+    LTO_3_CARD: "images/lto-3-card.jpg",
+    // REPLACEABLE — update path here to swap this image
     GIFT_CARD_BG: "images/gift-card-bg.jpg",
     // REPLACEABLE — update path here to swap this image
     LOGO: "images/logo.png",
@@ -400,5 +424,7 @@ closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var dot=document.getElementById("cursor-dot");var ring=document.getElementById("cursor-ring");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;dot.style.left=mx+"px";dot.style.top=my+"px";ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animate);})();})();
 </body>
 </html>
