@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 <title>Find a Location | GUAC Mexi Grill — 56+ Locations Across Canada</title>
 <meta name="description" content="Find your nearest GUAC Mexi Grill. 56+ bold Tex-Mex locations across Ontario, Alberta, Saskatchewan, Manitoba, PEI, and growing. Bold flavour coast to coast.">
 <meta name="keywords" content="GUAC Mexi Grill locations, Tex-Mex near me Canada, Mexican restaurant near me, GUAC restaurant Ontario Alberta Saskatchewan Manitoba, find GUAC location">
@@ -13,7 +15,11 @@
 <meta property="og:url" content="https://guacmexigrill.ca/locations.html">
 <meta property="og:site_name" content="GUAC Mexi Grill">
 <meta property="og:locale" content="en_CA">
+<meta property="og:image" content="https://guacmexigrill.ca/images/hero-food.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:alt" content="GUAC Mexi Grill — Bold Tex-Mex">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://guacmexigrill.ca/images/hero-food.jpg">
 <meta name="twitter:title" content="Find a Location | GUAC Mexi Grill — 56+ Locations Across Canada">
 <meta name="twitter:description" content="Find your nearest GUAC Mexi Grill. 56+ bold Tex-Mex locations across Ontario, Alberta, Saskatchewan, Manitoba, PEI, and growing. Bold flavour coast to coast.">
 <link rel="canonical" href="https://guacmexigrill.ca/locations.html">
@@ -119,7 +125,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}
 }
 @media(max-width:640px){.loc-grid{grid-template-columns:1fr}.footer__main{grid-template-columns:1fr}}
-.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block;animation:cursor-spin 9s linear infinite}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg{animation-duration:1.6s}body.cursor-hidden #cursor-wheel{opacity:0}@keyframes cursor-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}}</style>
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}#cursor-wheel{display:none}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{display:block;position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block;animation:cursor-spin 9s linear infinite}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg{animation-duration:1.6s}body.cursor-hidden #cursor-wheel{opacity:0}@keyframes cursor-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}}</style>
 <style>
 /* ── MAP SPLIT LAYOUT ──────────────────────────────────────────────── */
 .loc-split{display:flex;align-items:stretch}
@@ -178,7 +184,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   .loc-split.ls-map .loc-list-panel{display:none}
   .loc-split.ls-map .loc-map-panel{height:calc(100vh - 108px)}
 }
-@media(max-width:640px){.loc-map-panel{height:340px}}
+@media(max-width:640px){.loc-map-panel{height:340px}.loc-search-row{flex-wrap:wrap;row-gap:10px}.loc-search__inner{order:1;flex:1 1 100%}.loc-view-toggle{order:2}.loc-search__count{order:3;margin-left:0;width:100%}}
 </style>
 </head>
 <body>
