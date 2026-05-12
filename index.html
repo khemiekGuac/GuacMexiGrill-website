@@ -361,7 +361,12 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 <script>
 document.getElementById('subBtn').addEventListener('click',function(){
   const i=document.querySelector('.newsletter__input');
-  if(i.value.includes('@')){this.textContent='✓ Subscribed';this.style.background='var(--dark)';i.value='';setTimeout(()=>{this.textContent='Subscribe';this.style.background='';},3000);}});
+  if(i.value.includes('@')){
+    const f=document.querySelector('.newsletter__form');
+    const c=document.querySelector('.newsletter__consent');
+    f.innerHTML='<p style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);padding:16px 0">Thank you for subscribing</p>';
+    if(c)c.style.display='none';
+  }});
 </script>
 <footer class="footer">
   <div class="footer__main">
