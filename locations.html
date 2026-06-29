@@ -86,6 +86,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .loc-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .loc-city{font-family:var(--font-display);font-weight:800;font-size:17px;text-transform:uppercase;color:var(--cream);letter-spacing:.04em;line-height:1.1}
 .loc-num{font-family:var(--font-display);font-size:8px;letter-spacing:.2em;color:rgba(226,221,203,.15);margin-top:4px;flex-shrink:0}
+.loc-status--closed{font-family:var(--font-display);font-weight:700;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust);padding:3px 8px;border-radius:2px;align-self:flex-start}
+.loc-card--closed{opacity:.6}
 .loc-addr{font-size:11px;line-height:1.6;color:rgba(226,221,203,.45)}
 .loc-addr--pending{color:rgba(226,221,203,.2);font-style:italic;font-size:10px;letter-spacing:.05em}
 .loc-phone{font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--sand);transition:color .2s}.loc-phone:hover{color:var(--sage)}
@@ -676,14 +678,15 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <a href="tel:5872895155" class="loc-phone">(587) 289-5155</a>
   <div class="loc-hours">Mon–Wed 11am–9pm · Thu–Sat 11am–10pm · Sun 11am–9pm</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+3215+Dunmore+Road+Southeast,+Unit+1020+Medicine+Hat+Alberta+T1B+2H2" target="_blank" class="loc-link">Get Directions →</a>
-</div><div class="loc-card reveal" data-search="red deer 90 thorburn ave, red deer, ab t4p 3g4 ab" data-lat="52.2681" data-lng="-113.8112" data-prov="AB">
+</div><div class="loc-card loc-card--closed reveal" data-search="red deer 90 thorburn ave, red deer, ab t4p 3g4 ab" data-lat="52.2681" data-lng="-113.8112" data-prov="AB">
   <div class="loc-card__head">
     <div class="loc-city">Red Deer</div>
     <span class="loc-num">GMG039</span>
   </div>
+  <div class="loc-status--closed">Temporarily Closed</div>
   <div class="loc-addr">90 Thorburn Ave, Red Deer, AB T4P 3G4</div>
   <a href="tel:5872724822" class="loc-phone">587-272-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Temporarily closed — check back soon</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+90+Thorburn+Ave,+Red+Deer,+AB+T4P+3G4" target="_blank" class="loc-link">Get Directions →</a>
 </div></div>
 </div>
