@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <title>Contact Us | GUAC Mexi Grill — 56+ Locations Across Canada</title>
@@ -171,7 +172,7 @@ textarea{resize:vertical;min-height:130px}
   <div>
     <div class="eyebrow eyebrow--light reveal">Contact</div>
     <h1 class="contact-hero__headline reveal d1">Let&#8217;s<br>Talk<br><span>Bold.</span></h1>
-    <p class="contact-hero__sub reveal d2">Questions, feedback, catering, or just want to say hi &#8212; we&#8217;re here and we actually respond.</p>
+    <p class="contact-hero__sub reveal d2">Questions, feedback, catering, or just want to say hi. We read and respond to every message.</p>
     <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--outline-light reveal d3">Order Catering &#8594;</a>
   </div>
   <div class="contact-channels reveal d2">
@@ -214,7 +215,7 @@ textarea{resize:vertical;min-height:130px}
   <div class="reveal">
     <div class="eyebrow eyebrow--light">Send a Message</div>
     <h2 class="contact-form-block__headline">We Read<br>Every One.</h2>
-    <p class="contact-form-block__body">Whether it&#8217;s praise, feedback, or a good idea &#8212; we want to hear it. Our team personally reviews every message.</p>
+    <p class="contact-form-block__body">Whether it&#8217;s praise, feedback, or a good idea, we want to hear it. We read and respond to every message.</p>
   </div>
   <div class="reveal d1">
     <!-- Zoho CRM Web-to-Contact Form — DO NOT remove hidden inputs or scripts -->
@@ -235,6 +236,7 @@ textarea{resize:vertical;min-height:130px}
       <div class="form-group"><label for="Email">Email</label><input type="text" ftype="email" autocomplete="false" id="Email" name="Email" maxlength="100" placeholder="your@email.com"></div>
       <div class="form-group"><label for="CONTACTCF5">Message <span style="color:var(--rust)">*</span></label><textarea id="CONTACTCF5" name="CONTACTCF5" placeholder="Tell us what&#8217;s on your mind..." required></textarea></div>
       <button type="submit" id="formsubmit" class="form-submit">Send Message</button>
+      <p style="font-size:12px;line-height:1.7;color:rgba(22,33,31,.5);margin-top:16px">We use the information you provide to review and respond to your inquiry. Your information is handled according to our <a href="privacy.html" style="color:var(--olive);border-bottom:1px solid currentColor">Privacy Policy</a>.</p>
     </form>
     <!-- Zoho validation scripts — DO NOT remove -->
     <script>
@@ -262,7 +264,7 @@ textarea{resize:vertical;min-height:130px}
   <div class="faq-list reveal d1">
     <div class="faq-item">
       <div class="faq-q">Do you offer catering?</div>
-      <div class="faq-a">Yes &#8212; order catering directly online at all 56+ locations. No quotes, no forms. Just order online.</div>
+      <div class="faq-a">Yes. Order catering directly online at participating locations. No quotes, no forms. Just order online.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Where are your locations?</div>
@@ -270,7 +272,7 @@ textarea{resize:vertical;min-height:130px}
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I give feedback about my visit?</div>
-      <div class="faq-a">Use the form above &#8212; our team personally reviews every message.</div>
+      <div class="faq-a">Use the form above. We read and respond to every message.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you have a rewards program?</div>
@@ -278,7 +280,7 @@ textarea{resize:vertical;min-height:130px}
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I get a gift card?</div>
-      <div class="faq-a">GUAC Gift Cards are available in-store at all locations in any denomination. They never expire and are redeemable at any GUAC location across Canada.</div>
+      <div class="faq-a">GUAC Gift Cards are available in-store in any denomination. They never expire and are redeemable at participating Canadian locations. See our <a href="gift-card-terms.html" style="color:var(--olive);border-bottom:1px solid currentColor">Gift Card Terms</a> for details.</div>
     </div>
   </div>
 </div>
@@ -313,7 +315,7 @@ textarea{resize:vertical;min-height:130px}
     <div>
       <div class="footer__col-title">Explore More</div>
       <ul class="footer__col-links">
-        <li><a href="contest.html">Contests &amp; Giveaways</a></li><li><a href="gift-card.html">Gift Card</a></li>
+        <li><a href="gift-card.html">Gift Card</a></li>
         
         <li><a href="franchising.html">Franchising</a></li>
       </ul>
@@ -331,7 +333,7 @@ textarea{resize:vertical;min-height:130px}
     <div class="footer__copy">&#169; 2026 GUAC Mexi Grill | All rights reserved.</div>
     <div class="footer__legal">
       <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
+      <a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a>
     </div>
   </div>
 </footer>

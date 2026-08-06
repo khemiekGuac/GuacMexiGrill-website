@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <title>Nutrition Information | GUAC Mexi Grill Menu</title>
@@ -168,6 +169,10 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 </div>
 <div class="pdf-btn-wrap"><button class="pdf-btn" onclick="window.print()" aria-label="Download nutrition information as PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-6 2h12v2H6v-2z"/></svg>Download / Print PDF</button><a class="pdf-btn" href="allergens.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>View Allergen Chart</a></div>
 <div class="nut-body">
+  <div class="nut-review reveal" style="background:#fff;border:1px solid rgba(22,33,31,.1);border-left:3px solid var(--olive);border-radius:3px;padding:22px 26px;margin-bottom:40px;font-size:14px;line-height:1.7;color:rgba(22,33,31,.7);max-width:860px">
+    <strong style="display:block;font-family:var(--font-display);letter-spacing:.04em;color:var(--dark);margin-bottom:6px">Last reviewed: August 2026.</strong>
+    Nutritional information is based on approved standard recipes and supplier data available as of this date. For full allergen details, see our <a href="allergens.html" style="color:var(--olive);border-bottom:1px solid currentColor">Allergen Chart</a>.
+  </div>
   <div id="burritos"><div class="nut-block reveal">
   <h2 class="nut-block__title">Burritos – Chicken</h2>
   <div class="nut-table-wrap">
@@ -297,13 +302,13 @@ function nutScrollTo(id){
     <div><div class="footer__col-title">About Us</div>
       <ul class="footer__col-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li><li><a href="contact.html#faq">FAQs</a></li></ul></div>
     <div><div class="footer__col-title">Explore More</div>
-      <ul class="footer__col-links"><li><a href="contest.html">Contests &amp; Giveaways</a></li><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
+      <ul class="footer__col-links"><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
     <div><div class="footer__col-title">Connect</div>
       <ul class="footer__col-links"><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#feedback">Feedback</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
   </div>
   <div class="footer__bottom">
     <div class="footer__copy">© 2026 GUAC Mexi Grill | All rights reserved.</div>
-    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div>
   </div>
 </footer>
 <script>

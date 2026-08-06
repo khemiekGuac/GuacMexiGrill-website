@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <title>GUAC Mexi Grill | Bold Tex-Mex Restaurant | 56+ Locations Across Canada</title>
@@ -254,7 +255,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   </div>
   <div class="hero__right"><img data-img="HERO_FOOD" alt="Bold Tex-Mex"></div>
   <div class="hero__scroll">Scroll to explore</div>
-<p class="newsletter__consent">By subscribing you consent to receive marketing emails from GUAC Mexi Grill. Unsubscribe any time. <a href="privacy.html">Privacy Policy</a>.</p>
+<p class="newsletter__consent">By selecting &#8220;Subscribe,&#8221; you consent to receive promotional emails from ATM Holdings Inc., including news, offers, and restaurant updates. You can withdraw your consent at any time. View our <a href="privacy.html">Privacy Policy</a> or contact us at <a href="mailto:info@guacmexigrill.ca">info@guacmexigrill.ca</a>.</p>
 </section>
 
 <div class="pillars reveal">
@@ -322,9 +323,9 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 <div class="values-band reveal">
   <div class="value-item"><div class="value-item__num">100%</div><div class="value-item__label">House-Made Salsas</div></div>
   <div class="values-band__div"></div>
-  <div class="value-item"><div class="value-item__num">0</div><div class="value-item__label">Shortcuts Taken</div></div>
+  <div class="value-item"><div class="value-item__num">Crafted</div><div class="value-item__label">With Intention</div></div>
   <div class="values-band__div"></div>
-  <div class="value-item"><div class="value-item__num">56+</div><div class="value-item__label">Locations Across Canada</div></div>
+  <div class="value-item"><div class="value-item__num" data-loc-count>56+</div><div class="value-item__label">Locations Across Canada</div></div>
 </div>
 
 <section class="story-band">
@@ -390,7 +391,7 @@ document.getElementById('subBtn').addEventListener('click',function(){
       </ul></div>
     <div><div class="footer__col-title">Explore More</div>
       <ul class="footer__col-links">
-        <li><a href="contest.html">Contests &amp; Giveaways</a></li><li><a href="gift-card.html">Gift Card</a></li>
+        <li><a href="gift-card.html">Gift Card</a></li>
         <li><a href="franchising.html">Franchising</a></li>
       </ul></div>
     <div><div class="footer__col-title">Connect</div>
@@ -401,7 +402,7 @@ document.getElementById('subBtn').addEventListener('click',function(){
   </div>
   <div class="footer__bottom">
     <div class="footer__copy">© 2026 GUAC Mexi Grill | All rights reserved.</div>
-    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div>
   </div>
 </footer>
 <script>
@@ -449,5 +450,6 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersect
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 <script>(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var wheel=document.getElementById("cursor-wheel");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;wheel.style.left=rx+"px";wheel.style.top=ry+"px";requestAnimationFrame(animate);})();})();</script>
+<script src="site-config.js"></script>
 </body>
 </html>
