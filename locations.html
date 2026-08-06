@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <title>Find a Location | GUAC Mexi Grill — 56+ Locations Across Canada</title>
@@ -88,6 +89,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .loc-num{font-family:var(--font-display);font-size:8px;letter-spacing:.2em;color:rgba(226,221,203,.15);margin-top:4px;flex-shrink:0}
 .loc-status--closed{font-family:var(--font-display);font-weight:700;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust);padding:3px 8px;border-radius:2px;align-self:flex-start}
 .loc-card--closed{opacity:.6}
+.loc-status--soon{font-family:var(--font-display);font-weight:700;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:3px 8px;border-radius:2px;align-self:flex-start}
 .loc-addr{font-size:11px;line-height:1.6;color:rgba(226,221,203,.45)}
 .loc-addr--pending{color:rgba(226,221,203,.2);font-style:italic;font-size:10px;letter-spacing:.05em}
 .loc-phone{font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--sand);transition:color .2s}.loc-phone:hover{color:var(--sage)}
@@ -215,9 +217,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <div class="loc-hero__left">
     <div class="eyebrow eyebrow--light reveal">Find Us</div>
     <h1 class="loc-hero__headline reveal" style="transition-delay:.1s">Find Your<br><span>GUAC.</span></h1>
-    <p class="loc-hero__sub reveal" style="transition-delay:.18s">Bold flavour coast to coast. 56 locations across Canada — and growing fast.</p>
+    <p class="loc-hero__sub reveal" style="transition-delay:.18s">Bold flavour coast to coast. 56+ locations across Canada, and growing fast.</p>
     <div class="loc-hero__stat reveal" style="transition-delay:.24s">
-      <div class="loc-hero__num">56</div>
+      <div class="loc-hero__num" data-loc-count>56+</div>
       <div class="loc-hero__label">Locations Nationwide</div>
     </div>
   </div>
@@ -232,12 +234,12 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
       <input class="loc-search__input" type="text" id="locSearch" placeholder="Search by city, province or address..." oninput="doSearch(this.value)">
       <button class="loc-search__btn" onclick="doSearch(document.getElementById('locSearch').value)">Search</button>
     </div>
-    <div class="loc-search__count" id="resultCount">56 locations</div>
+    <div class="loc-search__count" id="resultCount">56+ locations</div>
     <div class="loc-view-toggle" id="locViewToggle"><button class="loc-view-btn" id="btnList" onclick="setLocView('list')" title="List view"><svg width="14" height="11" viewBox="0 0 14 11" fill="currentColor" aria-hidden="true"><rect y="0" width="14" height="1.5" rx=".75"/><rect y="4.75" width="14" height="1.5" rx=".75"/><rect y="9.5" width="14" height="1.5" rx=".75"/></svg> List</button><button class="loc-view-btn active" id="btnMap" onclick="setLocView('map')" title="Map view"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M5 0L0 2v12l5-2 4 2 5-2V0L9 2 5 0zm3.5 11.4L5.5 9.8v-7l3 1.6v7z"/></svg> Map</button></div>
   </div>
   <div class="prov-tabs">
-    <button class="prov-tab prov-tab--all active" data-prov="all" onclick="filterProv(this)">All <span>(56)</span></button>
-    <button class="prov-tab" data-prov="ON" onclick="filterProv(this)">Ontario <span>(43)</span></button><button class="prov-tab" data-prov="AB" onclick="filterProv(this)">Alberta <span>(6)</span></button><button class="prov-tab" data-prov="SK" onclick="filterProv(this)">Saskatchewan <span>(3)</span></button><button class="prov-tab" data-prov="MB" onclick="filterProv(this)">Manitoba <span>(3)</span></button><button class="prov-tab" data-prov="PE" onclick="filterProv(this)">Prince Edward Island <span>(1)</span></button>
+    <button class="prov-tab prov-tab--all active" data-prov="all" onclick="filterProv(this)">All <span>(54)</span></button>
+    <button class="prov-tab" data-prov="ON" onclick="filterProv(this)">Ontario <span>(41)</span></button><button class="prov-tab" data-prov="AB" onclick="filterProv(this)">Alberta <span>(6)</span></button><button class="prov-tab" data-prov="SK" onclick="filterProv(this)">Saskatchewan <span>(3)</span></button><button class="prov-tab" data-prov="MB" onclick="filterProv(this)">Manitoba <span>(3)</span></button><button class="prov-tab" data-prov="PE" onclick="filterProv(this)">Prince Edward Island <span>(1)</span></button>
   </div>
 </div>
 
@@ -246,7 +248,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 <div class="prov-section" id="prov-ON">
   <div class="prov-header reveal">
     <div class="prov-name">Ontario</div>
-    <div class="prov-count">43 locations</div>
+    <div class="prov-count">41 locations</div>
   </div>
   <div class="loc-grid"><div class="loc-card reveal" data-search="alliston 86 young st, alliston, on l9r 1p8 on" data-lat="44.1545" data-lng="-79.8661" data-prov="ON">
   <div class="loc-card__head">
@@ -254,8 +256,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG003</span>
   </div>
   <div class="loc-addr">86 Young St, Alliston, ON L9R 1P8</div>
-  <a href="tel:7054350005" class="loc-phone">(705)435-0005</a>
-  <div class="loc-hours">Mon–Sat 11am–8pm · Sun 12pm–8pm</div>
+  <a href="tel:7054350005" class="loc-phone">(705) 435-0005</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–8 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+86+Young+St,+Alliston,+ON+L9R+1P8" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="amherstburg 400 sandwich st s, amherstburg, on n9v 3l4 on" data-lat="42.1048" data-lng="-83.1124" data-prov="ON">
   <div class="loc-card__head">
@@ -264,7 +266,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">400 Sandwich St S, Amherstburg, ON N9V 3L4</div>
   <a href="tel:5197138944" class="loc-phone">(519) 713-8944</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+400+Sandwich+St+S,+Amherstburg,+ON+N9V+3L4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="arnprior 39 winners cir, unit 6, arnprior, on k7s 3g9 on" data-lat="45.4337" data-lng="-76.354" data-prov="ON">
   <div class="loc-card__head">
@@ -273,25 +275,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">39 Winners Cir, Unit 6, Arnprior, ON K7S 3G9</div>
   <a href="tel:6136223355" class="loc-phone">(613) 622-3355</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+39+Winners+Cir,+Unit+6,+Arnprior,+ON+K7S+3G9" target="_blank" class="loc-link">Get Directions →</a>
-</div><div class="loc-card reveal" data-search="aurora  on" data-lat="44.0044" data-lng="-79.4503" data-prov="ON">
-  <div class="loc-card__head">
-    <div class="loc-city">Aurora</div>
-    <span class="loc-num">GMG030</span>
-  </div>
-  <div class="loc-addr loc-addr--pending">Address pending — call for details</div>
-  <a href="tel:9057264307" class="loc-phone">(905) 726-4307</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
-  <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+Guac+Mexi+Grill+Aurora" target="_blank" class="loc-link">Search on Maps →</a>
 </div><div class="loc-card reveal" data-search="barrie — bayfield st 3-519 bayfield street, barrie, ontario, l4m 4z9 on" data-lat="44.3894" data-lng="-79.6903" data-prov="ON">
   <div class="loc-card__head">
     <div class="loc-city">Barrie — Bayfield St</div>
     <span class="loc-num">GMG060</span>
   </div>
   <div class="loc-addr">3-519 Bayfield Street, Barrie, Ontario, L4M 4Z9</div>
-  <a href="tel:7057286822" class="loc-phone">705-728-6822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:7057286822" class="loc-phone">(705) 728-6822</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+3-519+Bayfield+Street,+Barrie,+Ontario,+L4M+4Z9" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="barrie — essa rd 555 essa rd, unit# a20, barrie, on l4n 6a9 on" data-lat="44.3548" data-lng="-79.715" data-prov="ON">
   <div class="loc-card__head">
@@ -300,7 +293,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">555 Essa Rd, Unit# A20, Barrie, ON L4N 6A9</div>
   <a href="tel:7057398822" class="loc-phone">(705) 739-8822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+555+Essa+Rd,+Unit#+A20,+Barrie,+ON+L4N+6A9" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="bolton 8905 george bolton pkwy, bolton, on l7e 1m7 on" data-lat="43.8861" data-lng="-79.7311" data-prov="ON">
   <div class="loc-card__head">
@@ -309,7 +302,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">8905 George Bolton Pkwy, Bolton, ON L7E 1M7</div>
   <a href="tel:9058573367" class="loc-phone">(905) 857-3367</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+8905+George+Bolton+Pkwy,+Bolton,+ON+L7E+1M7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="bradford 547 holland st w unit# 2, bradford, on l3z 0c1 on" data-lat="44.1254" data-lng="-79.5617" data-prov="ON">
   <div class="loc-card__head">
@@ -318,7 +311,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">547 Holland St W Unit# 2, Bradford, ON L3Z 0C1</div>
   <a href="tel:9057755522" class="loc-phone">(905) 775-5522</a>
-  <div class="loc-hours">Mon 10:30am–9pm · Tue 10:30am–10pm · Wed 10:30am–9pm · Thu–Fri 10:30–10pm · Sat 10:30am–10pm · Sun 10:30am–9pm</div>
+  <div class="loc-hours">Monday: 10:30 a.m.–9 p.m. · Tuesday: 10:30 a.m.–10 p.m. · Wednesday: 10:30 a.m.–9 p.m. · Thursday–Friday: 10:30–10 p.m. · Saturday: 10:30 a.m.–10 p.m. · Sunday: 10:30 a.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+547+Holland+St+W+Unit#+2,+Bradford,+ON+L3Z+0C1" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="brantford 218 henry st, unit 4, brantford, on n3s 7r5 on" data-lat="43.1394" data-lng="-80.2565" data-prov="ON">
   <div class="loc-card__head">
@@ -327,16 +320,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">218 Henry St, Unit 4, Brantford, ON N3S 7R5</div>
   <a href="tel:5197544822" class="loc-phone">(519) 754-4822</a>
-  <div class="loc-hours">Mon–Sat 11 am–10 pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–10 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+218+Henry+St,+Unit+4,+Brantford,+ON+N3S+7R5" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="brooklin 5530 baldwin street south, unit b3 brooklin ontario l1m2j7 on" data-lat="43.9576" data-lng="-78.9554" data-prov="ON">
   <div class="loc-card__head">
     <div class="loc-city">Brooklin</div>
     <span class="loc-num">GMG050</span>
   </div>
-  <div class="loc-addr">5530 Baldwin Street South, Unit B3 Brooklin Ontario L1M2J7</div>
-  <a href="tel:9056201311" class="loc-phone">905-620-1311</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-addr">5530 Baldwin Street South, Unit B3 Brooklin Ontario L1M 2J7</div>
+  <a href="tel:9056201311" class="loc-phone">(905) 620-1311</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+5530+Baldwin+Street+South,+Unit+B3+Brooklin+Ontario+L1M2J7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="burlington 3121 appleby ln, burlington, on l7m 0v7 on" data-lat="43.3894" data-lng="-79.7979" data-prov="ON">
   <div class="loc-card__head">
@@ -344,8 +337,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG037</span>
   </div>
   <div class="loc-addr">3121 Appleby Ln, Burlington, ON L7M 0V7</div>
-  <a href="tel:9053363377" class="loc-phone">905-336-3377</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri 11am–10pm · Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:9053363377" class="loc-phone">(905) 336-3377</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday: 11 a.m.–10 p.m. · Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+3121+Appleby+Ln,+Burlington,+ON+L7M+0V7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="caledonia 345 argyle st s unit 9, caledonia, on n3w 1l8 on" data-lat="43.0758" data-lng="-79.9475" data-prov="ON">
   <div class="loc-card__head">
@@ -354,7 +347,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">345 Argyle St S Unit 9, Caledonia, ON N3W 1L8</div>
   <a href="tel:3652270398" class="loc-phone">(365) 227-0398</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+345+Argyle+St+S+Unit+9,+Caledonia,+ON+N3W+1L8" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="carleton place 10511 hwy 7 unit# 4, carleton place, on k7c 0c4 on" data-lat="45.1341" data-lng="-76.1449" data-prov="ON">
   <div class="loc-card__head">
@@ -363,7 +356,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">10511 Hwy 7 Unit# 4, Carleton Place, ON K7C 0C4</div>
   <a href="tel:6132534200" class="loc-phone">(613) 253-4200</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+10511+Hwy+7+Unit#+4,+Carleton+Place,+ON+K7C+0C4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="cornwall 960 brookdale avenue cornwall ontario k6j 4p5 canada on" data-lat="45.0253" data-lng="-74.73" data-prov="ON">
   <div class="loc-card__head">
@@ -371,8 +364,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG049</span>
   </div>
   <div class="loc-addr">960 Brookdale Avenue Cornwall Ontario K6J 4P5 Canada</div>
-  <a href="tel:6139353478" class="loc-phone">613- 935- 3478</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:6139353478" class="loc-phone">(613) 935-3478</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+960+Brookdale+Avenue+Cornwall+Ontario+K6J+4P5+Canada" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="fergus 875 st david st n c#4, fergus, on n1m 2w4 on" data-lat="43.7052" data-lng="-80.3752" data-prov="ON">
   <div class="loc-card__head">
@@ -381,16 +374,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">875 St David St N C#4, Fergus, ON N1M 2W4</div>
   <a href="tel:5198436000" class="loc-phone">(519) 843-6000</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+875+St+David+St+N+C#4,+Fergus,+ON+N1M+2W4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="guelph 1005 paisley rd, guelph, on n1k1x6 on" data-lat="43.5448" data-lng="-80.2482" data-prov="ON">
   <div class="loc-card__head">
     <div class="loc-city">Guelph</div>
     <span class="loc-num">GMG048</span>
   </div>
-  <div class="loc-addr">1005 Paisley Rd, Guelph, ON N1K1X6</div>
-  <a href="tel:5198219411" class="loc-phone">519-821-9411</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-addr">1005 Paisley Rd, Guelph, ON N1K 1X6</div>
+  <a href="tel:5198219411" class="loc-phone">(519) 821-9411</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1005+Paisley+Rd,+Guelph,+ON+N1K1X6" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="huntsville 66 king william st, huntsville, on p1h 1g3 on" data-lat="45.3291" data-lng="-79.2166" data-prov="ON">
   <div class="loc-card__head">
@@ -399,7 +392,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">66 King William St, Huntsville, ON P1H 1G3</div>
   <a href="tel:7057849911" class="loc-phone">(705) 784-9911</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12am–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+66+King+William+St,+Huntsville,+ON+P1H+1G3" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="innisfil 1472 innisfil beach rd unit # 2, innisfil, on l9s 4j1 on" data-lat="44.3016" data-lng="-79.5591" data-prov="ON">
   <div class="loc-card__head">
@@ -408,7 +401,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">1472 Innisfil Beach Rd Unit # 2, Innisfil, ON L9S 4J1</div>
   <a href="tel:7054364822" class="loc-phone">(705) 436-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1472+Innisfil+Beach+Rd+Unit+#+2,+Innisfil,+ON+L9S+4J1" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="kanata 145 roland michener drive ottawa ontario k2t 1g7 canada on" data-lat="45.3498" data-lng="-75.9103" data-prov="ON">
   <div class="loc-card__head">
@@ -417,7 +410,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">145 Roland Michener Drive Ottawa Ontario K2T 1G7 Canada</div>
   <a href="tel:6137206394" class="loc-phone">(613) 720-6394</a>
-  <div class="loc-hours">Sat-Tue, Thu 10:30am–2am · Wed, Fri 10:30am–3am</div>
+  <div class="loc-hours">Saturday–Tuesday, Thursday: 10:30 a.m.–2 a.m. · Wednesday, Friday: 10:30 a.m.–3 a.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+145+Roland+Michener+Drive+Ottawa+Ontario+K2T+1G7+Canada" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="kingston 333 university ave unit 104, kingston, on k7l 3r4 on" data-lat="44.2312" data-lng="-76.486" data-prov="ON">
   <div class="loc-card__head">
@@ -425,17 +418,17 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG026</span>
   </div>
   <div class="loc-addr">333 University Ave Unit 104, Kingston, ON K7L 3R4</div>
-  <a href="tel:6138938775" class="loc-phone">613-893-8775</a>
-  <div class="loc-hours">Mon–Thu 11am–1am · Fri–Sat 11am–3am · Sun 11am–1am</div>
+  <a href="tel:6138938775" class="loc-phone">(613) 893-8775</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–1 a.m. · Friday–Saturday: 11 a.m.–3 a.m. · Sunday: 11 a.m.–1 a.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+333+University+Ave+Unit+104,+Kingston,+ON+K7L+3R4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="kitchner 1241 strasburg rd unit-2, kitchener, on n2r 1s6 on" data-lat="43.4069" data-lng="-80.4395" data-prov="ON">
   <div class="loc-card__head">
-    <div class="loc-city">Kitchner</div>
+    <div class="loc-city">Kitchener</div>
     <span class="loc-num">GMG045</span>
   </div>
   <div class="loc-addr">1241 Strasburg Rd Unit-2, Kitchener, ON N2R 1S6</div>
   <a href="tel:5198943737" class="loc-phone">(519) 894-3737</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–11pm · Sun 12pm–9pm</div>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–11 p.m. · Sunday: 12 p.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1241+Strasburg+Rd+Unit-2,+Kitchener,+ON+N2R+1S6" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="london 104-765 wonderland rd s,london, on,n6k 2y5 on" data-lat="42.984" data-lng="-81.277" data-prov="ON">
   <div class="loc-card__head">
@@ -443,17 +436,17 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG061</span>
   </div>
   <div class="loc-addr">104-765 Wonderland Rd S,London, ON,N6K 2Y5</div>
-  <a href="tel:5194723716" class="loc-phone">519-472-3716</a>
-  <div class="loc-hours loc-hours--unknown">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:5194723716" class="loc-phone">(519) 472-3716</a>
+  <div class="loc-hours loc-hours--unknown">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+104-765+Wonderland+Rd+S,London,+ON,N6K+2Y5" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="midland 9226 highway 93, midland, on l4r4k4 on" data-lat="44.7518" data-lng="-79.879" data-prov="ON">
   <div class="loc-card__head">
     <div class="loc-city">Midland</div>
     <span class="loc-num">GMG024</span>
   </div>
-  <div class="loc-addr">9226 Highway 93, Midland, ON L4R4K4</div>
+  <div class="loc-addr">9226 Highway 93, Midland, ON L4R 4K4</div>
   <a href="tel:7052454822" class="loc-phone">(705) 245-4822</a>
-  <div class="loc-hours">Sun–Sat 10am–10pm </div>
+  <div class="loc-hours">Sunday–Saturday: 10 a.m.–10 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+9226+Highway+93,+Midland,+ON+L4R4K4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="milton 6000 main st w, milton, on l9t 2x5 on" data-lat="43.5183" data-lng="-79.8774" data-prov="ON">
   <div class="loc-card__head">
@@ -462,7 +455,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">6000 Main St W, Milton, ON L9T 2X5</div>
   <a href="tel:9056365822" class="loc-phone">(905) 636-5822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+6000+Main+St+W,+Milton,+ON+L9T+2X5" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="mississauga 70 world dr unit#5, mississauga, on l5t 3a2 on" data-lat="43.6532" data-lng="-79.6563" data-prov="ON">
   <div class="loc-card__head">
@@ -471,7 +464,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">70 World Dr Unit#5, Mississauga, ON L5T 3A2</div>
   <a href="tel:9056704244" class="loc-phone">(905) 670-4244</a>
-  <div class="loc-hours">Mon–Fri 11am–9pm · Sat 12pm–7pm · Sun Closed</div>
+  <div class="loc-hours">Monday–Friday: 11 a.m.–9 p.m. · Saturday: 12 p.m.–7 p.m. · Sunday: Closed</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+70+World+Dr+Unit#5,+Mississauga,+ON+L5T+3A2" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="north bay 41, 45 lakeshore dr unit 105, north bay, on p1a 2a1 on" data-lat="46.3091" data-lng="-79.4608" data-prov="ON">
   <div class="loc-card__head">
@@ -479,8 +472,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG038</span>
   </div>
   <div class="loc-addr">41, 45 Lakeshore Dr Unit 105, North Bay, ON P1A 2A1</div>
-  <a href="tel:7054787798" class="loc-phone">(705)478-7798</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:7054787798" class="loc-phone">(705) 478-7798</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+41,+45+Lakeshore+Dr+Unit+105,+North+Bay,+ON+P1A+2A1" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="orleans 5160 innes rd unit 3, orléans, on k4a 0g4 on" data-lat="45.4709" data-lng="-75.52" data-prov="ON">
   <div class="loc-card__head">
@@ -489,7 +482,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">5160 Innes Rd Unit 3, Orléans, ON K4A 0G4</div>
   <a href="tel:6134247004" class="loc-phone">(613) 424-7004</a>
-  <div class="loc-hours">Mon–Sun 11am–1am</div>
+  <div class="loc-hours">Monday–Sunday: 11 a.m.–1 a.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+5160+Innes+Rd+Unit+3,+Orléans,+ON+K4A+0G4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="perth 80 dufferin st unit 110, perth, on k7h 3a7 on" data-lat="44.8967" data-lng="-76.2494" data-prov="ON">
   <div class="loc-card__head">
@@ -498,7 +491,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">80 Dufferin St unit 110, Perth, ON K7H 3A7</div>
   <a href="tel:6132640101" class="loc-phone">(613) 264-0101</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+80+Dufferin+St+unit+110,+Perth,+ON+K7H+3A7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="pickering 2460 brock rd, pickering, on l1x 0j1 on" data-lat="43.8354" data-lng="-79.0869" data-prov="ON">
   <div class="loc-card__head">
@@ -506,8 +499,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG036</span>
   </div>
   <div class="loc-addr">2460 Brock Rd, Pickering, ON L1X 0J1</div>
-  <a href="tel:9054272193" class="loc-phone">905-427-2193</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:9054272193" class="loc-phone">(905) 427-2193</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+2460+Brock+Rd,+Pickering,+ON+L1X+0J1" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="port elgin 1246 goderich st unit #8, port elgin, on n0h 2c0 on" data-lat="44.4356" data-lng="-81.3965" data-prov="ON">
   <div class="loc-card__head">
@@ -516,7 +509,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">1246 Goderich St Unit #8, Port Elgin, ON N0H 2C0</div>
   <a href="tel:5198324822" class="loc-phone">(519) 832-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1246+Goderich+St+Unit+#8,+Port+Elgin,+ON+N0H+2C0" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="st. catharines 300 fourth ave building c, unit 6, st. catharines, on l2r 6p9 on" data-lat="43.1594" data-lng="-79.2469" data-prov="ON">
   <div class="loc-card__head">
@@ -525,7 +518,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">300 Fourth Ave Building C, Unit 6, St. Catharines, ON L2R 6P9</div>
   <a href="tel:9056419677" class="loc-phone">(905) 641-9677</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+300+Fourth+Ave+Building+C,+Unit+6,+St.+Catharines,+ON+L2R+6P9" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="st. thomas 1025 talbot st, unit# 8, st thomas, on n5p 0g8 on" data-lat="42.7769" data-lng="-81.1817" data-prov="ON">
   <div class="loc-card__head">
@@ -533,8 +526,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG040</span>
   </div>
   <div class="loc-addr">1025 Talbot St, Unit# 8, St Thomas, ON N5P 0G8</div>
-  <a href="tel:5196313636" class="loc-phone">519-631-3636</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 11am–9pm</div>
+  <a href="tel:5196313636" class="loc-phone">(519) 631-3636</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–10 p.m. · Sunday: 11 a.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1025+Talbot+St,+Unit#+8,+St+Thomas,+ON+N5P+0G8" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="thunder bay 570 harbour expy unit 2, thunder bay, on p7b 6p4 on" data-lat="48.3809" data-lng="-89.2477" data-prov="ON">
   <div class="loc-card__head">
@@ -543,7 +536,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">570 Harbour Expy UNIT 2, Thunder Bay, ON P7B 6P4</div>
   <a href="tel:8072854822" class="loc-phone">(807) 285-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 11am–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 11 a.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+570+Harbour+Expy+UNIT+2,+Thunder+Bay,+ON+P7B+6P4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="timmins 370 algonquin blvd e, timmins, on p4n 1b6 on" data-lat="48.4667" data-lng="-81.3299" data-prov="ON">
   <div class="loc-card__head">
@@ -552,7 +545,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">370 Algonquin Blvd E, Timmins, ON P4N 1B6</div>
   <a href="tel:7055409991" class="loc-phone">(705) 540-9991</a>
-  <div class="loc-hours">Mon–Wed 10am–9pm · Thu–Sat 9:30–10pm · Sun 10am–9pm</div>
+  <div class="loc-hours">Monday–Wednesday: 10 a.m.–9 p.m. · Thursday–Saturday: 9:30–10 p.m. · Sunday: 10 a.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+370+Algonquin+Blvd+E,+Timmins,+ON+P4N+1B6" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="toronto — church st 436 church street toronto ontario m5b 2a4 on" data-lat="43.6625" data-lng="-79.3822" data-prov="ON">
   <div class="loc-card__head">
@@ -560,8 +553,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG054</span>
   </div>
   <div class="loc-addr">436 Church Street Toronto Ontario M5B 2A4</div>
-  <a href="tel:4164084812" class="loc-phone">416-408-4812</a>
-  <div class="loc-hours">Mon–Thu 11am–1am · Fri–Sat 11am–3am · Sun 11am–1am</div>
+  <a href="tel:4164084812" class="loc-phone">(416) 408-4812</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–1 a.m. · Friday–Saturday: 11 a.m.–3 a.m. · Sunday: 11 a.m.–1 a.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+436+Church+Street+Toronto+Ontario+M5B+2A4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="wasaga beach 1890 mosley st unit# 3, wasaga beach, on l9z 1z4 on" data-lat="44.5206" data-lng="-80.0143" data-prov="ON">
   <div class="loc-card__head">
@@ -570,7 +563,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">1890 Mosley St Unit# 3, Wasaga Beach, ON L9Z 1Z4</div>
   <a href="tel:7054298422" class="loc-phone">(705) 429-8422</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1890+Mosley+St+Unit#+3,+Wasaga+Beach,+ON+L9Z+1Z4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="waterloo 65 university ave e unit 5b, waterloo, on n2j 2v8 on" data-lat="43.4668" data-lng="-80.5164" data-prov="ON">
   <div class="loc-card__head">
@@ -579,7 +572,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">65 University Ave E Unit 5B, Waterloo, ON N2J 2V8</div>
   <a href="tel:5197254820" class="loc-phone">(519) 725-4820</a>
-  <div class="loc-hours">Mon–Sun 11am–11:30pm</div>
+  <div class="loc-hours">Monday–Sunday: 11 a.m.–11:30 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+65+University+Ave+E+Unit+5B,+Waterloo,+ON+N2J+2V8" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="welland b-15 rice road, welland, ontario, l3c 2v4 on" data-lat="42.9917" data-lng="-79.2485" data-prov="ON">
   <div class="loc-card__head">
@@ -588,7 +581,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">B-15 Rice Road, Welland, Ontario, L3C 2V4</div>
   <a href="tel:9057143300" class="loc-phone">(905) 714-3300</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–12am · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–12 a.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+B-15+Rice+Road,+Welland,+Ontario,+L3C+2V4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="whitchurch-stouffville 15 ringwood dr unit 4, whitchurch-stouffville, on l4a 8c1 on" data-lat="43.9722" data-lng="-79.2488" data-prov="ON">
   <div class="loc-card__head">
@@ -597,7 +590,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">15 Ringwood Dr Unit 4, Whitchurch-Stouffville, ON L4A 8C1</div>
   <a href="tel:9055914822" class="loc-phone">(905) 591-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+15+Ringwood+Dr+Unit+4,+Whitchurch-Stouffville,+ON+L4A+8C1" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="windsor — amy croft dr 35 amy croft dr unit#2, windsor, on n9k 1c8 on" data-lat="42.2849" data-lng="-83.0438" data-prov="ON">
   <div class="loc-card__head">
@@ -606,7 +599,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">35 Amy Croft Dr Unit#2, Windsor, ON N9K 1C8</div>
   <a href="tel:5197354244" class="loc-phone">(519) 735-4244</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+35+Amy+Croft+Dr+Unit#2,+Windsor,+ON+N9K+1C8" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="windsor — huron church rd 1726 huron church rd unit 2b, windsor, on n9c 2l4 on" data-lat="42.2985" data-lng="-83.0597" data-prov="ON">
   <div class="loc-card__head">
@@ -615,7 +608,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">1726 Huron Church Rd Unit 2B, Windsor, ON N9C 2L4</div>
   <a href="tel:5192548888" class="loc-phone">(519) 254-8888</a>
-  <div class="loc-hours">Mon–Wed 11am–9pm · Thu–Fri 11am–10pm · Sat 11am–9pm · Sun 11am–8pm</div>
+  <div class="loc-hours">Monday–Wednesday: 11 a.m.–9 p.m. · Thursday–Friday: 11 a.m.–10 p.m. · Saturday: 11 a.m.–9 p.m. · Sunday: 11 a.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1726+Huron+Church+Rd+Unit+2B,+Windsor,+ON+N9C+2L4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="woodstock 387 norwich ave, woodstock, on n4s 3w4 on" data-lat="43.1369" data-lng="-80.7457" data-prov="ON">
   <div class="loc-card__head">
@@ -624,7 +617,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">387 Norwich Ave, Woodstock, ON N4S 3W4</div>
   <a href="tel:5194211767" class="loc-phone">(519) 421-1767</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 11am–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 11 a.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+387+Norwich+Ave,+Woodstock,+ON+N4S+3W4" target="_blank" class="loc-link">Get Directions →</a>
 </div></div>
 </div>
@@ -639,8 +632,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG056</span>
   </div>
   <div class="loc-addr">68 Heritage Gate Southeast Calgary Alberta T2H 3A7</div>
-  <a href="tel:4034574822" class="loc-phone">403-457-4822</a>
-  <div class="loc-hours">Mon–Sat 10am–9pm · Sun 10am–8pm</div>
+  <a href="tel:4034574822" class="loc-phone">(403) 457-4822</a>
+  <div class="loc-hours">Monday–Saturday: 10 a.m.–9 p.m. · Sunday: 10 a.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+68+Heritage+Gate+Southeast+Calgary+Alberta+T2H+3A7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="edmonton — harvest hill 5208 ellerslie rd sw, edmonton, ab t6x 1a4 ab" data-lat="53.3834" data-lng="-113.5045" data-prov="AB">
   <div class="loc-card__head">
@@ -649,16 +642,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">5208 Ellerslie Rd SW, Edmonton, AB T6X 1A4</div>
   <a href="tel:8259754822" class="loc-phone">(825) 975-4822</a>
-  <div class="loc-hours">Mon–Sun 11am–11pm</div>
+  <div class="loc-hours">Monday–Sunday: 11 a.m.–11 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+5208+Ellerslie+Rd+SW,+Edmonton,+AB+T6X+1A4" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="edmonton — windermere 5094 windermere blvd., nw, unit 12 edmonton ab t6w0l7 ab" data-lat="53.4266" data-lng="-113.6225" data-prov="AB">
   <div class="loc-card__head">
     <div class="loc-city">Edmonton — Windermere</div>
     <span class="loc-num">GMG052</span>
   </div>
-  <div class="loc-addr">5094 Windermere Blvd., NW, Unit 12 Edmonton AB T6W0L7</div>
-  <a href="tel:8259674822" class="loc-phone">825-967-4822</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12pm–8pm</div>
+  <div class="loc-addr">5094 Windermere Blvd., NW, Unit 12 Edmonton AB T6W 0L7</div>
+  <a href="tel:8259674822" class="loc-phone">(825) 967-4822</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–10 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+5094+Windermere+Blvd.,+NW,+Unit+12+Edmonton+AB+T6W0L7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="grande prairie 11020 100 ave, grande prairie, ab t8v 0v3 ab" data-lat="55.1706" data-lng="-118.7975" data-prov="AB">
   <div class="loc-card__head">
@@ -667,7 +660,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">11020 100 Ave, Grande Prairie, AB T8V 0V3</div>
   <a href="tel:7805054822" class="loc-phone">(780) 505-4822</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–10 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+11020+100+Ave,+Grande+Prairie,+AB+T8V+0V3" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="medicine hat 3215 dunmore road southeast, unit 1020 medicine hat alberta t1b 2h2 ab" data-lat="50.0328" data-lng="-110.669" data-prov="AB">
   <div class="loc-card__head">
@@ -676,7 +669,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">3215 Dunmore Road Southeast, Unit 1020 Medicine Hat Alberta T1B 2H2</div>
   <a href="tel:5872895155" class="loc-phone">(587) 289-5155</a>
-  <div class="loc-hours">Mon–Wed 11am–9pm · Thu–Sat 11am–10pm · Sun 11am–9pm</div>
+  <div class="loc-hours">Monday–Wednesday: 11 a.m.–9 p.m. · Thursday–Saturday: 11 a.m.–10 p.m. · Sunday: 11 a.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+3215+Dunmore+Road+Southeast,+Unit+1020+Medicine+Hat+Alberta+T1B+2H2" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card loc-card--closed reveal" data-search="red deer 90 thorburn ave, red deer, ab t4p 3g4 ab" data-lat="52.2681" data-lng="-113.8112" data-prov="AB">
   <div class="loc-card__head">
@@ -685,7 +678,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-status--closed">Temporarily Closed</div>
   <div class="loc-addr">90 Thorburn Ave, Red Deer, AB T4P 3G4</div>
-  <a href="tel:5872724822" class="loc-phone">587-272-4822</a>
+  <a href="tel:5872724822" class="loc-phone">(587) 272-4822</a>
   <div class="loc-hours">Temporarily closed — check back soon</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+90+Thorburn+Ave,+Red+Deer,+AB+T4P+3G4" target="_blank" class="loc-link">Get Directions →</a>
 </div></div>
@@ -702,7 +695,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">4 Hochelaga St W, Moose Jaw, SK S6H 2E9</div>
   <a href="tel:3066934822" class="loc-phone">(306) 693-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+4+Hochelaga+St+W,+Moose+Jaw,+SK+S6H+2E9" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="regina 3789 chuka blvd, regina, sk s4v 3p7 sk" data-lat="50.4452" data-lng="-104.5714" data-prov="SK">
   <div class="loc-card__head">
@@ -710,8 +703,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG010</span>
   </div>
   <div class="loc-addr">3789 Chuka Blvd, Regina, SK S4V 3P7</div>
-  <a href="tel:3065224822" class="loc-phone">306-522-4822</a>
-  <div class="loc-hours">Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12pm–8pm</div>
+  <a href="tel:3065224822" class="loc-phone">(306) 522-4822</a>
+  <div class="loc-hours">Monday–Thursday: 11 a.m.–9 p.m. · Friday–Saturday: 11 a.m.–10 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+3789+Chuka+Blvd,+Regina,+SK+S4V+3P7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="saskatoon 137 gibson bnd #25, saskatoon, sk s7v 0v2 sk" data-lat="52.0706" data-lng="-106.669" data-prov="SK">
   <div class="loc-card__head">
@@ -719,8 +712,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG032</span>
   </div>
   <div class="loc-addr">137 Gibson Bnd #25, Saskatoon, SK S7V 0V2</div>
-  <a href="tel:3069744822" class="loc-phone">306-974-4822</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:3069744822" class="loc-phone">(306) 974-4822</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+137+Gibson+Bnd+#25,+Saskatoon,+SK+S7V+0V2" target="_blank" class="loc-link">Get Directions →</a>
 </div></div>
 </div>
@@ -736,7 +729,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   </div>
   <div class="loc-addr">1351 Main Street South Dauphin Manitoba R7N 2X7</div>
   <a href="tel:2046380798" class="loc-phone">(204) 638-0798</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+1351+Main+Street+South+Dauphin+Manitoba+R7N+2X7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="thompson 725 thompson drive, unit 1 thompson manitoba r8n 0c7 mb" data-lat="55.7433" data-lng="-97.8553" data-prov="MB">
   <div class="loc-card__head">
@@ -744,8 +737,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG057</span>
   </div>
   <div class="loc-addr">725 Thompson Drive, Unit 1 Thompson Manitoba R8N 0C7</div>
-  <a href="tel:2047785444" class="loc-phone">204-778-5444</a>
-  <div class="loc-hours">Mon–Sat 11am–9pm · Sun 12pm–8pm</div>
+  <a href="tel:2047785444" class="loc-phone">(204) 778-5444</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–9 p.m. · Sunday: 12 p.m.–8 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+725+Thompson+Drive,+Unit+1+Thompson+Manitoba+R8N+0C7" target="_blank" class="loc-link">Get Directions →</a>
 </div><div class="loc-card reveal" data-search="winnipeg 584 pembina hwy unit 18, winnipeg, mb r3m 2m5 mb" data-lat="49.8617" data-lng="-97.1499" data-prov="MB">
   <div class="loc-card__head">
@@ -753,7 +746,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG041</span>
   </div>
   <div class="loc-addr">584 Pembina Hwy Unit 18, Winnipeg, MB R3M 2M5</div>
-  <a href="tel:2044217200" class="loc-phone">204-421-7200</a>
+  <a href="tel:2044217200" class="loc-phone">(204) 421-7200</a>
   <div class="loc-hours loc-hours--unknown">Call for hours</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+584+Pembina+Hwy+Unit+18,+Winnipeg,+MB+R3M+2M5" target="_blank" class="loc-link">Get Directions →</a>
 </div></div>
@@ -769,9 +762,25 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <span class="loc-num">GMG029</span>
   </div>
   <div class="loc-addr">161 C Buchanan Dr, Charlottetown, PE C1E 2E4</div>
-  <a href="tel:9023700369" class="loc-phone">902-370-0369</a>
-  <div class="loc-hours">Mon–Sat 11am–10pm · Sun 11am–9pm</div>
+  <a href="tel:9023700369" class="loc-phone">(902) 370-0369</a>
+  <div class="loc-hours">Monday–Saturday: 11 a.m.–10 p.m. · Sunday: 11 a.m.–9 p.m.</div>
   <a href="https://www.google.com/maps/search/?api=1&query=GUAC+Mexi+Grill,+161+C+Buchanan+Dr,+Charlottetown,+PE+C1E+2E4" target="_blank" class="loc-link">Get Directions →</a>
+</div></div>
+</div>
+<div class="prov-section" id="prov-SOON">
+  <div class="prov-header reveal">
+    <div class="prov-name">Opening Soon</div>
+    <div class="prov-count">1 location</div>
+  </div>
+  <div class="loc-grid"><div class="loc-card reveal" data-search="aurora opening soon on" data-lat="44.0044" data-lng="-79.4503" data-prov="SOON">
+  <div class="loc-card__head">
+    <div class="loc-city">Aurora</div>
+    <span class="loc-num">GMG030</span>
+  </div>
+  <div class="loc-status--soon">Opening Soon</div>
+  <div class="loc-addr loc-addr--pending">Address to be confirmed</div>
+  <a href="tel:9057264307" class="loc-phone">(905) 726-4307</a>
+  <div class="loc-hours loc-hours--unknown">Opening soon</div>
 </div></div>
 </div>
   <div class="no-results" id="noResults">
@@ -788,7 +797,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <p class="coming-band__body">New GUAC locations open regularly. Sign up to be the first to know when we come to your city.</p>
     <a href="contact.html" class="btn btn--dark">Get Notified</a>
   </div>
-  <div class="reveal" style="transition-delay:.15s;font-family:var(--font-display);font-weight:900;font-size:clamp(90px,11vw,150px);line-height:.82;color:rgba(226,221,203,.09);text-transform:uppercase;letter-spacing:-.05em;text-align:right;user-select:none">56<br>GUAC</div>
+  <div class="reveal" style="transition-delay:.15s;font-family:var(--font-display);font-weight:900;font-size:clamp(90px,11vw,150px);line-height:.82;color:rgba(226,221,203,.09);text-transform:uppercase;letter-spacing:-.05em;text-align:right;user-select:none">56+<br>GUAC</div>
 </div>
 
 <div class="catering-strip">
@@ -846,13 +855,13 @@ function filterProv(btn){
     <div><div class="footer__col-title">About Us</div>
       <ul class="footer__col-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li><li><a href="contact.html#faq">FAQs</a></li></ul></div>
     <div><div class="footer__col-title">Explore More</div>
-      <ul class="footer__col-links"><li><a href="contest.html">Contests &amp; Giveaways</a></li><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
+      <ul class="footer__col-links"><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
     <div><div class="footer__col-title">Connect</div>
       <ul class="footer__col-links"><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html#feedback">Feedback</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
   </div>
   <div class="footer__bottom">
     <div class="footer__copy">© 2026 GUAC Mexi Grill | All rights reserved.</div>
-    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div>
   </div>
 </footer>
 <script>
@@ -992,5 +1001,6 @@ function setLocView(v){
 }
 </script>
 
+<script src="site-config.js"></script>
 </body>
 </html>
