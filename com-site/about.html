@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<title>About Guac | GUAC Mexi Grill USA</title>
+<meta name="description" content="The Guac Mexi Grill story: bold Tex-Mex flavour and premium, house-made craft. A brand built on real ingredients, now expanding into the United States.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="GUAC Mexi Grill">
+<meta property="og:title" content="About Guac | GUAC Mexi Grill USA">
+<meta property="og:description" content="The Guac Mexi Grill story: bold Tex-Mex flavour and premium, house-made craft, now expanding into the United States.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guacmexigrillusa.com/about.html">
+<meta property="og:site_name" content="GUAC Mexi Grill USA">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://guacmexigrillusa.com/about.html">
+<link rel="alternate" hreflang="en-ca" href="https://guacmexigrill.ca/about.html" />
+<link rel="alternate" hreflang="en-us" href="https://guacmexigrillusa.com/about.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@400;500;700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#151616;--olive:#616E45;--sage:#A8AD88;--cream:#E2DDCB;--rust:#9B3615;--amber:#D9854A;--sand:#CBB481;--white:#FAF8F3;--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--font-serif:'Merriweather',serif;--ease:cubic-bezier(0.22,1,0.36,1)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--dark);overflow-x:hidden}
+img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{cursor:pointer;border:none;background:none;font-family:inherit}
+.eyebrow{font-family:var(--font-display);font-weight:400;font-size:11px;letter-spacing:.45em;text-transform:uppercase;color:var(--olive)}
+.eyebrow--light{color:var(--sage)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:all .3s var(--ease)}
+.btn--cream{background:var(--cream);color:var(--dark);border:1px solid var(--cream)} .btn--cream:hover{background:transparent;color:var(--cream)}
+.btn--olive{background:var(--olive);color:var(--cream);border:1px solid var(--olive)} .btn--olive:hover{background:var(--dark);border-color:var(--dark)}
+.btn--outline-light{background:transparent;color:var(--cream);border:1px solid rgba(226,221,203,.35)} .btn--outline-light:hover{background:var(--cream);color:var(--dark);border-color:var(--cream)}
+.underline-link{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:.3em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px;transition:opacity .2s} .underline-link:hover{opacity:.55}
+.topbar{background:var(--dark);height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;position:relative;z-index:200}
+.topbar__flag{font-family:var(--font-display);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:8px}
+.topbar__right{display:flex;align-items:center;gap:20px}
+.topbar__socials{display:flex;gap:12px} .topbar__socials a{color:rgba(203,180,129,.4);font-size:13px;transition:color .2s;display:flex;align-items:center} .topbar__socials a:hover{color:var(--sand)}
+.nav{position:sticky;top:0;z-index:100;height:72px;background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 48px;transition:box-shadow .3s,background .3s}
+.nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.4)}
+.nav__logo img{height:36px;width:auto;filter:invert(1)}
+.nav__links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav__links a{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.6);transition:color .2s;position:relative;padding-bottom:4px}
+.nav__links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--olive);transition:width .3s var(--ease)}
+.nav__links a:hover,.nav__links a.active{color:var(--cream)} .nav__links a:hover::after,.nav__links a.active::after{width:100%}
+.nav__cta{margin-left:12px} .nav__burger{display:none;flex-direction:column;gap:5px;padding:4px} .nav__burger span{display:block;width:24px;height:1.5px;background:var(--cream);transition:all .3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--dark);z-index:500;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-nav.open{display:flex;opacity:1;pointer-events:all}
+.mobile-nav a{font-family:var(--font-display);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--cream);letter-spacing:.08em;transition:color .2s} .mobile-nav a:hover{color:var(--sage)}
+.mobile-nav__close{position:absolute;top:28px;right:28px;font-size:26px;color:var(--cream);cursor:pointer;opacity:.5;transition:opacity .2s} .mobile-nav__close:hover{opacity:1}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease)} .reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+.footer{background:var(--dark);border-top:1px solid rgba(203,180,129,.06)}
+.footer__main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding:72px 80px 60px}
+.footer__brand img{height:40px;margin-bottom:22px;filter:invert(1)}
+.footer__tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:13px;color:rgba(226,221,203,.38);line-height:1.7;max-width:250px;margin-bottom:26px}
+.footer__social{display:flex;gap:12px} .footer__social a{width:34px;height:34px;border:1px solid rgba(203,180,129,.16);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(203,180,129,.45);font-size:13px;transition:all .2s} .footer__social a:hover{border-color:var(--olive);color:var(--olive)}
+.footer__col-title{font-family:var(--font-display);font-weight:600;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.footer__col-links{list-style:none;display:flex;flex-direction:column;gap:11px} .footer__col-links a{font-family:var(--font-display);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(226,221,203,.38);transition:color .2s} .footer__col-links a:hover{color:var(--sand)}
+.footer__bottom{border-top:1px solid rgba(203,180,129,.05);padding:20px 80px;display:flex;justify-content:space-between;align-items:center}
+.footer__copy{font-family:var(--font-display);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.2)}
+.footer__legal{display:flex;gap:22px} .footer__legal a{font-family:var(--font-display);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.2);transition:color .2s} .footer__legal a:hover{color:rgba(226,221,203,.5)}
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}
+/* ABOUT */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;min-height:66vh}
+.about-hero__img{position:relative;overflow:hidden}
+.about-hero__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-hero__content{background:var(--dark);padding:90px 80px;display:flex;flex-direction:column;justify-content:center}
+.about-hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(48px,6vw,88px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin:16px 0 22px}
+.about-hero__headline span{color:var(--olive)}
+.about-hero__sub{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;color:rgba(226,221,203,.6);line-height:1.7;max-width:420px;margin-bottom:32px}
+.about-story{padding:100px 80px;display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:center}
+.about-story__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(38px,5vw,60px);text-transform:uppercase;color:var(--dark);letter-spacing:-.02em;line-height:.95;margin:14px 0 26px}
+.about-story__body{font-size:15px;line-height:1.85;color:rgba(22,33,31,.66);margin-bottom:18px}
+.about-story__img{border-radius:3px;overflow:hidden;aspect-ratio:1}
+.about-story__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.about-story__img:hover img{transform:scale(1.04)}
+.mv{background:var(--dark);padding:90px 80px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mv__block{background:rgba(255,255,255,.03);padding:48px 44px}
+.mv__label{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);margin-bottom:14px}
+.mv__text{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(17px,1.8vw,21px);line-height:1.6;color:rgba(226,221,203,.8)}
+.values-grid{background:var(--olive);padding:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.value-block{padding:40px 36px;border-right:1px solid rgba(0,0,0,.12);display:flex;flex-direction:column;gap:16px}
+.value-block:last-child{border-right:none}
+.value-block__icon{width:52px;height:52px;opacity:1}
+.value-block__title{font-family:var(--font-display);font-weight:800;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+.value-block__body{font-size:15px;line-height:1.8;color:rgba(226,221,203,.78)}
+.about-cta{background:var(--cream);padding:84px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.about-cta__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4.5vw,54px);text-transform:uppercase;color:var(--dark);letter-spacing:-.02em;line-height:1.0;max-width:720px}
+@media(max-width:1024px){.topbar{padding:0 20px}.nav{padding:0 20px}.nav__links,.nav__cta{display:none}.nav__burger{display:flex}.about-hero{grid-template-columns:1fr}.about-hero__img{height:340px;position:relative}.about-hero__content{padding:60px 32px}.about-story{grid-template-columns:1fr;padding:60px 32px;gap:44px}.mv{grid-template-columns:1fr;padding:60px 32px}.values-grid{grid-template-columns:1fr;padding:56px 32px}.value-block{border-right:none;border-bottom:1px solid rgba(0,0,0,.12)}.value-block:last-child{border-bottom:none}.about-cta{padding:60px 32px}.footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}}
+@media(max-width:640px){.footer__main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div class="topbar">
+  <div class="topbar__flag">Bold Tex-Mex &middot; Now Expanding Into The US</div>
+  <div class="topbar__right">
+    <div class="topbar__socials">
+      <a href="https://www.facebook.com/guacmexigrill" target="_blank" rel="noopener" title="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/guacmexigrill/" target="_blank" rel="noopener" title="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</div>
+<nav class="nav" aria-label="Main navigation" id="mainNav">
+  <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
+  <ul class="nav__links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About Guac</a></li><li><a href="franchising.html">Franchising</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <a href="franchising.html" class="btn btn--cream nav__cta">Explore Franchising</a>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav__close" id="closeNav" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a><a href="about.html" onclick="closeMobileNav()">About Guac</a><a href="franchising.html" onclick="closeMobileNav()">Franchising</a><a href="locations.html" onclick="closeMobileNav()">Locations</a><a href="contact.html" onclick="closeMobileNav()">Contact</a>
+  <a href="franchising.html" class="btn btn--olive" style="margin-top:16px" onclick="closeMobileNav()">Explore Franchising</a>
+</div>
+<div id="main-content" tabindex="-1"></div>
+
+<section class="about-hero">
+  <div class="about-hero__img"><img data-img="ABOUT_STOREFRONT" alt="A Guac Mexi Grill storefront"></div>
+  <div class="about-hero__content">
+    <div class="eyebrow eyebrow--light">Our Story</div>
+    <h1 class="about-hero__headline">Canadian-Grown,<br>With A<br><span>Tex-Mex Soul.</span></h1>
+    <p class="about-hero__sub">Guac Mexi Grill was built on a single conviction: bold Tex-Mex flavour and premium, house-made quality belong together.</p>
+    <a href="franchising.html" class="btn btn--outline-light">Explore Franchising</a>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="reveal">
+    <div class="eyebrow">The Beginning</div>
+    <h2 class="about-story__headline">Raised On<br>Bold Flavour.</h2>
+    <p class="about-story__body">We started with a simple question: why does bold Tex-Mex have to be complicated? We set out to build something different — a place where every bite tastes like it was made with intention, because it was.</p>
+    <p class="about-story__body">From day one, we committed to making everything in-house. Our salsas, our guacamole, our marinades — made in-house every single day. We use fire to bring out depth. We don't cut corners.</p>
+    <p class="about-story__body">Guac Mexi Grill has grown to 56+ locations across Canada, and we're now bringing that same craft to the United States through franchising.</p>
+  </div>
+  <div class="about-story__img reveal d2"><img data-img="ABOUT_KITCHEN" alt="Inside a Guac Mexi Grill kitchen"></div>
+</section>
+
+<section class="mv">
+  <div class="mv__block reveal">
+    <div class="mv__label">Our Mission</div>
+    <p class="mv__text">To redefine fast-casual Tex-Mex with house-made preparation, thoughtfully sourced ingredients, and a premium dining experience.</p>
+  </div>
+  <div class="mv__block reveal d1">
+    <div class="mv__label">Our Vision</div>
+    <p class="mv__text">To bring bold Tex-Mex taste and a premium atmosphere across North America.</p>
+  </div>
+</section>
+
+<section class="values-grid" id="values">
+  <div class="value-block reveal">
+    <img data-img="ICON_BOLD_FLAVOUR" class="value-block__icon" alt="">
+    <div class="value-block__title">Bold Flavour</div>
+    <div class="value-block__body">We don't do mild. Every recipe is built for maximum flavour — layered, smoky, and crafted with care. If it doesn't taste bold, it doesn't make the menu.</div>
+  </div>
+  <div class="value-block reveal d1">
+    <img data-img="ICON_HOUSE_MADE" class="value-block__icon" alt="">
+    <div class="value-block__title">House-Made</div>
+    <div class="value-block__body">No shortcuts, no powder packets. Our guacamole, salsas, and sauces are crafted in-house every single day. That's the Guac promise.</div>
+  </div>
+  <div class="value-block reveal d2">
+    <img data-img="ICON_FIRE_ROASTED" class="value-block__icon" alt="">
+    <div class="value-block__title">Fire-Roasted</div>
+    <div class="value-block__body">Real fire brings out real flavour. We roast our peppers, proteins, and ingredients over heat to build depth that you can taste in every bite.</div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="eyebrow reveal">Build With Us</div>
+  <h2 class="about-cta__headline reveal d1">Bring The Guac Experience To Your Market.</h2>
+  <a href="franchising.html" class="btn btn--olive reveal d2">Explore Franchising</a>
+</section>
+
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img data-img="LOGO" alt="GUAC MEXI GRILL">
+      <p class="footer__tagline">Bold Tex-Mex, built on house-made craft.<br>Now expanding into the US.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/guacmexigrill" target="_blank" rel="noopener" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/guacmexigrill/" target="_blank" rel="noopener" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div><div class="footer__col-title">Explore</div>
+      <ul class="footer__col-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Guac</a></li>
+        <li><a href="franchising.html">Franchising</a></li>
+        <li><a href="locations.html">Locations</a></li>
+      </ul></div>
+    <div><div class="footer__col-title">Legal</div>
+      <ul class="footer__col-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul></div>
+    <div><div class="footer__col-title">Connect</div>
+      <ul class="footer__col-links">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="franchising.html">Franchising</a></li>
+      </ul></div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__copy">© 2026 Guacmexigrill Franchising LLC | All rights reserved.</div>
+    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+</footer>
+<script>
+  var IMAGE_CONFIG = {
+    LOGO: "images/logo.png",
+    ABOUT_STOREFRONT: "images/about-storefront.jpg",
+    ABOUT_KITCHEN: "images/about-kitchen.jpg",
+    ICON_BOLD_FLAVOUR: "images/icon-bold-flavour.png",
+    ICON_HOUSE_MADE: "images/icon-house-made.png",
+    ICON_FIRE_ROASTED: "images/icon-fire-roasted.png",
+  };
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+  var nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>20);});
+  document.getElementById('burgerBtn').addEventListener('click',function(){document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';});
+  function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('closeNav').addEventListener('click',closeMobileNav);
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+</script>
+<script src="/assets/js/geo-banner.js"></script>
+</body>
+</html>
