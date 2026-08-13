@@ -108,11 +108,17 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--olive);transition:transform .3s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
 .faq-a{font-size:14px;line-height:1.8;color:rgba(22,33,31,.55);max-height:0;overflow:hidden;transition:max-height .35s var(--ease),padding .35s}.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
 
+.gc-buyonline{background:var(--olive);padding:72px 80px;text-align:center}
+.gc-buyonline__inner{max-width:640px;margin:0 auto}
+.gc-buyonline__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,48px);text-transform:uppercase;color:var(--cream);letter-spacing:-.02em;line-height:.95;margin:14px 0 18px}
+.gc-buyonline__body{font-size:15px;line-height:1.7;color:rgba(226,221,203,.72);max-width:480px;margin:0 auto 32px}
+
 @media(max-width:1024px){
   .gc-hero__content{padding:72px 32px}.gc-howit{grid-template-columns:1fr;padding:64px 32px;gap:48px}
   .gc-howit__img{aspect-ratio:16/9}.gc-amounts{padding:64px 32px}.gc-amounts__grid{grid-template-columns:repeat(3,1fr)}
   .gc-perks{grid-template-columns:1fr;padding:56px 32px}.gc-perk{border-right:none;border-bottom:1px solid rgba(226,221,203,.12)}.gc-perk:last-child{border-bottom:none}
   .gc-faq{grid-template-columns:1fr;padding:64px 32px;gap:40px}
+  .gc-buyonline{padding:56px 32px}
 }</style>
 </head>
 <body>
@@ -145,13 +151,22 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   <div class="gc-hero__content">
     <div class="eyebrow eyebrow--light reveal">Gift Cards</div>
     <h1 class="gc-hero__headline reveal" style="transition-delay:.1s">Give Bold<br><span>Flavour.</span></h1>
-    <p class="gc-hero__sub reveal" style="transition-delay:.18s">The GUAC Gift Card, a premium card for the people who deserve the best Tex-Mex in their life. Available in-store at participating locations. Never expires.</p>
+    <p class="gc-hero__sub reveal" style="transition-delay:.18s">The GUAC Gift Card, a premium card for the people who deserve the best Tex-Mex in their life. Buy online from your nearest location or pick one up in store. Never expires.</p>
     <div class="gc-hero__actions reveal" style="transition-delay:.24s">
       <a href="locations.html" class="btn btn--cream">Find Your Nearest GUAC</a>
     </div>
     <div class="gc-hero__badge reveal" style="transition-delay:.3s;margin-top:32px">Never expires · Any denomination · Participating locations</div>
   </div>
 </div>
+
+<section class="gc-buyonline">
+  <div class="gc-buyonline__inner reveal">
+    <div class="eyebrow eyebrow--light">Now Online</div>
+    <h2 class="gc-buyonline__headline">Buy a Gift Card Online</h2>
+    <p class="gc-buyonline__body">Purchase a GUAC gift card directly from your nearest location. Find your location and buy online in a few taps.</p>
+    <a href="/locations" class="btn btn--cream">Find Your Location →</a>
+  </div>
+</section>
 
 <section class="gc-howit">
   <div class="reveal">
