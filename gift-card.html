@@ -80,6 +80,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .gc-hero__actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .gc-hero__badge{font-family:var(--font-display);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(226,221,203,.3);display:flex;align-items:center;gap:10px}
 .gc-hero__badge::before{content:'';width:24px;height:1px;background:var(--olive)}
+.gc-hero__avail{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--sand);margin-bottom:16px}
 
 .gc-howit{background:var(--cream);padding:96px 80px;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
 .gc-howit__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(40px,5vw,62px);text-transform:uppercase;color:var(--dark);letter-spacing:-.02em;line-height:.92;margin:14px 0 40px}
@@ -111,7 +112,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .gc-buyonline{background:var(--olive);padding:72px 80px;text-align:center}
 .gc-buyonline__inner{max-width:640px;margin:0 auto}
 .gc-buyonline__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,48px);text-transform:uppercase;color:var(--cream);letter-spacing:-.02em;line-height:.95;margin:14px 0 18px}
-.gc-buyonline__body{font-size:15px;line-height:1.7;color:rgba(226,221,203,.72);max-width:480px;margin:0 auto 32px}
+.gc-buyonline__body{font-size:15px;line-height:1.7;color:rgba(226,221,203,.72);max-width:480px;margin:0 auto 28px}
+.gc-buyonline__avail{font-family:var(--font-display);font-weight:600;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--sand);margin:0 auto 22px}
 
 @media(max-width:1024px){
   .gc-hero__content{padding:72px 32px}.gc-howit{grid-template-columns:1fr;padding:64px 32px;gap:48px}
@@ -152,6 +154,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div class="eyebrow eyebrow--light reveal">Gift Cards</div>
     <h1 class="gc-hero__headline reveal" style="transition-delay:.1s">Give Bold<br><span>Flavour.</span></h1>
     <p class="gc-hero__sub reveal" style="transition-delay:.18s">The GUAC Gift Card, a premium card for the people who deserve the best Tex-Mex in their life. Buy online from your nearest location or pick one up in store. Never expires.</p>
+    <div class="gc-hero__avail reveal" style="transition-delay:.22s">Buy online or in-store at any location.</div>
     <div class="gc-hero__actions reveal" style="transition-delay:.24s">
       <a href="locations.html" class="btn btn--cream">Find Your Nearest GUAC</a>
     </div>
@@ -164,6 +167,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div class="eyebrow eyebrow--light">Now Online</div>
     <h2 class="gc-buyonline__headline">Buy a Gift Card Online</h2>
     <p class="gc-buyonline__body">Purchase a GUAC gift card directly from your nearest location. Find your location and buy online in a few taps.</p>
+    <p class="gc-buyonline__avail">Available online and in-store.</p>
     <a href="/locations" class="btn btn--cream">Find Your Location →</a>
   </div>
 </section>
@@ -208,7 +212,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <h2 class="gc-faq__headline">Gift Card<br>Questions.</h2>
   </div>
   <div class="reveal" style="transition-delay:.1s">
-    <div class="faq-item"><div class="faq-q">Do GUAC gift cards expire?</div><div class="faq-a">No. Your gift card balance never expires. There are no dormancy fees or hidden charges — every dollar stays on the card until you spend it.</div></div><div class="faq-item"><div class="faq-q">Where can I use my gift card?</div><div class="faq-a">Your GUAC gift card is accepted at all 56 GUAC Mexi Grill locations across Canada.</div></div><div class="faq-item"><div class="faq-q">Can I use a gift card online or for delivery?</div><div class="faq-a">Gift cards are for in-store purchases only. Present your card at the register at any GUAC location.</div></div><div class="faq-item"><div class="faq-q">What denominations are available?</div><div class="faq-a">Any amount from $10 to $500 — just ask a team member when you visit. The card is activated in-store on the spot.</div></div><div class="faq-item"><div class="faq-q">What if my card is lost or stolen?</div><div class="faq-a">Unfortunately, lost or stolen gift cards cannot be replaced without proof of purchase. Keep your receipt safe.</div></div>
+    <div class="faq-item"><div class="faq-q">Do GUAC gift cards expire?</div><div class="faq-a">No. Your gift card balance never expires. There are no dormancy fees or hidden charges — every dollar stays on the card until you spend it.</div></div><div class="faq-item"><div class="faq-q">Where can I use my gift card?</div><div class="faq-a">Your GUAC gift card is accepted at all 56 GUAC Mexi Grill locations across Canada.</div></div><div class="faq-item"><div class="faq-q">Can I use a gift card online or for delivery?</div><div class="faq-a">Gift cards are for in-store purchases only. Present your card at the register at any GUAC location.</div></div><div class="faq-item"><div class="faq-q">What denominations are available?</div><div class="faq-a">Any amount from $10 to $500 — just ask a team member when you visit. The card is activated in-store on the spot.</div></div><div class="faq-item"><div class="faq-q">What if my card is lost or stolen?</div><div class="faq-a">Unfortunately, lost or stolen gift cards cannot be replaced without proof of purchase. Keep your receipt safe.</div></div><div class="faq-item"><div class="faq-q">How do I purchase a gift card online?</div><div class="faq-a">Select a location, choose an amount, and complete checkout. The gift card is sent to the recipient by email immediately after purchase. No further action is required. The sender receives a receipt confirming the purchase.</div></div>
   </div>
 </section>
 <script>
