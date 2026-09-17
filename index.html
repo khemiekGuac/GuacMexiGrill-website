@@ -108,22 +108,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-section__headline em{font-style:normal;color:var(--olive)}
 .lto-section__cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0}
 .underline-link{font-family:var(--font-display);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--dark);border-bottom:1px solid var(--dark);padding-bottom:3px;transition:color .2s,border-color .2s}.underline-link:hover{color:var(--olive);border-color:var(--olive)}
-.lto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:0 80px}
-.lto-card{position:relative;overflow:hidden;cursor:pointer;background:var(--dark);text-decoration:none;display:block}
-.lto-card__img{aspect-ratio:3/4;overflow:hidden;position:relative}
-.lto-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.lto-card:hover .lto-card__img img{transform:scale(1.06)}
-.lto-card__img-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.lto-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,33,31,.92) 0%,rgba(22,33,31,.2) 55%,transparent 100%)}
-.lto-card__badge{position:absolute;top:16px;left:16px;font-family:var(--font-display);font-size:10px;letter-spacing:.3em;text-transform:uppercase;background:var(--olive);color:var(--cream);padding:5px 10px;border-radius:1px}
-.lto-card__info{position:absolute;bottom:0;left:0;right:0;padding:24px 22px 22px}
-.lto-card__name{font-family:var(--font-display);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--cream);line-height:.95;letter-spacing:-.01em;margin-bottom:8px}
-.lto-card__desc{font-family:var(--font-display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(226,221,203,.5);margin-bottom:14px;line-height:1.5}
-.lto-card__cta{font-family:var(--font-display);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(226,221,203,.35);border-bottom:1px solid rgba(226,221,203,.15);padding-bottom:2px;display:inline-block;transition:color .2s,border-color .2s}
-.lto-card:hover .lto-card__cta{color:var(--cream);border-color:var(--cream)}
-@media(max-width:900px){.lto-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:1024px){.lto-section__header{padding:56px 32px 36px;flex-direction:column;align-items:flex-start}.lto-section__cta-wrap{align-items:flex-start}.lto-grid{grid-template-columns:repeat(2,1fr);padding:0 32px;gap:3px}}
-@media(max-width:540px){.lto-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){.lto-section__header{padding:56px 32px 36px;flex-direction:column;align-items:flex-start}.lto-section__cta-wrap{align-items:flex-start}}
 .skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}#cursor-wheel{display:none}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{display:block;position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block;animation:cursor-spin 9s linear infinite}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg{animation-duration:1.6s}body.cursor-hidden #cursor-wheel{opacity:0}@keyframes cursor-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}}</style>
 <style>
 .hero{position:relative;background:var(--cream);min-height:calc(100vh - 108px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
@@ -205,6 +190,84 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:480px){.btn--hero{font-size:13px!important;padding:19px 36px!important}.hero__btns{flex-direction:column;align-items:stretch}.hero__btns .btn--hero{text-align:center;justify-content:center}}
 @media(max-width:1024px){.hero{grid-template-columns:1fr}.hero__right{height:50vw;position:relative}.hero__left{padding:60px 32px}.hero__scroll{display:none}.welcome{grid-template-columns:1fr;padding:60px 32px;gap:44px}.welcome__right{grid-template-columns:1fr}.welcome__img--accent{display:none}.menu-preview{padding:60px 32px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values-band{grid-template-columns:1fr;padding:56px 32px;gap:36px}.values-band__div{display:none}.story-band{grid-template-columns:1fr}.story-band__img{height:360px;position:relative}.story-band__content{padding:56px 32px}.pillars{grid-template-columns:1fr}.pillar{border-right:none;border-bottom:1px solid rgba(203,180,129,.07)}.gc-band__content{padding:56px 32px}.newsletter{padding:56px 32px}}
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
+<style>
+/* ══ LTO SLIDER — cinematic promo carousel ══════════════════════ */
+.lto-slider__wrap{padding:0 80px}
+.lto-slider{position:relative;width:100%;height:clamp(500px,60vh,600px);overflow:hidden;background:var(--dark);border-radius:3px;isolation:isolate}
+.lto-slider__viewport{position:absolute;inset:0}
+.lto-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s var(--ease),visibility 0s linear .9s;z-index:1}
+.lto-slide.is-active{opacity:1;visibility:visible;transition:opacity .9s var(--ease);z-index:2}
+/* image lives in a right-side panel — the narrow frame plus right-anchored zoom crops the promo images' baked-in text off screen */
+.lto-slide__media{position:absolute;top:0;bottom:0;right:0;left:58%;overflow:hidden;background:var(--dark)}
+/* per-slide crop tuned to keep the promo images' baked-in text out of frame (see --s / --py on each slide) */
+.lto-slide__media img{--s:1.45;--se:1.53;--py:50%;width:100%;height:100%;object-fit:cover;object-position:100% var(--py);transform:scale(var(--s));transform-origin:right center}
+.lto-slide--l1 .lto-slide__media img{--s:1.7;--se:1.78;--py:55%}
+.lto-slide.is-active .lto-slide__media img{animation:ltoKen 8s var(--ease) forwards}
+@keyframes ltoKen{from{transform:scale(var(--s))}to{transform:scale(var(--se))}}
+/* soft seam blends the image's left edge into the dark content panel */
+.lto-slide__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 54%,rgba(21,22,22,.55) 62%,transparent 73%)}
+.lto-slide__inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:640px;padding:44px 56px}
+.lto-slide__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.lto-slide__eyebrow::before{content:'';width:24px;height:1px;background:var(--olive)}
+.lto-slide__name{font-family:var(--font-display);font-weight:900;font-size:clamp(38px,4.8vw,64px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
+.lto-slide__price{display:inline-flex;align-items:baseline;gap:2px;font-family:var(--font-display);font-weight:900;font-size:32px;line-height:1;letter-spacing:-.01em;color:var(--amber);margin-bottom:14px}
+.lto-slide__price small{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(226,221,203,.5);margin-right:8px;align-self:center}
+.lto-slide__price sup{font-size:18px}
+.lto-slide__desc{font-size:14.5px;line-height:1.7;color:rgba(226,221,203,.72);max-width:430px;margin-bottom:18px}
+.lto-slide__tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.lto-slide__tag{font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);border:1px solid rgba(203,180,129,.3);border-radius:2px;padding:6px 12px}
+.lto-slide__actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+/* staggered content reveal on activate */
+.lto-slide__inner>*{opacity:0;transform:translateY(20px)}
+.lto-slide.is-active .lto-slide__inner>*{animation:ltoRise .7s var(--ease) forwards}
+.lto-slide.is-active .lto-slide__eyebrow{animation-delay:.18s}
+.lto-slide.is-active .lto-slide__name{animation-delay:.28s}
+.lto-slide.is-active .lto-slide__price{animation-delay:.4s}
+.lto-slide.is-active .lto-slide__desc{animation-delay:.5s}
+.lto-slide.is-active .lto-slide__tags{animation-delay:.58s}
+.lto-slide.is-active .lto-slide__actions{animation-delay:.66s}
+@keyframes ltoRise{to{opacity:1;transform:translateY(0)}}
+/* controls */
+.lto-slider__arrows{position:absolute;z-index:5;bottom:26px;right:28px;display:flex;gap:10px}
+.lto-slider__arrow{width:48px;height:48px;border:1px solid rgba(226,221,203,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);background:rgba(21,22,22,.35);backdrop-filter:blur(4px);transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
+.lto-slider__arrow:hover{background:var(--olive);border-color:var(--olive);transform:scale(1.06)}
+.lto-slider__arrow svg{width:16px;height:16px}
+.lto-slider__dots{position:absolute;z-index:5;bottom:34px;left:64px;display:flex;gap:12px}
+.lto-slider__dot{position:relative;width:34px;height:4px;border-radius:3px;background:rgba(226,221,203,.24);overflow:hidden;transition:background .25s}
+.lto-slider__dot:hover{background:rgba(226,221,203,.42)}
+.lto-slider__dot span{position:absolute;inset:0;width:0;background:var(--amber);border-radius:3px}
+.lto-slider__dot.is-active{background:rgba(226,221,203,.24)}
+.lto-slider__dot.is-active span{width:100%;transition:width var(--lto-dur,6s) linear}
+.lto-slider__dot.is-active.is-paused span{transition:none}
+.lto-slider.no-auto .lto-slider__dot.is-active span{width:100%;transition:none}
+.lto-slider__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:1024px){
+  .lto-slider__wrap{padding:0 32px}
+  .lto-slide__media{left:52%}
+  .lto-slide__inner{padding:40px 40px;max-width:none}
+  .lto-slider__dots{left:40px;bottom:28px}
+  .lto-slider__arrows{right:24px;bottom:22px}
+}
+/* stack to a full-bleed background with bottom-anchored content on phones */
+@media(max-width:768px){
+  .lto-slider{height:clamp(540px,84vh,640px)}
+  .lto-slide__media{left:0}
+  .lto-slide__media img{object-position:78% 50%;transform:scale(1.16)}
+  .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.16)}
+  .lto-slide__inner{justify-content:flex-end;padding:32px 24px 84px;max-width:none}
+  .lto-slide__scrim{background:linear-gradient(to top,rgba(21,22,22,.97) 6%,rgba(21,22,22,.76) 42%,rgba(21,22,22,.55) 70%,rgba(21,22,22,.76) 100%)}
+  .lto-slide__name{font-size:clamp(36px,9vw,50px)}
+  .lto-slide__actions{width:100%;flex-direction:column;align-items:stretch;gap:12px}
+  .lto-slide__actions .btn{justify-content:center;padding:15px 24px}
+  .lto-slider__arrows{display:none}
+  .lto-slider__dots{left:24px;bottom:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(var(--s))}
+  .lto-slide__inner>*,.lto-slide.is-active .lto-slide__inner>*{animation:none;opacity:1;transform:none}
+  .lto-slide{transition:opacity .35s ease}
+}
+</style>
 </head>
 <body>
 <div id="cursor-wheel" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.0,2.0 A20,20 0 0,1 29.492,3.456 L25.371,13.655 A9,9 0 0,0 22.0,13.0 Z M32.0,4.679 A20,20 0 0,1 37.76,9.687 L29.092,16.459 A9,9 0 0,0 26.5,14.206 Z M39.321,12.0 A20,20 0 0,1 41.805,19.217 L30.912,20.747 A9,9 0 0,0 29.794,17.5 Z M42.0,22.0 A20,20 0 0,1 40.544,29.492 L30.345,25.371 A9,9 0 0,0 31.0,22.0 Z M39.321,32.0 A20,20 0 0,1 34.313,37.76 L27.541,29.092 A9,9 0 0,0 29.794,26.5 Z M32.0,39.321 A20,20 0 0,1 24.783,41.805 L23.253,30.912 A9,9 0 0,0 26.5,29.794 Z M22.0,42.0 A20,20 0 0,1 14.508,40.544 L18.629,30.345 A9,9 0 0,0 22.0,31.0 Z M12.0,39.321 A20,20 0 0,1 6.24,34.313 L14.908,27.541 A9,9 0 0,0 17.5,29.794 Z M4.679,32.0 A20,20 0 0,1 2.195,24.783 L13.088,23.253 A9,9 0 0,0 14.206,26.5 Z M2.0,22.0 A20,20 0 0,1 3.456,14.508 L13.655,18.629 A9,9 0 0,0 13.0,22.0 Z M4.679,12.0 A20,20 0 0,1 9.687,6.24 L16.459,14.908 A9,9 0 0,0 14.206,17.5 Z M12.0,4.679 A20,20 0 0,1 19.217,2.195 L20.747,13.088 A9,9 0 0,0 17.5,14.206 Z" fill="#CBB481"/></svg></div>
@@ -276,27 +339,53 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
       <a href="ltos.html" class="underline-link">View All LTOs →</a>
     </div>
   </div>
-  <div class="lto-grid">
-    <a href="ltos.html#mango-chipotle" class="lto-card reveal">
-  <div class="lto-card__img"><img data-img="LTO_1_CARD" alt="Mango Chipotle Pollo Asado"><div class="lto-card__overlay"></div></div>
-  <div class="lto-card__badge">From $14.19</div>
-  <div class="lto-card__info">
-    <div class="lto-card__name">Mango Chipotle<br>Pollo Asado</div>
-    <div class="lto-card__desc">Bowl &middot; Burrito &middot; Tacos &middot; Quesadilla</div>
-    <span class="lto-card__cta">See Details &#x2192;</span>
-  </div>
-</a>
-<a href="ltos.html#lunch-ritual" class="lto-card reveal" style="transition-delay:.2s">
-  <div class="lto-card__img"><img data-img="LTO_2_CARD" alt="The Lunch Ritual"><div class="lto-card__overlay"></div></div>
-  <div class="lto-card__badge">$9.99</div>
-  <div class="lto-card__info">
-    <div class="lto-card__name">The Lunch<br>Ritual</div>
-    <div class="lto-card__desc">Classic burrito &middot; Rice &middot; Beans</div>
-    <span class="lto-card__cta">See Details &#x2192;</span>
-  </div>
-</a>
+  <!-- ══ LTO SLIDER — add/edit a .lto-slide to update the carousel ══ -->
+  <div class="lto-slider__wrap reveal">
+    <div class="lto-slider" id="ltoSlider" role="group" aria-roledescription="carousel" aria-label="Limited time offers">
+      <div class="lto-slider__sr" aria-live="polite" id="ltoLive"></div>
+      <div class="lto-slider__viewport" id="ltoViewport">
 
+        <div class="lto-slide lto-slide--l1 is-active" role="group" aria-roledescription="slide" aria-label="1 of 2: Mango Chipotle Pollo Asado">
+          <div class="lto-slide__media"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado — fire-grilled chicken with sweet mango heat and smoky chipotle"></div>
+          <div class="lto-slide__scrim"></div>
+          <div class="lto-slide__inner">
+            <span class="lto-slide__eyebrow">Limited Time Only</span>
+            <h3 class="lto-slide__name">Mango Chipotle<br>Pollo Asado</h3>
+            <div class="lto-slide__price"><small>Starting at</small><sup>$</sup>14<sup>.19</sup></div>
+            <p class="lto-slide__desc">Fire-grilled pollo asado with sweet mango heat and smoky chipotle &mdash; plus a complimentary Passion Fruit Agua.</p>
+            <div class="lto-slide__tags"><span class="lto-slide__tag">Bowl</span><span class="lto-slide__tag">Burrito</span><span class="lto-slide__tag">Tacos</span><span class="lto-slide__tag">Quesadilla</span></div>
+            <div class="lto-slide__actions">
+              <a href="ltos.html#mango-chipotle" class="btn btn--cream">See Details &#x2192;</a>
+              <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lto-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
+          <div class="lto-slide__media"><img data-img="LTO_2" alt="The Lunch Ritual — a classic burrito with rice, beans and house protein"></div>
+          <div class="lto-slide__scrim"></div>
+          <div class="lto-slide__inner">
+            <span class="lto-slide__eyebrow">Limited Time Only</span>
+            <h3 class="lto-slide__name">The Lunch<br>Ritual</h3>
+            <div class="lto-slide__price"><sup>$</sup>9<sup>.99</sup></div>
+            <p class="lto-slide__desc">A classic burrito with rice, beans, and your choice of house protein &mdash; the lunch that means business. Students save 15% with valid ID.</p>
+            <div class="lto-slide__tags"><span class="lto-slide__tag">Classic Burrito</span><span class="lto-slide__tag">Rice</span><span class="lto-slide__tag">Beans</span><span class="lto-slide__tag">Student Deal</span></div>
+            <div class="lto-slide__actions">
+              <a href="ltos.html#lunch-ritual" class="btn btn--cream">See Details &#x2192;</a>
+              <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose offer"></div>
+      <div class="lto-slider__arrows">
+        <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
   </div>
+  <!-- ══ END LTO SLIDER ══ -->
 </section>
 
 <section class="welcome">
@@ -402,10 +491,10 @@ document.getElementById('subBtn').addEventListener('click',function(){
   var IMAGE_CONFIG = {
     // REPLACEABLE — update path here to swap this image
     HERO_FOOD: "images/hero-food.jpg",
-    // REPLACEABLE — update path here to swap this image
-    LTO_1_CARD: "images/lto-1-card.jpg",
-    // REPLACEABLE — update path here to swap this image
-    LTO_2_CARD: "images/lto-2-card.jpg",
+    // REPLACEABLE — update path here to swap this image (LTO slider slide 1)
+    LTO_1: "images/lto-1.jpg",
+    // REPLACEABLE — update path here to swap this image (LTO slider slide 2)
+    LTO_2: "images/lto-2.jpg",
     // REPLACEABLE — update path here to swap this image
     GIFT_CARD_BG: "images/gift-card-bg.jpg",
     // REPLACEABLE — update path here to swap this image
@@ -439,6 +528,102 @@ function closeMobileNav(){mobileNav.classList.remove('open');document.body.style
 closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── LTO SLIDER ─────────────────────────────────────────── */
+(function(){
+  var root=document.getElementById('ltoSlider');
+  if(!root)return;
+  var slides=Array.prototype.slice.call(root.querySelectorAll('.lto-slide'));
+  if(slides.length<2){root.classList.add('no-auto');return;}
+  var live=document.getElementById('ltoLive');
+  var dotsWrap=document.getElementById('ltoDots');
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var DURATION=6000;
+  root.style.setProperty('--lto-dur',(DURATION/1000)+'s');
+  var current=0,timer=null,paused=false;
+
+  // build dots
+  var dots=slides.map(function(s,i){
+    var d=document.createElement('button');
+    d.className='lto-slider__dot';d.type='button';d.setAttribute('role','tab');
+    var label=(s.querySelector('.lto-slide__name')||{}).textContent||('Offer '+(i+1));
+    d.setAttribute('aria-label',label.replace(/\s+/g,' ').trim());
+    d.innerHTML='<span></span>';
+    d.addEventListener('click',function(){go(i,true);});
+    dotsWrap.appendChild(d);
+    return d;
+  });
+
+  function setActive(i){
+    slides.forEach(function(s,idx){
+      var on=idx===i;
+      s.classList.toggle('is-active',on);
+      dots[idx].classList.toggle('is-active',on);
+      dots[idx].setAttribute('aria-selected',on?'true':'false');
+    });
+    var name=(slides[i].querySelector('.lto-slide__name')||{}).textContent||'';
+    if(live)live.textContent=name.replace(/\s+/g,' ').trim()+' ('+(i+1)+' of '+slides.length+')';
+  }
+
+  function go(i,userInitiated){
+    current=(i+slides.length)%slides.length;
+    setActive(current);
+    restart(userInitiated);
+  }
+  function next(u){go(current+1,u);}
+  function prev(u){go(current-1,u);}
+
+  function restart(userInitiated){
+    clearTimeout(timer);
+    // retrigger the progress-bar animation on the active dot
+    var span=dots[current].querySelector('span');
+    if(span&&!reduce){span.style.transition='none';span.style.width='0';void span.offsetWidth;span.style.transition='';}
+    if(reduce)return;                 // no autoplay when motion reduced
+    if(paused){dots[current].classList.add('is-paused');return;}
+    dots[current].classList.remove('is-paused');
+    timer=setTimeout(function(){next(false);},DURATION);
+  }
+
+  function pause(){if(paused)return;paused=true;clearTimeout(timer);dots[current].classList.add('is-paused');
+    var span=dots[current].querySelector('span');if(span){var w=getComputedStyle(span).width;span.style.transition='none';span.style.width=w;}}
+  function resume(){if(!paused)return;paused=false;dots[current].classList.remove('is-paused');restart(false);}
+
+  document.getElementById('ltoNext').addEventListener('click',function(){next(true);});
+  document.getElementById('ltoPrev').addEventListener('click',function(){prev(true);});
+
+  // pause on hover / focus within / tab hidden
+  root.addEventListener('mouseenter',pause);
+  root.addEventListener('mouseleave',resume);
+  root.addEventListener('focusin',pause);
+  root.addEventListener('focusout',resume);
+  document.addEventListener('visibilitychange',function(){document.hidden?pause():resume();});
+
+  // keyboard when slider focused
+  root.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){e.preventDefault();prev(true);}
+    else if(e.key==='ArrowRight'){e.preventDefault();next(true);}
+  });
+
+  // touch / pointer swipe
+  var startX=null,startY=null,swiping=false;
+  var vp=document.getElementById('ltoViewport');
+  vp.addEventListener('touchstart',function(e){var t=e.touches[0];startX=t.clientX;startY=t.clientY;swiping=true;},{passive:true});
+  vp.addEventListener('touchend',function(e){
+    if(!swiping)return;swiping=false;
+    var t=e.changedTouches[0];var dx=t.clientX-startX,dy=t.clientY-startY;
+    if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){dx<0?next(true):prev(true);}
+  },{passive:true});
+
+  // only autoplay once scrolled into view (keeps first slide's reveal intact)
+  setActive(0);
+  if(reduce){root.classList.add('no-auto');}
+  else{
+    var startObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){restart(false);startObs.disconnect();}});
+    },{threshold:0.35});
+    startObs.observe(root);
+  }
+})();
 </script>
 <script>(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var wheel=document.getElementById("cursor-wheel");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;wheel.style.left=rx+"px";wheel.style.top=ry+"px";requestAnimationFrame(animate);})();})();</script>
 <script src="site-config.js"></script>
