@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script>/* Staging safeguard: no-op on production; blocks indexing of staging.* only */if(location.hostname.indexOf("staging.")===0){var m=document.createElement("meta");m.name="robots";m.content="noindex, nofollow";document.head.appendChild(m);}</script>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<title>Menu | GUAC Mexi Grill — Built To Order, Bold Tex-Mex</title>
+<meta name="description" content="Browse the full GUAC Mexi Grill menu — build-your-own burritos, bowls, tacos, quesadillas & enchiladas, Guac Bites, nachos and more. Customize your flavour, then order in seconds at 56+ Canadian locations.">
+<meta name="keywords" content="GUAC Mexi Grill menu, Tex-Mex menu Canada, build your own burrito, taco menu, burrito bowl, quesadilla, nachos, guacamole, order Mexican food Canada">
+<meta name="robots" content="index, follow">
+<meta name="author" content="GUAC Mexi Grill">
+<meta property="og:title" content="Menu | GUAC Mexi Grill — Built To Order, Bold Tex-Mex">
+<meta property="og:description" content="Build-your-own burritos, bowls, tacos, quesadillas & enchiladas — plus Guac Bites, nachos and more. Customize your flavour, then order in seconds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guacmexigrill.ca/menu.html">
+<meta property="og:site_name" content="GUAC Mexi Grill">
+<meta property="og:locale" content="en_CA">
+<meta property="og:image" content="https://guacmexigrill.ca/images/menu-hero.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:alt" content="GUAC Mexi Grill — Built To Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://guacmexigrill.ca/images/menu-hero.jpg">
+<meta name="twitter:title" content="Menu | GUAC Mexi Grill — Built To Order, Bold Tex-Mex">
+<meta name="twitter:description" content="Build-your-own burritos, bowls, tacos, quesadillas & enchiladas. Customize your flavour, then order in seconds.">
+<link rel="canonical" href="https://guacmexigrill.ca/menu.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@400;500;700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--dark:#151616;--olive:#616E45;--sage:#A8AD88;--cream:#E2DDCB;--rust:#9B3615;--amber:#D9854A;--sand:#CBB481;--ease:cubic-bezier(0.22,1,0.36,1);--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--font-serif:'Merriweather',serif}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{font-family:var(--font-body);background:var(--cream);color:var(--dark);overflow-x:hidden}
+img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cursor:pointer;border:none;background:none;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:all .3s var(--ease)}
+.btn--dark{background:var(--dark);color:var(--cream);border:1px solid var(--dark)}.btn--dark:hover{background:var(--olive);border-color:var(--olive)}
+.btn--cream{background:var(--cream);color:var(--dark);border:1px solid var(--cream)}.btn--cream:hover{background:transparent;color:var(--cream)}
+.btn--amber{background:var(--amber);color:var(--dark);border:1px solid var(--amber)}.btn--amber:hover{background:var(--rust);border-color:var(--rust);color:var(--cream)}
+.btn--ghost{background:transparent;color:var(--cream);border:1px solid rgba(226,221,203,.35)}.btn--ghost:hover{border-color:var(--cream);background:var(--cream);color:var(--dark)}
+.topbar{background:var(--dark);height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.topbar__flag{font-family:var(--font-display);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:8px}
+.topbar__right{display:flex;align-items:center;gap:20px}
+.topbar__socials{display:flex;gap:12px}.topbar__socials a{color:rgba(203,180,129,.4);display:flex;align-items:center;transition:color .2s}.topbar__socials a:hover{color:var(--sand)}
+.nav{position:sticky;top:0;z-index:100;height:72px;background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 48px;transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.4)}
+.nav__logo img{height:36px;width:auto;filter:invert(1)}
+.nav__links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav__links a{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.6);transition:color .2s;position:relative;padding-bottom:4px}
+.nav__links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--olive);transition:width .3s var(--ease)}
+.nav__links a:hover{color:var(--cream)}.nav__links a:hover::after{width:100%}
+.nav__links a.is-current{color:var(--cream)}.nav__links a.is-current::after{width:100%}
+.nav__cta{margin-left:12px}.nav__burger{display:none;flex-direction:column;gap:5px;padding:4px}.nav__burger span{display:block;width:24px;height:1.5px;background:var(--cream)}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--dark);z-index:500;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-nav.open{display:flex;opacity:1;pointer-events:all}
+.mobile-nav a{font-family:var(--font-display);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--cream);letter-spacing:.08em;transition:color .2s}.mobile-nav a:hover{color:var(--sage)}
+.mobile-nav__close{position:absolute;top:28px;right:28px;font-size:26px;color:var(--cream);cursor:pointer;opacity:.5}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}
+.footer{background:var(--dark);border-top:1px solid rgba(203,180,129,.06)}
+.footer__main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:56px;padding:72px 80px 60px}
+.footer__brand img{height:40px;margin-bottom:22px;filter:invert(1)}
+.footer__tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:13px;color:rgba(226,221,203,.38);line-height:1.7;max-width:230px;margin-bottom:26px}
+.footer__social{display:flex;gap:12px}.footer__social a{width:34px;height:34px;border:1px solid rgba(203,180,129,.16);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(203,180,129,.45);transition:all .2s}.footer__social a:hover{border-color:var(--olive);color:var(--olive)}
+.footer__col-title{font-family:var(--font-display);font-weight:600;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.footer__col-links{list-style:none;display:flex;flex-direction:column;gap:11px}.footer__col-links a{font-family:var(--font-display);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(226,221,203,.38);transition:color .2s}.footer__col-links a:hover{color:var(--sand)}
+.footer__bottom{border-top:1px solid rgba(203,180,129,.05);padding:20px 80px;display:flex;justify-content:space-between;align-items:center}
+.footer__copy{font-family:var(--font-display);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.2)}
+.footer__legal{display:flex;gap:22px}.footer__legal a{font-family:var(--font-display);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(226,221,203,.2);transition:color .2s}.footer__legal a:hover{color:rgba(226,221,203,.5)}
+.skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}
+#cursor-wheel{display:none}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{display:block;position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block;animation:cursor-spin 9s linear infinite}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg{animation-duration:1.6s}body.cursor-hidden #cursor-wheel{opacity:0}@keyframes cursor-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}}
+
+/* ============ MENU PAGE ============ */
+/* HERO */
+.m-hero{position:relative;background:var(--dark);padding:104px 80px 112px;overflow:hidden}
+.m-hero__bg{position:absolute;inset:0;background:url('images/menu-hero.jpg') center/cover no-repeat;opacity:.22}
+.m-hero__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,22,22,.55) 0%,rgba(21,22,22,.82) 60%,var(--dark) 100%)}
+.m-hero__inner{position:relative;max-width:1100px}
+.m-hero__eyebrow{font-family:var(--font-display);font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.m-hero__eyebrow::before{content:'';width:28px;height:1px;background:var(--olive)}
+.m-hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(58px,9vw,128px);line-height:.85;letter-spacing:-.03em;text-transform:uppercase;color:var(--cream);margin-bottom:26px}
+.m-hero__headline span{color:var(--amber);display:block}
+.m-hero__sub{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(15px,2vw,19px);color:rgba(226,221,203,.6);max-width:560px;line-height:1.75;margin-bottom:38px}
+.m-hero__cta{display:flex;flex-wrap:wrap;gap:14px}
+/* CATEGORY BAR */
+.m-catbar{position:sticky;top:72px;z-index:90;background:rgba(21,22,22,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(203,180,129,.12);border-top:1px solid rgba(203,180,129,.08);overflow-x:auto;scrollbar-width:none}
+.m-catbar::-webkit-scrollbar{display:none}
+.m-catbar__inner{display:flex;gap:6px;padding:12px 48px;min-width:max-content}
+.m-catbar a{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(226,221,203,.52);padding:8px 16px;border-radius:2px;white-space:nowrap;transition:all .2s;border:1px solid transparent}
+.m-catbar a:hover{color:var(--cream)}
+.m-catbar a.active{color:var(--dark);background:var(--sand);border-color:var(--sand)}
+/* SECTION SHELL */
+.m-sec{padding:88px 80px}
+.m-sec--cream{background:var(--cream)}
+.m-sec--dark{background:var(--dark);color:var(--cream)}
+.m-sec__head{max-width:760px;margin-bottom:52px}
+.m-sec__eyebrow{font-family:var(--font-display);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--olive);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.m-sec--dark .m-sec__eyebrow{color:var(--sage)}
+.m-sec__eyebrow::before{content:'';width:22px;height:1px;background:currentColor;opacity:.6}
+.m-sec__title{font-family:var(--font-display);font-weight:900;font-size:clamp(38px,5vw,64px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}
+.m-sec--dark .m-sec__title{color:var(--cream)}
+.m-sec__intro{font-size:15.5px;line-height:1.8;margin-top:18px;max-width:620px;color:rgba(22,33,31,.62)}
+.m-sec--dark .m-sec__intro{color:rgba(226,221,203,.55)}
+
+/* FORMAT SHOWCASE (options left, rotating photo right) */
+.m-showcase{display:grid;grid-template-columns:.85fr 1.15fr;gap:0;border:1px solid rgba(22,33,31,.12);background:var(--dark);border-radius:4px;overflow:hidden}
+.m-showcase__opts{display:flex;flex-direction:column;background:var(--dark)}
+.m-showcase__opt{display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;padding:26px 30px;border-bottom:1px solid rgba(226,221,203,.08);position:relative;transition:background .25s}
+.m-showcase__opt:last-child{border-bottom:none}
+.m-showcase__opt::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+.m-showcase__opt:hover{background:rgba(226,221,203,.03)}
+.m-showcase__opt.active{background:rgba(226,221,203,.05)}
+.m-showcase__opt.active::before{transform:scaleY(1)}
+.m-showcase__opt-name{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:.02em;text-transform:uppercase;color:rgba(226,221,203,.55);transition:color .25s;line-height:1}
+.m-showcase__opt.active .m-showcase__opt-name{color:var(--cream)}
+.m-showcase__opt-from{font-family:var(--font-display);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(226,221,203,.4);white-space:nowrap}
+.m-showcase__opt.active .m-showcase__opt-from{color:var(--sand)}
+.m-showcase__media{position:relative;min-height:460px;background:#0d0e0d;overflow:hidden}
+.m-showcase__imgwrap{position:absolute;inset:0}
+.m-showcase__imgwrap img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform 6s linear;transform:scale(1.02)}
+.m-showcase__imgwrap img.on{opacity:1;transform:scale(1.08)}
+.m-showcase__media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,13,.05) 0%,rgba(13,14,13,.35) 55%,rgba(13,14,13,.92) 100%);pointer-events:none}
+.m-showcase__cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 34px}
+.m-showcase__cap-name{font-family:var(--font-display);font-weight:900;font-size:clamp(28px,3.4vw,44px);text-transform:uppercase;letter-spacing:-.01em;color:var(--cream);line-height:.95;margin-bottom:14px}
+.m-showcase__rows{display:flex;flex-direction:column;gap:0;background:rgba(21,22,22,.55);backdrop-filter:blur(3px);border:1px solid rgba(226,221,203,.14);border-radius:3px;overflow:hidden;max-width:520px}
+.m-showcase__cols{display:grid;grid-template-columns:1fr 62px 62px;gap:10px;padding:8px 16px;font-family:var(--font-display);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(226,221,203,.5);border-bottom:1px solid rgba(226,221,203,.12)}
+.m-showcase__cols span:not(:first-child){text-align:right}
+.m-showcase__row{display:grid;grid-template-columns:1fr 62px 62px;gap:10px;padding:10px 16px;align-items:center;border-bottom:1px solid rgba(226,221,203,.07)}
+.m-showcase__row:last-child{border-bottom:none}
+.m-showcase__row-size{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--cream)}
+.m-showcase__row-cal{display:block;font-family:var(--font-body);font-weight:400;font-size:10px;letter-spacing:.01em;text-transform:none;color:rgba(226,221,203,.45);margin-top:1px}
+.m-showcase__row-p{text-align:right;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--cream)}
+.m-showcase__row-p.combo{color:var(--sand)}
+.m-showcase__note{margin-top:12px;font-family:var(--font-display);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.m-showcase__timer{position:absolute;top:0;left:0;height:3px;background:var(--amber);z-index:3;width:0;opacity:.85}
+
+/* BUILDER */
+.m-builder{margin-top:24px;background:var(--dark);color:var(--cream);display:grid;grid-template-columns:1.3fr 1fr;gap:0;border:1px solid rgba(22,33,31,.12);border-radius:4px;overflow:hidden}
+.m-builder__form{padding:48px 52px}
+.m-builder__kicker{font-family:var(--font-display);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--sand);margin-bottom:12px}
+.m-builder__title{font-family:var(--font-display);font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:.92;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}
+.m-builder__lead{font-size:14px;line-height:1.7;color:rgba(226,221,203,.55);max-width:440px;margin-bottom:32px}
+.m-field{margin-bottom:28px}
+.m-field__label{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.m-select{width:100%;font-family:var(--font-body);font-size:15px;color:var(--cream);background:rgba(226,221,203,.04);border:1px solid rgba(226,221,203,.18);border-radius:2px;padding:13px 15px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23CBB481' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;cursor:pointer}
+.m-select:focus{outline:none;border-color:var(--sand)}
+.m-select option{background:var(--dark);color:var(--cream)}
+.m-toggle{display:inline-flex;background:rgba(226,221,203,.05);border:1px solid rgba(226,221,203,.18);border-radius:3px;padding:3px}
+.m-toggle button{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(226,221,203,.6);padding:9px 20px;border-radius:2px;transition:all .2s}
+.m-toggle button.on{background:var(--sand);color:var(--dark)}
+.m-toggle small{display:block;font-family:var(--font-body);font-weight:400;font-size:9px;letter-spacing:.04em;text-transform:none;opacity:.7;margin-top:2px}
+.m-chips{display:flex;flex-wrap:wrap;gap:8px}
+.m-chip{font-family:var(--font-display);font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(226,221,203,.7);background:rgba(226,221,203,.05);border:1px solid rgba(226,221,203,.18);border-radius:2px;padding:10px 15px;transition:all .18s;cursor:pointer}
+.m-chip:hover{border-color:rgba(203,180,129,.5)}
+.m-chip.on{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.m-chip.on--sand{background:var(--sand);border-color:var(--sand);color:var(--dark)}
+.m-chip .up{opacity:.7;font-weight:500;margin-left:5px}
+.m-chip.on .up{opacity:.9}
+.m-builder__panel{background:linear-gradient(160deg,#1c1e1d 0%,#141514 100%);border-left:1px solid rgba(203,180,129,.14);display:flex;flex-direction:column}
+.m-receipt__photo{position:relative;height:190px;background:#0d0e0d;overflow:hidden}
+.m-receipt__photo img{width:100%;height:100%;object-fit:cover;transition:opacity .4s var(--ease)}
+.m-receipt__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,21,20,0) 40%,rgba(20,21,20,.9) 100%)}
+.m-receipt{flex:1;padding:30px 40px 0}
+.m-receipt__k{font-family:var(--font-display);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+.m-receipt__name{font-family:var(--font-display);font-weight:800;font-size:26px;line-height:1.05;text-transform:uppercase;color:var(--cream);margin-bottom:6px}
+.m-receipt__sub{font-size:12.5px;color:rgba(226,221,203,.45);margin-bottom:20px;min-height:16px}
+.m-receipt__lines{list-style:none;display:flex;flex-direction:column;gap:9px;padding:20px 0;margin:0 0 20px;border-top:1px solid rgba(226,221,203,.1);border-bottom:1px solid rgba(226,221,203,.1)}
+.m-receipt__line{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:rgba(226,221,203,.7)}
+.m-receipt__line span:last-child{font-family:var(--font-display);font-weight:600;color:var(--sand)}
+.m-receipt__line--muted{color:rgba(226,221,203,.35)}.m-receipt__line--muted span:last-child{color:rgba(226,221,203,.35)}
+.m-receipt__total{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px}
+.m-receipt__total-l{font-family:var(--font-display);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(226,221,203,.55)}
+.m-receipt__total-v{font-family:var(--font-display);font-weight:900;font-size:46px;line-height:.9;color:var(--cream)}
+.m-receipt__total-v sup{font-size:22px;vertical-align:super;color:var(--sand)}
+.m-receipt__disc{font-family:var(--font-display);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:rgba(226,221,203,.3);margin:14px 0 22px;line-height:1.6}
+.m-builder__cta{padding:0 40px 40px}
+.m-builder__cta .btn{width:100%;justify-content:center}
+
+/* FLAVOUR / PROTEIN */
+.m-flavour{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;border:1px solid rgba(22,33,31,.1)}
+.m-flavour__col{background:var(--cream);padding:34px 32px}
+.m-flavour__col--dark{background:var(--dark);color:var(--cream)}
+.m-flavour__t{font-family:var(--font-display);font-weight:800;font-size:16px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.m-flavour__col--dark .m-flavour__t{color:var(--sand)}
+.m-flavour__hint{font-size:12.5px;color:rgba(22,33,31,.5);margin-bottom:18px}
+.m-flavour__col--dark .m-flavour__hint{color:rgba(226,221,203,.5)}
+.m-flavour__list{display:flex;flex-wrap:wrap;gap:8px}
+.m-tagpill{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:2px;border:1px solid rgba(22,33,31,.18);color:rgba(22,33,31,.75)}
+.m-flavour__col--dark .m-tagpill{border-color:rgba(226,221,203,.2);color:rgba(226,221,203,.8)}
+.m-tagpill--up{border-color:rgba(155,54,21,.35);color:var(--rust)}
+.m-flavour__col--dark .m-tagpill--up{border-color:rgba(203,180,129,.4);color:var(--sand)}
+
+/* ITEM CARD GRID (with photo) */
+.m-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.m-card{border:1px solid rgba(226,221,203,.14);border-radius:4px;overflow:hidden;transition:border-color .25s,transform .25s var(--ease);background:rgba(226,221,203,.02);display:flex;flex-direction:column}
+.m-sec--dark .m-card:hover{border-color:rgba(203,180,129,.5);transform:translateY(-4px)}
+.m-card__img{position:relative;aspect-ratio:16/10;background:#0d0e0d;overflow:hidden}
+.m-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.m-card:hover .m-card__img img{transform:scale(1.06)}
+.m-card__body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.m-card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
+.m-card__name{font-family:var(--font-display);font-weight:800;font-size:19px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
+.m-card__price{font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--sand);white-space:nowrap}
+.m-card__price sup{font-size:13px;vertical-align:super}
+.m-card__meta{font-family:var(--font-display);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.m-card__desc{font-size:13px;line-height:1.65;color:rgba(226,221,203,.55)}
+.m-card__desc b{color:rgba(226,221,203,.8);font-weight:600}
+.m-card__addons{margin-top:14px;padding-top:14px;border-top:1px solid rgba(226,221,203,.1);display:flex;flex-wrap:wrap;gap:6px}
+.m-addon{font-family:var(--font-display);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(226,221,203,.5);border:1px solid rgba(226,221,203,.14);border-radius:2px;padding:4px 8px}
+
+/* FEATURE / DEAL SPLIT */
+.m-feature{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.m-deal{border:1px solid rgba(226,221,203,.16);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.m-deal--photo .m-deal__img{position:relative;aspect-ratio:16/9;background:#0d0e0d;overflow:hidden}
+.m-deal--photo .m-deal__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.m-deal--photo:hover .m-deal__img img{transform:scale(1.05)}
+.m-deal__body{padding:30px 32px 32px;display:flex;flex-direction:column;flex:1}
+.m-deal__num{font-family:var(--font-display);font-weight:900;font-size:13px;letter-spacing:.2em;color:var(--amber);margin-bottom:14px}
+.m-deal__top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px}
+.m-deal__name{font-family:var(--font-display);font-weight:800;font-size:24px;text-transform:uppercase;line-height:1.02;letter-spacing:.01em}
+.m-deal__price{font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--sand);white-space:nowrap;line-height:.9}
+.m-deal__price sup{font-size:16px;vertical-align:super}
+.m-deal__incl{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.m-deal__incl li{font-size:13.5px;color:rgba(226,221,203,.62);padding-left:18px;position:relative;line-height:1.5}
+.m-deal__incl li::before{content:'';position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--olive);border-radius:50%}
+.m-deal__foot{margin-top:auto}
+
+/* CHIPS & DIPS split (list + photo) */
+.m-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.m-split__img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:#0d0e0d}
+.m-split__img img{width:100%;height:100%;object-fit:cover}
+.m-list{display:grid;grid-template-columns:1fr;gap:2px}
+.m-list-row{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px dotted rgba(22,33,31,.22)}
+.m-sec--dark .m-list-row{border-bottom-color:rgba(226,221,203,.16)}
+.m-sec--dark .m-list-row__name{color:var(--cream)}
+.m-sec--dark .m-list-row__price{color:var(--sand)}
+.m-list-row__name{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase}
+.m-list-row__lead{flex:1}
+.m-list-row__price{font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--rust)}
+.m-list-row__price sup{font-size:11px;vertical-align:super}
+
+/* KIDS + LTO BANNER */
+.m-kids{display:grid;grid-template-columns:1fr 1.1fr;gap:2px;border:1px solid rgba(22,33,31,.1)}
+.m-kids__box{background:var(--cream);padding:38px 36px}
+.m-kids__box--olive{background:var(--olive);color:var(--cream)}
+.m-lto{position:relative;overflow:hidden;background:var(--dark);border-radius:4px;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:280px}
+.m-lto__img{background:url('images/lto-1.jpg') center/cover no-repeat}
+.m-lto__body{padding:44px 44px}
+.m-lto__badge{font-family:var(--font-display);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.m-lto__name{font-family:var(--font-display);font-weight:900;font-size:clamp(28px,3.2vw,42px);line-height:.92;text-transform:uppercase;color:var(--cream);margin-bottom:12px}
+.m-lto__desc{font-size:14px;line-height:1.7;color:rgba(226,221,203,.55);margin-bottom:22px;max-width:420px}
+
+/* CLOSING CTA */
+.m-cta{background:var(--dark);color:var(--cream);text-align:center;padding:96px 40px}
+.m-cta__eyebrow{font-family:var(--font-display);font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
+.m-cta__h{font-family:var(--font-display);font-weight:900;font-size:clamp(40px,6vw,88px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em;color:var(--cream);margin-bottom:22px}
+.m-cta__h span{color:var(--amber)}
+.m-cta__p{font-family:var(--font-serif);font-style:italic;font-size:17px;color:rgba(226,221,203,.5);max-width:520px;margin:0 auto 34px;line-height:1.7}
+.m-legal{font-family:var(--font-display);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(22,33,31,.4);text-align:center;padding:26px 40px;background:var(--cream);line-height:1.8}
+/* MOBILE ORDER BAR */
+.m-orderbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:120;background:rgba(21,22,22,.97);backdrop-filter:blur(8px);border-top:1px solid rgba(203,180,129,.2);padding:12px 18px calc(12px + env(safe-area-inset-bottom));gap:12px;align-items:center;justify-content:space-between}
+.m-orderbar__txt{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(226,221,203,.7)}
+.m-orderbar .btn{padding:12px 22px}
+
+@media(max-width:1024px){
+  .topbar{padding:0 20px}.nav{padding:0 20px}.nav__links,.nav__cta{display:none}.nav__burger{display:flex}
+  .m-hero{padding:64px 28px 72px}
+  .m-catbar{top:72px}.m-catbar__inner{padding:12px 20px}
+  .m-sec{padding:64px 28px}
+  .m-showcase{grid-template-columns:1fr}.m-showcase__media{min-height:340px;order:-1}
+  .m-builder{grid-template-columns:1fr}.m-builder__form{padding:38px 28px}.m-builder__panel{border-left:none;border-top:1px solid rgba(203,180,129,.14)}
+  .m-flavour{grid-template-columns:1fr}
+  .m-feature{grid-template-columns:1fr}
+  .m-split{grid-template-columns:1fr;gap:28px}.m-split__img{order:-1}
+  .m-kids{grid-template-columns:1fr}
+  .m-lto{grid-template-columns:1fr}.m-lto__img{min-height:200px}
+  .footer__main{grid-template-columns:1fr 1fr;gap:40px;padding:56px 32px}.footer__bottom{padding:20px 32px;flex-direction:column;gap:12px}
+  .m-orderbar{display:flex}
+}
+@media(max-width:640px){
+  .footer__main{grid-template-columns:1fr}
+  .m-cards{grid-template-columns:1fr}
+  .m-showcase__opt-name{font-size:22px}
+  .m-orderbar__txt{display:none}.m-orderbar{justify-content:stretch}.m-orderbar .btn{flex:1;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.m-showcase__imgwrap img{transition:opacity .2s}*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to menu</a>
+<div id="cursor-wheel" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.0,2.0 A20,20 0 0,1 29.492,3.456 L25.371,13.655 A9,9 0 0,0 22.0,13.0 Z M32.0,4.679 A20,20 0 0,1 37.76,9.687 L29.092,16.459 A9,9 0 0,0 26.5,14.206 Z M39.321,12.0 A20,20 0 0,1 41.805,19.217 L30.912,20.747 A9,9 0 0,0 29.794,17.5 Z M42.0,22.0 A20,20 0 0,1 40.544,29.492 L30.345,25.371 A9,9 0 0,0 31.0,22.0 Z M39.321,32.0 A20,20 0 0,1 34.313,37.76 L27.541,29.092 A9,9 0 0,0 29.794,26.5 Z M32.0,39.321 A20,20 0 0,1 24.783,41.805 L23.253,30.912 A9,9 0 0,0 26.5,29.794 Z M22.0,42.0 A20,20 0 0,1 14.508,40.544 L18.629,30.345 A9,9 0 0,0 22.0,31.0 Z M12.0,39.321 A20,20 0 0,1 6.24,34.313 L14.908,27.541 A9,9 0 0,0 17.5,29.794 Z M4.679,32.0 A20,20 0 0,1 2.195,24.783 L13.088,23.253 A9,9 0 0,0 14.206,26.5 Z M2.0,22.0 A20,20 0 0,1 3.456,14.508 L13.655,18.629 A9,9 0 0,0 13.0,22.0 Z M4.679,12.0 A20,20 0 0,1 9.687,6.24 L16.459,14.908 A9,9 0 0,0 14.206,17.5 Z M12.0,4.679 A20,20 0 0,1 19.217,2.195 L20.747,13.088 A9,9 0 0,0 17.5,14.206 Z" fill="#CBB481"/></svg></div>
+<div class="topbar">
+  <div class="topbar__flag"><img src="images/canadian-flag.png" alt="Canadian flag" width="30" height="15" style="display:block;border-radius:1px;flex-shrink:0;opacity:.85">Proudly Canadian</div>
+  <div class="topbar__right">
+    <div class="topbar__socials">
+      <a href="https://www.facebook.com/guacmexigrill" target="_blank" title="Facebook"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/guacmexigrill/" target="_blank" title="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</div>
+<nav class="nav" aria-label="Main navigation" id="mainNav">
+  <a href="index.html" class="nav__logo"><img data-img="LOGO" alt="GUAC MEXI GRILL"></a>
+  <ul class="nav__links"><li><a href="index.html">Home</a></li><li><a href="menu.html" class="is-current" aria-current="page">Menu</a></li><li><a href="about.html">Our Story</a></li><li><a href="locations.html">Locations</a></li><li><a href="contact.html">Contact</a></li><li><a href="franchising.html">Franchising</a></li></ul>
+  <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--cream nav__cta">Order Now</a>
+  <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav__close" id="closeNav" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMobileNav()">Home</a><a href="menu.html" onclick="closeMobileNav()">Menu</a><a href="about.html" onclick="closeMobileNav()">Our Story</a><a href="locations.html" onclick="closeMobileNav()">Locations</a><a href="contact.html" onclick="closeMobileNav()">Contact</a><a href="franchising.html" onclick="closeMobileNav()">Franchising</a>
+  <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--cream" style="margin-top:16px" onclick="closeMobileNav()">Order Now</a>
+</div>
+<main id="main-content" tabindex="-1">
+
+<!-- HERO -->
+<section class="m-hero">
+  <div class="m-hero__bg" aria-hidden="true"></div>
+  <div class="m-hero__inner reveal">
+    <div class="m-hero__eyebrow">The Full Menu</div>
+    <h1 class="m-hero__headline">Built To<span>Order.</span></h1>
+    <p class="m-hero__sub">Fire-roasted proteins, house-made salsas, and guac worth the name. Browse every format, build your flavour, then send it straight to the kitchen &mdash; ordering takes seconds.</p>
+    <div class="m-hero__cta">
+      <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--amber">Start Your Order &#x2192;</a>
+      <a href="#build" class="btn btn--ghost">Build Your Own</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY BAR -->
+<nav class="m-catbar" aria-label="Menu categories">
+  <div class="m-catbar__inner">
+    <a href="#build" data-cat>Build Your Own</a>
+    <a href="#guac-bites" data-cat>Guac Bites</a>
+    <a href="#featured" data-cat>Featured</a>
+    <a href="#chips" data-cat>Chips &amp; Dips</a>
+    <a href="#sides" data-cat>Sides</a>
+    <a href="#desserts" data-cat>Desserts</a>
+    <a href="#kids" data-cat>Kids</a>
+    <a href="#deals" data-cat>Meal Deals</a>
+  </div>
+</nav>
+
+<!-- BUILD YOUR OWN -->
+<section class="m-sec m-sec--cream" id="build" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">Build Your Own</div>
+    <h2 class="m-sec__title">Your Format,<br>Your Flavour.</h2>
+    <p class="m-sec__intro">Every plate starts here. Combos add <b>chips, salsa &amp; a canned pop</b>. Prices show entr&eacute;e / combo.</p>
+  </div>
+
+  <!-- Rotating format showcase: options left, photo right -->
+  <div class="m-showcase reveal" id="showcase">
+    <div class="m-showcase__opts" id="sc-opts" role="tablist" aria-label="Menu formats"></div>
+    <div class="m-showcase__media">
+      <div class="m-showcase__timer" id="sc-timer"></div>
+      <div class="m-showcase__imgwrap" id="sc-imgs"></div>
+      <div class="m-showcase__cap">
+        <div class="m-showcase__cap-name" id="sc-name">Burritos</div>
+        <div class="m-showcase__rows" id="sc-rows"></div>
+        <div class="m-showcase__note" id="sc-note">Premium protein +$1.50</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE BUILDER -->
+  <div class="m-builder reveal" id="builder">
+    <div class="m-builder__form">
+      <div class="m-builder__kicker">Try It &mdash; Interactive Builder</div>
+      <div class="m-builder__title">Build Your Plate</div>
+      <p class="m-builder__lead">See how customization works and watch your price update live. When it&rsquo;s just right, add it to your order to finish.</p>
+
+      <div class="m-field">
+        <label class="m-field__label" for="b-base">1 &middot; Choose your base</label>
+        <select class="m-select" id="b-base" aria-label="Choose your base"></select>
+      </div>
+
+      <div class="m-field">
+        <span class="m-field__label">2 &middot; Entr&eacute;e or Combo</span>
+        <div class="m-toggle" role="group" aria-label="Entrée or combo">
+          <button type="button" id="b-entree" class="on">Entr&eacute;e</button>
+          <button type="button" id="b-combo">Combo<small>+ chips, salsa &amp; pop</small></button>
+        </div>
+      </div>
+
+      <div class="m-field">
+        <span class="m-field__label">3 &middot; Pick a protein</span>
+        <div class="m-chips" id="b-proteins" role="group" aria-label="Choose a protein"></div>
+      </div>
+
+      <div class="m-field" style="margin-bottom:0">
+        <span class="m-field__label">4 &middot; Stack your upgrades</span>
+        <div class="m-chips" id="b-upgrades" role="group" aria-label="Add upgrades"></div>
+      </div>
+    </div>
+    <div class="m-builder__panel">
+      <div class="m-receipt__photo"><img id="r-img" src="images/menu-burrito.jpg" alt=""></div>
+      <div class="m-receipt">
+        <div class="m-receipt__k">Your Build</div>
+        <div class="m-receipt__name" id="r-name">Signature Burrito</div>
+        <div class="m-receipt__sub" id="r-sub">Entr&eacute;e &middot; Chicken</div>
+        <ul class="m-receipt__lines" id="r-lines"></ul>
+        <div class="m-receipt__total">
+          <span class="m-receipt__total-l">Est. Total</span>
+          <span class="m-receipt__total-v" id="r-total"><sup>$</sup>12.69</span>
+        </div>
+        <p class="m-receipt__disc">Estimate only. Taxes extra. Final price &amp; full toppings are set when you order. Prices may vary by location.</p>
+      </div>
+      <div class="m-builder__cta">
+        <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--amber" id="r-order">Order Now &#x2192;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILD YOUR FLAVOUR -->
+  <div class="m-flavour reveal">
+    <div class="m-flavour__col">
+      <div class="m-flavour__t">House Proteins</div>
+      <div class="m-flavour__hint">Included in every build.</div>
+      <div class="m-flavour__list">
+        <span class="m-tagpill">Chicken</span><span class="m-tagpill">Carnitas</span><span class="m-tagpill">Ground Beef</span><span class="m-tagpill">Plant-Based Crumble</span><span class="m-tagpill">Veggie</span>
+      </div>
+    </div>
+    <div class="m-flavour__col m-flavour__col--dark">
+      <div class="m-flavour__t">Premium Proteins &amp; Upgrades</div>
+      <div class="m-flavour__hint">Level it up your way.</div>
+      <div class="m-flavour__list">
+        <span class="m-tagpill">Barbacoa</span><span class="m-tagpill">Steak</span><span class="m-tagpill">Shrimp</span>
+        <span class="m-tagpill m-tagpill--up">Premium +$1.50</span><span class="m-tagpill m-tagpill--up">Add Guac +$1.50</span><span class="m-tagpill m-tagpill--up">Extra Cheese +$1.99</span><span class="m-tagpill m-tagpill--up">Extra Protein +$2.99</span><span class="m-tagpill m-tagpill--up">Gluten-Free +$2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUAC BITES -->
+<section class="m-sec m-sec--dark" id="guac-bites" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">Snacks &amp; Sides</div>
+    <h2 class="m-sec__title">Guac Bites</h2>
+    <p class="m-sec__intro">Crispy, shareable, and made to dip. Every order comes with <b>one house dipping sauce</b> included.</p>
+  </div>
+  <div class="m-cards reveal">
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-poppers.jpg" alt="Jalapeño poppers" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Jalape&ntilde;o Poppers</div><div class="m-card__price"><sup>$</sup>5.99</div></div><div class="m-card__meta">3 pcs &middot; 198 cal / 100g</div><div class="m-card__desc">Zesty <b>+</b> cheesy jalape&ntilde;o poppers with a crunchy shell.</div></div></div>
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-corn-crisps.jpg" alt="Corn crisps" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Corn Crisps</div><div class="m-card__price"><sup>$</sup>4.49</div></div><div class="m-card__meta">8 pcs &middot; 125 cal</div><div class="m-card__desc">Crunchy <b>+</b> tasty golden corn bites.</div></div></div>
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-waffle-fries.jpg" alt="Waffle fries" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Waffle Fries</div><div class="m-card__price"><sup>$</sup>2.99</div></div><div class="m-card__meta">420 cal / 125g</div><div class="m-card__desc">Crispy waffle-cut potato fries, salted just right.</div></div></div>
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-mozzarella.jpg" alt="Mozzarella sticks" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Mozzarella Sticks</div><div class="m-card__price"><sup>$</sup>5.99</div></div><div class="m-card__meta">3 pcs &middot; 267 cal / 100g</div><div class="m-card__desc">Crispy on the outside, molten mozzarella pull inside.</div></div></div>
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-cauliflower.jpg" alt="Cauliflower crunch" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Cauliflower Crunch</div><div class="m-card__price"><sup>$</sup>4.99</div></div><div class="m-card__meta">125 cal / 100g</div><div class="m-card__desc">Crunchy <b>+</b> flavourful battered cauliflower florets.</div></div></div>
+  </div>
+</section>
+
+<!-- FEATURED PICKS -->
+<section class="m-sec m-sec--dark" id="featured" data-section style="padding-top:0">
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">Fan Favourites</div>
+    <h2 class="m-sec__title">Featured Picks</h2>
+  </div>
+  <div class="m-feature reveal">
+    <div class="m-deal m-deal--photo">
+      <div class="m-deal__img"><img src="images/menu-nachos.jpg" alt="Loaded nachos" loading="lazy"></div>
+      <div class="m-deal__body">
+        <div class="m-deal__top"><div class="m-deal__name">Nachos</div><div class="m-deal__price"><sup>$</sup>9.99</div></div>
+        <div class="m-card__meta" style="margin-bottom:14px">280 cal</div>
+        <p class="m-card__desc" style="margin-bottom:16px">A loaded pile of crispy tortilla chips with all the fixings. Make it a meal &mdash; add your protein.</p>
+        <div class="m-card__addons" style="border-top:none;padding-top:0;margin-top:auto">
+          <span class="m-addon">House Protein +$2.50</span><span class="m-addon">Premium Protein +$4</span><span class="m-addon">Extra Cheese +$1.99</span><span class="m-addon">Add Guac +$1.50</span>
+        </div>
+      </div>
+    </div>
+    <div class="m-deal m-deal--photo">
+      <div class="m-deal__img"><img src="images/menu-guac-crunch.jpg" alt="Guac Crunch" loading="lazy"></div>
+      <div class="m-deal__body">
+        <div class="m-deal__top"><div class="m-deal__name">Guac Crunch</div><div class="m-deal__price"><sup>$</sup>10.69</div></div>
+        <div class="m-card__meta" style="margin-bottom:14px">850&ndash;1050 cal</div>
+        <p class="m-card__desc" style="margin-bottom:16px">Queso cheese, tostada, lettuce, tomatoes, mango salsa, sour cream and your choice of a house protein &mdash; crunch in every bite.</p>
+        <div class="m-card__addons" style="border-top:none;padding-top:0;margin-top:auto">
+          <span class="m-addon">Premium Protein +$1.50</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIPS & DIPS -->
+<section class="m-sec m-sec--cream" id="chips" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">Dip In</div>
+    <h2 class="m-sec__title">Chips &amp; Dips</h2>
+    <p class="m-sec__intro">House-fried chips and the dips that make them dangerous.</p>
+  </div>
+  <div class="m-split reveal">
+    <div class="m-list">
+      <div class="m-list-row"><span class="m-list-row__name">Chips &amp; Salsa</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>3.49</span></div>
+      <div class="m-list-row"><span class="m-list-row__name">Chips &amp; Guac</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>4.49</span></div>
+      <div class="m-list-row"><span class="m-list-row__name">Chips &amp; Queso</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>3.69</span></div>
+      <div class="m-list-row"><span class="m-list-row__name">Side of Guac</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>3.29</span></div>
+      <div class="m-list-row"><span class="m-list-row__name">Side of Queso</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>2.69</span></div>
+    </div>
+    <div class="m-split__img"><img src="images/menu-chips-dips.jpg" alt="Chips with fresh guacamole and salsa" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- SIDES + DESSERTS -->
+<section class="m-sec m-sec--dark" id="sides" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">More To Love</div>
+    <h2 class="m-sec__title">Sides &amp; Sweets</h2>
+  </div>
+  <div class="m-cards reveal" style="grid-template-columns:repeat(auto-fill,minmax(280px,360px));margin-bottom:56px">
+    <div class="m-card"><div class="m-card__img"><img src="images/menu-loaded-potatoes.jpg" alt="Loaded potatoes" loading="lazy"></div><div class="m-card__body"><div class="m-card__top"><div class="m-card__name">Loaded Potatoes</div><div class="m-card__price"><sup>$</sup>7.49</div></div><div class="m-card__meta">130 cal</div><div class="m-card__desc">Ground beef, queso, tomatoes, sour cream and our signature guac seasoning.</div></div></div>
+  </div>
+  <div class="m-sec__head reveal" id="desserts" data-section style="margin-bottom:36px">
+    <div class="m-sec__eyebrow">Save Room</div>
+    <h2 class="m-sec__title" style="font-size:clamp(30px,4vw,48px)">Desserts</h2>
+  </div>
+  <div class="m-list reveal" style="max-width:640px">
+    <div class="m-list-row"><span class="m-list-row__name">Churro</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>3.49</span></div>
+    <div class="m-list-row"><span class="m-list-row__name">Brownie</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>2.99</span></div>
+    <div class="m-list-row"><span class="m-list-row__name">Cookie</span><span class="m-list-row__lead"></span><span class="m-list-row__price"><sup>$</sup>1.25</span></div>
+    <div class="m-card__meta" style="margin-top:16px">Churro dips: Caramel &middot; Chocolate</div>
+  </div>
+</section>
+
+<!-- KIDS -->
+<section class="m-sec m-sec--cream" id="kids" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">For The Little Ones</div>
+    <h2 class="m-sec__title">Kids Menu</h2>
+    <p class="m-sec__intro">For younger appetites, ages 12 &amp; under.</p>
+  </div>
+  <div class="m-kids reveal">
+    <div class="m-kids__box">
+      <div class="m-card__name" style="display:flex;justify-content:space-between;align-items:baseline;color:var(--dark)">Kids Meal <span class="m-card__price" style="color:var(--rust)"><sup>$</sup>6.99</span></div>
+      <p class="m-card__desc" style="color:rgba(22,33,31,.6);margin-top:14px">Served with a <b style="color:var(--dark)">juice &amp; cookie</b>. Base includes rice, beans &amp; cheese.</p>
+      <div class="m-card__meta" style="margin-top:18px;color:var(--olive)">Choose one below</div>
+    </div>
+    <div class="m-kids__box m-kids__box--olive">
+      <div class="m-flavour__t" style="color:var(--cream)">Choose One</div>
+      <div class="m-flavour__hint" style="color:rgba(226,221,203,.7);margin-bottom:18px">Little hands, big flavour.</div>
+      <div class="m-flavour__list">
+        <span class="m-tagpill" style="border-color:rgba(226,221,203,.35);color:var(--cream)">Kids Burrito</span>
+        <span class="m-tagpill" style="border-color:rgba(226,221,203,.35);color:var(--cream)">Kids Taco</span>
+        <span class="m-tagpill" style="border-color:rgba(226,221,203,.35);color:var(--cream)">Kids Quesadilla</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEAL DEALS -->
+<section class="m-sec m-sec--dark" id="deals" data-section>
+  <div class="m-sec__head reveal">
+    <div class="m-sec__eyebrow">The Guac Experience</div>
+    <h2 class="m-sec__title">Meal Deals</h2>
+    <p class="m-sec__intro">Built to order. Paired right. Bundles that feed the table for less.</p>
+  </div>
+  <div class="m-cards reveal" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="m-deal"><div class="m-deal__body">
+      <div class="m-deal__num">01 &middot; Guac Experience</div>
+      <div class="m-deal__top"><div class="m-deal__name">Signature Combo</div><div class="m-deal__price"><sup>$</sup>16.99</div></div>
+      <ul class="m-deal__incl"><li>Signature Burrito &mdash; house protein</li><li>Chips w/ dip</li><li>Bottled water</li></ul>
+      <div class="m-deal__foot"><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--ghost">Order &#x2192;</a></div>
+    </div></div>
+    <div class="m-deal"><div class="m-deal__body">
+      <div class="m-deal__num">02 &middot; House Special</div>
+      <div class="m-deal__top"><div class="m-deal__name">Enchilada Meal</div><div class="m-deal__price"><sup>$</sup>22.29</div></div>
+      <ul class="m-deal__incl"><li>Signature Enchilada &mdash; house protein</li><li>Jarrito</li><li>Churro</li></ul>
+      <div class="m-deal__foot"><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--ghost">Order &#x2192;</a></div>
+    </div></div>
+    <div class="m-deal"><div class="m-deal__body">
+      <div class="m-deal__num">03 &middot; Share</div>
+      <div class="m-deal__top"><div class="m-deal__name">Meal For 2</div><div class="m-deal__price"><sup>$</sup>38.96</div></div>
+      <ul class="m-deal__incl"><li>6 tacos &mdash; house protein</li><li>2 chips w/ dip</li><li>2 Jarritos</li></ul>
+      <div class="m-deal__foot"><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--ghost">Order &#x2192;</a></div>
+    </div></div>
+    <div class="m-deal"><div class="m-deal__body">
+      <div class="m-deal__num">04 &middot; Feed The Crew</div>
+      <div class="m-deal__top"><div class="m-deal__name">Family Meal</div><div class="m-deal__price"><sup>$</sup>58.96</div></div>
+      <ul class="m-deal__incl"><li>2 Signature Burritos &mdash; house protein</li><li>2 Classic Burritos &mdash; house protein</li><li>2 chips w/ dip &middot; 4 cans of pop</li></ul>
+      <div class="m-deal__foot"><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--ghost">Order &#x2192;</a></div>
+    </div></div>
+  </div>
+
+  <!-- LTO BANNER -->
+  <div class="m-lto reveal" style="margin-top:56px">
+    <div class="m-lto__img" role="img" aria-label="Mango Chipotle Pollo Asado"></div>
+    <div class="m-lto__body">
+      <div class="m-lto__badge">Limited Time Only</div>
+      <div class="m-lto__name">Mango Chipotle<br>Pollo Asado</div>
+      <p class="m-lto__desc">Fire-grilled pollo asado layered with sweet mango heat and smoky chipotle &mdash; in a bowl, burrito, tacos or quesadilla. Comes with a complimentary Passion Fruit Agua. Starting at <b style="color:var(--sand)">$14.19</b>.</p>
+      <a href="ltos.html#mango-chipotle" class="btn btn--amber">See The LTO &#x2192;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="m-cta">
+  <div class="reveal">
+    <div class="m-cta__eyebrow">Ready When You Are</div>
+    <h2 class="m-cta__h">Hungry <span>Yet?</span></h2>
+    <p class="m-cta__p">Skip the line. Build it your way and order for pickup in seconds.</p>
+    <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--amber">Order Now &#x2192;</a>
+  </div>
+</section>
+<p class="m-legal">Prices in CAD and may vary by location. Calorie counts are approximate and can vary with customization. Menu items and availability subject to change. Gluten-free options available at participating locations.</p>
+</main>
+
+<!-- MOBILE ORDER BAR -->
+<div class="m-orderbar">
+  <span class="m-orderbar__txt">Build it your way</span>
+  <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--amber">Order Now &#x2192;</a>
+</div>
+
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img data-img="LOGO" alt="GUAC MEXI GRILL">
+      <p class="footer__tagline">Tex-Mex Soul, Canadian Born.<br>Bold flavour starts here.</p>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/guacmexigrill" target="_blank" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/guacmexigrill/" target="_blank" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div><div class="footer__col-title">Our Food</div>
+      <ul class="footer__col-links"><li><a href="menu.html">Menu</a></li><li><a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener">Catering</a></li><li><a href="nutrition.html">Nutrition</a></li><li><a href="allergens.html">Allergen Chart</a></li><li><a href="locations.html">Locations</a></li></ul></div>
+    <div><div class="footer__col-title">About Us</div>
+      <ul class="footer__col-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li><li><a href="contact.html#faq">FAQs</a></li></ul></div>
+    <div><div class="footer__col-title">Explore More</div>
+      <ul class="footer__col-links"><li><a href="gift-card.html">Gift Card</a></li><li><a href="franchising.html">Franchising</a></li></ul></div>
+    <div><div class="footer__col-title">Connect</div>
+      <ul class="footer__col-links"><li><a href="contact.html">Contact Us</a></li><li><a href="https://www.facebook.com/guacmexigrill" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/guacmexigrill/" target="_blank">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__copy">© 2026 GUAC Mexi Grill | All rights reserved.</div>
+    <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Menu",
+  "name":"GUAC Mexi Grill Menu",
+  "url":"https://guacmexigrill.ca/menu.html",
+  "inLanguage":"en-CA",
+  "hasMenuSection":[
+    {"@type":"MenuSection","name":"Build Your Own","hasMenuItem":[
+      {"@type":"MenuItem","name":"Classic Burrito","offers":{"@type":"Offer","price":"10.69","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Signature Burrito","offers":{"@type":"Offer","price":"12.69","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Grande Burrito","offers":{"@type":"Offer","price":"15.09","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Signature Bowl","offers":{"@type":"Offer","price":"13.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Taco Bowl","offers":{"@type":"Offer","price":"15.69","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Single Taco","offers":{"@type":"Offer","price":"4.69","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Taco Trio","offers":{"@type":"Offer","price":"12.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Signature Quesadilla","offers":{"@type":"Offer","price":"13.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Classic Enchilada","offers":{"@type":"Offer","price":"14.19","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Signature Enchilada","offers":{"@type":"Offer","price":"16.19","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Grande Enchilada","offers":{"@type":"Offer","price":"19.99","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Guac Bites","hasMenuItem":[
+      {"@type":"MenuItem","name":"Jalapeño Poppers","offers":{"@type":"Offer","price":"5.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Corn Crisps","offers":{"@type":"Offer","price":"4.49","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Waffle Fries","offers":{"@type":"Offer","price":"2.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Mozzarella Sticks","offers":{"@type":"Offer","price":"5.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Cauliflower Crunch","offers":{"@type":"Offer","price":"4.99","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Featured Picks","hasMenuItem":[
+      {"@type":"MenuItem","name":"Nachos","offers":{"@type":"Offer","price":"9.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Guac Crunch","offers":{"@type":"Offer","price":"10.69","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Chips & Dips","hasMenuItem":[
+      {"@type":"MenuItem","name":"Chips & Salsa","offers":{"@type":"Offer","price":"3.49","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Chips & Guac","offers":{"@type":"Offer","price":"4.49","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Chips & Queso","offers":{"@type":"Offer","price":"3.69","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Side of Guac","offers":{"@type":"Offer","price":"3.29","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Side of Queso","offers":{"@type":"Offer","price":"2.69","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Sides & Desserts","hasMenuItem":[
+      {"@type":"MenuItem","name":"Loaded Potatoes","offers":{"@type":"Offer","price":"7.49","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Churro","offers":{"@type":"Offer","price":"3.49","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Brownie","offers":{"@type":"Offer","price":"2.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Cookie","offers":{"@type":"Offer","price":"1.25","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Kids Menu","hasMenuItem":[
+      {"@type":"MenuItem","name":"Kids Meal","offers":{"@type":"Offer","price":"6.99","priceCurrency":"CAD"}}
+    ]},
+    {"@type":"MenuSection","name":"Meal Deals","hasMenuItem":[
+      {"@type":"MenuItem","name":"Signature Combo","offers":{"@type":"Offer","price":"16.99","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"House Special Enchilada Meal","offers":{"@type":"Offer","price":"22.29","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Meal For 2","offers":{"@type":"Offer","price":"38.96","priceCurrency":"CAD"}},
+      {"@type":"MenuItem","name":"Family Meal","offers":{"@type":"Offer","price":"58.96","priceCurrency":"CAD"}}
+    ]}
+  ]
+}
+</script>
+
+<script>
+  var IMAGE_CONFIG = {
+    // REPLACEABLE — update path here to swap this image
+    LOGO: "images/logo.png",
+  };
+  document.querySelectorAll('[data-img]').forEach(function(el){
+    var k = el.getAttribute('data-img');
+    if (IMAGE_CONFIG[k]) el.src = IMAGE_CONFIG[k];
+  });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // Nav + mobile nav
+  var nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);});
+  document.getElementById('burgerBtn').addEventListener('click',function(){
+    document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';});
+  function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('closeNav').addEventListener('click',closeMobileNav);
+
+  // Reveal on scroll
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+  // Category bar active state
+  (function(){
+    var links=Array.prototype.slice.call(document.querySelectorAll('.m-catbar a[data-cat]'));
+    var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var sections=Array.prototype.slice.call(document.querySelectorAll('section[data-section]'));
+    var catObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id=e.target.id;if(!map[id])return;
+          links.forEach(function(a){a.classList.remove('active');});
+          map[id].classList.add('active');
+          map[id].scrollIntoView({block:'nearest',inline:'center'});
+        }
+      });
+    },{rootMargin:'-140px 0px -55% 0px',threshold:0});
+    sections.forEach(function(s){catObs.observe(s);});
+  })();
+
+  // ---------- FORMAT SHOWCASE (auto-rotating) ----------
+  (function(){
+    var formats=[
+      {id:'burritos',name:'Burritos',img:'images/menu-burrito.jpg',from:'10.69',
+        rows:[['Classic','390–520 cal','10.69','14.99'],['Signature','680–890 cal · GF +$2','12.69','16.99'],['Grande','740–1040 cal','15.09','19.39']]},
+      {id:'bowls',name:'Bowls',img:'images/menu-bowl.jpg',from:'13.99',
+        rows:[['Signature','500–580 cal','13.99','18.29'],['Taco Bowl','560–640 cal','15.69','19.99']]},
+      {id:'tacos',name:'Tacos',img:'images/menu-tacos.jpg',from:'4.69',
+        rows:[['Single','360–520 cal','4.69','8.99'],['Trio','360–520 cal','12.99','17.29']]},
+      {id:'quesadillas',name:'Quesadillas',img:'images/menu-quesadilla.jpg',from:'13.99',
+        rows:[['Signature','435–515 cal · GF +$2','13.99','18.29']]},
+      {id:'enchiladas',name:'Enchiladas',img:'images/menu-enchilada.jpg',from:'14.19',
+        rows:[['Classic','415–545 cal','14.19','18.49'],['Signature','705–915 cal · GF +$2','16.19','20.49'],['Grande','765–1065 cal','19.99','24.29']]}
+    ];
+    var ROTATE=5000;
+    var optsEl=document.getElementById('sc-opts');
+    var imgsEl=document.getElementById('sc-imgs');
+    var nameEl=document.getElementById('sc-name');
+    var rowsEl=document.getElementById('sc-rows');
+    var timerEl=document.getElementById('sc-timer');
+    var showcaseEl=document.getElementById('showcase');
+    var imgEls=[];
+    var active=0, timer=null, tStart=0, raf=null, paused=false;
+
+    formats.forEach(function(f,i){
+      var b=document.createElement('button');b.type='button';b.className='m-showcase__opt'+(i===0?' active':'');
+      b.setAttribute('role','tab');b.setAttribute('aria-selected',i===0?'true':'false');
+      b.innerHTML='<span class="m-showcase__opt-name">'+f.name+'</span><span class="m-showcase__opt-from">From $'+f.from+'</span>';
+      b.addEventListener('click',function(){go(i,true);});
+      optsEl.appendChild(b);
+      var im=document.createElement('img');im.src=f.img;im.alt=f.name;im.className='m-showcase__imgwrap-img'+(i===0?'':'');
+      if(i===0)im.classList.add('on');
+      imgsEl.appendChild(im);imgEls.push(im);
+    });
+
+    function renderDetail(f){
+      nameEl.textContent=f.name;
+      var html='<div class="m-showcase__cols"><span>Size</span><span>Entrée</span><span>Combo</span></div>';
+      f.rows.forEach(function(r){
+        html+='<div class="m-showcase__row"><span class="m-showcase__row-size">'+r[0]+'<span class="m-showcase__row-cal">'+r[1]+'</span></span><span class="m-showcase__row-p">$'+r[2]+'</span><span class="m-showcase__row-p combo">$'+r[3]+'</span></div>';
+      });
+      rowsEl.innerHTML=html;
+    }
+
+    function go(i,userInitiated){
+      active=i;
+      Array.prototype.forEach.call(optsEl.children,function(c,idx){
+        c.classList.toggle('active',idx===i);c.setAttribute('aria-selected',idx===i?'true':'false');
+      });
+      imgEls.forEach(function(im,idx){im.classList.toggle('on',idx===i);});
+      renderDetail(formats[i]);
+      if(userInitiated)restart();
+    }
+
+    function tick(){
+      if(paused||reduceMotion){return;}
+      var now=Date.now();var pct=Math.min(100,((now-tStart)/ROTATE)*100);
+      timerEl.style.width=pct+'%';
+      if(pct>=100){go((active+1)%formats.length);tStart=Date.now();}
+      raf=requestAnimationFrame(tick);
+    }
+    function restart(){tStart=Date.now();timerEl.style.width='0%';if(raf)cancelAnimationFrame(raf);if(!reduceMotion){raf=requestAnimationFrame(tick);}}
+
+    // init
+    renderDetail(formats[0]);
+    if(!reduceMotion){
+      showcaseEl.addEventListener('mouseenter',function(){paused=true;});
+      showcaseEl.addEventListener('mouseleave',function(){paused=false;tStart=Date.now()-(0);});
+      // Only run the rotation once the showcase scrolls into view
+      var startObs=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(e.isIntersecting){restart();startObs.disconnect();}});},{threshold:0.25});
+      startObs.observe(showcaseEl);
+    }
+  })();
+
+  // ---------- INTERACTIVE BUILDER ----------
+  (function(){
+    var bases=[
+      {id:"classic-burrito",name:"Classic Burrito",e:10.69,c:14.99,gf:false,img:"images/menu-burrito.jpg"},
+      {id:"signature-burrito",name:"Signature Burrito",e:12.69,c:16.99,gf:true,img:"images/menu-burrito.jpg"},
+      {id:"grande-burrito",name:"Grande Burrito",e:15.09,c:19.39,gf:false,img:"images/menu-burrito.jpg"},
+      {id:"signature-bowl",name:"Signature Bowl",e:13.99,c:18.29,gf:false,img:"images/menu-bowl.jpg"},
+      {id:"taco-bowl",name:"Taco Bowl",e:15.69,c:19.99,gf:false,img:"images/menu-bowl.jpg"},
+      {id:"single-taco",name:"Single Taco",e:4.69,c:8.99,gf:false,img:"images/menu-tacos.jpg"},
+      {id:"taco-trio",name:"Taco Trio",e:12.99,c:17.29,gf:false,img:"images/menu-tacos.jpg"},
+      {id:"signature-quesadilla",name:"Signature Quesadilla",e:13.99,c:18.29,gf:true,img:"images/menu-quesadilla.jpg"},
+      {id:"classic-enchilada",name:"Classic Enchilada",e:14.19,c:18.49,gf:false,img:"images/menu-enchilada.jpg"},
+      {id:"signature-enchilada",name:"Signature Enchilada",e:16.19,c:20.49,gf:true,img:"images/menu-enchilada.jpg"},
+      {id:"grande-enchilada",name:"Grande Enchilada",e:19.99,c:24.29,gf:false,img:"images/menu-enchilada.jpg"}
+    ];
+    var houseProteins=["Chicken","Carnitas","Ground Beef","Plant-Based Crumble","Veggie"];
+    var premiumProteins=["Barbacoa","Steak","Shrimp"];
+    var PREMIUM_UP=1.50;
+    var upgrades=[
+      {id:"guac",label:"Add Guac",price:1.50},
+      {id:"cheese",label:"Extra Cheese",price:1.99},
+      {id:"protein",label:"Extra Protein",price:2.99},
+      {id:"gf",label:"Gluten-Free",price:2.00,gfOnly:true}
+    ];
+
+    var state={base:bases[1],combo:false,protein:"Chicken",premium:false,ups:{}};
+
+    var elBase=document.getElementById('b-base');
+    var elEntree=document.getElementById('b-entree');
+    var elCombo=document.getElementById('b-combo');
+    var elProteins=document.getElementById('b-proteins');
+    var elUpgrades=document.getElementById('b-upgrades');
+    var rName=document.getElementById('r-name');
+    var rSub=document.getElementById('r-sub');
+    var rLines=document.getElementById('r-lines');
+    var rTotal=document.getElementById('r-total');
+    var rOrder=document.getElementById('r-order');
+    var rImg=document.getElementById('r-img');
+
+    bases.forEach(function(b,i){
+      var o=document.createElement('option');o.value=String(i);o.textContent=b.name+" — $"+b.e.toFixed(2);
+      elBase.appendChild(o);
+    });
+    elBase.value="1";
+
+    function renderProteins(){
+      elProteins.innerHTML="";
+      houseProteins.forEach(function(p){elProteins.appendChild(makeProtein(p,false));});
+      premiumProteins.forEach(function(p){elProteins.appendChild(makeProtein(p,true));});
+    }
+    function makeProtein(p,isPrem){
+      var b=document.createElement('button');b.type="button";b.className="m-chip";
+      b.setAttribute('aria-pressed', state.protein===p ? 'true':'false');
+      b.innerHTML=p+(isPrem?' <span class="up">+$1.50</span>':'');
+      if(state.protein===p){b.classList.add('on');}
+      b.addEventListener('click',function(){
+        state.protein=p;state.premium=isPrem;
+        Array.prototype.forEach.call(elProteins.children,function(c){c.classList.remove('on');c.setAttribute('aria-pressed','false');});
+        b.classList.add('on');b.setAttribute('aria-pressed','true');
+        update();
+      });
+      return b;
+    }
+
+    function renderUpgrades(){
+      elUpgrades.innerHTML="";
+      upgrades.forEach(function(u){
+        if(u.gfOnly && !state.base.gf)return;
+        var b=document.createElement('button');b.type="button";b.className="m-chip";
+        b.setAttribute('aria-pressed', state.ups[u.id]?'true':'false');
+        b.innerHTML=u.label+' <span class="up">+$'+u.price.toFixed(2).replace('.00','')+'</span>';
+        if(state.ups[u.id]){b.classList.add('on','on--sand');}
+        b.addEventListener('click',function(){
+          state.ups[u.id]=!state.ups[u.id];
+          b.classList.toggle('on',state.ups[u.id]);b.classList.toggle('on--sand',state.ups[u.id]);
+          b.setAttribute('aria-pressed', state.ups[u.id]?'true':'false');
+          update();
+        });
+        elUpgrades.appendChild(b);
+      });
+    }
+
+    function money(n){return n.toFixed(2);}
+    function update(){
+      var base=state.base;
+      var basePrice=state.combo?base.c:base.e;
+      rName.textContent=base.name;
+      rSub.innerHTML=(state.combo?'Combo':'Entrée')+' &middot; '+state.protein;
+      if(rImg.getAttribute('src')!==base.img){rImg.src=base.img;}
+      rImg.alt=base.name;
+
+      var lines=[];
+      lines.push({l:base.name+(state.combo?' Combo':' Entrée'),v:basePrice,base:true});
+      if(state.premium)lines.push({l:'Premium protein',v:PREMIUM_UP});
+      var total=basePrice+(state.premium?PREMIUM_UP:0);
+      upgrades.forEach(function(u){
+        if(u.gfOnly && !state.base.gf)return;
+        if(state.ups[u.id]){lines.push({l:u.label,v:u.price});total+=u.price;}
+      });
+      if(state.combo)lines.push({l:'Includes chips, salsa & pop',v:null,muted:true});
+
+      rLines.innerHTML="";
+      lines.forEach(function(li){
+        var el=document.createElement('li');el.className='m-receipt__line'+(li.muted?' m-receipt__line--muted':'');
+        var s1=document.createElement('span');s1.textContent=li.l;
+        var s2=document.createElement('span');s2.textContent=li.v==null?'included':(li.base?'$'+money(li.v):'+$'+money(li.v));
+        el.appendChild(s1);el.appendChild(s2);rLines.appendChild(el);
+      });
+      rTotal.innerHTML='<sup>$</sup>'+money(total);
+    }
+
+    elBase.addEventListener('change',function(){
+      state.base=bases[parseInt(elBase.value,10)]||bases[0];
+      renderUpgrades();
+      update();
+    });
+    elEntree.addEventListener('click',function(){state.combo=false;elEntree.classList.add('on');elCombo.classList.remove('on');update();});
+    elCombo.addEventListener('click',function(){state.combo=true;elCombo.classList.add('on');elEntree.classList.remove('on');update();});
+
+    renderProteins();renderUpgrades();update();
+  })();
+</script>
+<script src="/assets/js/geo-banner.js"></script>
+<script>(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var wheel=document.getElementById("cursor-wheel");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;wheel.style.left=rx+"px";wheel.style.top=ry+"px";requestAnimationFrame(animate);})();})();</script>
+</body>
+</html>
