@@ -195,9 +195,10 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-slide.is-active{opacity:1;visibility:visible;transition:opacity .9s var(--ease);z-index:2}
 /* image lives in a right-side panel — the narrow frame plus right-anchored zoom crops the promo images' baked-in text off screen */
 .lto-slide__media{position:absolute;top:0;bottom:0;right:0;left:max(56%,calc(100% - 660px));overflow:hidden;background:var(--dark)}
-/* per-slide crop tuned to keep the promo images' baked-in text out of frame (see --s / --py on each slide) */
-.lto-slide__media img{--s:1.45;--se:1.53;--py:50%;width:100%;height:100%;object-fit:cover;object-position:100% var(--py);transform:scale(var(--s));transform-origin:right center}
+/* per-slide crop (--s zoom, --px/--py focal point). Slide 1 zooms to keep the poster's baked-in text off frame; slide 2 uses a clean photo at natural framing */
+.lto-slide__media img{--s:1.45;--se:1.53;--px:100%;--py:50%;width:100%;height:100%;object-fit:cover;object-position:var(--px) var(--py);transform:scale(var(--s));transform-origin:right center}
 .lto-slide--l1 .lto-slide__media img{--s:1.7;--se:1.78;--py:55%}
+.lto-slide--l2 .lto-slide__media img{--s:1.02;--se:1.07;--px:60%;--py:50%}
 .lto-slide.is-active .lto-slide__media img{animation:ltoKen 8s var(--ease) forwards}
 @keyframes ltoKen{from{transform:scale(var(--s))}to{transform:scale(var(--se))}}
 /* soft seam blends the image's left edge into the dark content panel */
@@ -250,6 +251,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   .lto-slide__media{left:0}
   .lto-slide__media img{object-position:78% 50%;transform:scale(1.16)}
   .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.16)}
+  .lto-slide--l2 .lto-slide__media img,.lto-slide--l2.is-active .lto-slide__media img{object-position:56% 50%;transform:scale(1.03)}
   .lto-slide__inner{justify-content:flex-end;padding:32px 24px 84px;max-width:none}
   .lto-slide__scrim{background:linear-gradient(to top,rgba(21,22,22,.97) 6%,rgba(21,22,22,.76) 42%,rgba(21,22,22,.55) 70%,rgba(21,22,22,.76) 100%)}
   .lto-slide__name{font-size:clamp(36px,9vw,50px)}
@@ -309,7 +311,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
         <div class="lto-slide__media"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado — fire-grilled chicken with sweet mango heat and smoky chipotle"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
-          <span class="lto-slide__eyebrow">Limited Time Only</span>
+          <span class="lto-slide__eyebrow">Limited Time &middot; Ends Sept 30</span>
           <h2 class="lto-slide__name">Mango Chipotle<br>Pollo Asado</h2>
           <div class="lto-slide__price"><small>Starting at</small><sup>$</sup>14<sup>.19</sup></div>
           <p class="lto-slide__desc">Fire-grilled pollo asado with sweet mango heat and smoky chipotle &mdash; plus a complimentary Passion Fruit Agua.</p>
@@ -321,11 +323,11 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
         </div>
       </div>
 
-      <div class="lto-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
+      <div class="lto-slide lto-slide--l2" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
         <div class="lto-slide__media"><img data-img="LTO_2" alt="The Lunch Ritual — a classic burrito with rice, beans and house protein"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
-          <span class="lto-slide__eyebrow">Limited Time Only</span>
+          <span class="lto-slide__eyebrow">Limited Time &middot; Ends Sept 30</span>
           <h2 class="lto-slide__name">The Lunch<br>Ritual</h2>
           <div class="lto-slide__price"><sup>$</sup>9<sup>.99</sup></div>
           <p class="lto-slide__desc">A classic burrito with rice, beans, and your choice of house protein &mdash; the lunch that means business. Students save 15% with valid ID.</p>
@@ -481,7 +483,7 @@ document.getElementById('subBtn').addEventListener('click',function(){
     // REPLACEABLE — update path here to swap this image (LTO slider slide 1)
     LTO_1: "images/lto-1.jpg",
     // REPLACEABLE — update path here to swap this image (LTO slider slide 2)
-    LTO_2: "images/lto-2.jpg",
+    LTO_2: "images/lto-2-hero.jpg",
     // REPLACEABLE — update path here to swap this image
     GIFT_CARD_BG: "images/gift-card-bg.jpg",
     // REPLACEABLE — update path here to swap this image
