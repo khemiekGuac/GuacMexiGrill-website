@@ -101,14 +101,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-banner__fade--left{left:0;background:linear-gradient(to right,var(--olive),transparent)}
 .lto-banner__fade--right{right:0;background:linear-gradient(to left,var(--olive),transparent)}
 
-/* ── LTO CARDS SECTION ──────────────────────────── */
-.lto-section{background:var(--cream);padding:0 0 80px}
-.lto-section__header{padding:72px 80px 48px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-.lto-section__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(44px,6vw,80px);line-height:.88;letter-spacing:-.025em;text-transform:uppercase;color:var(--dark);margin-top:14px}
-.lto-section__headline em{font-style:normal;color:var(--olive)}
-.lto-section__cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0}
 .underline-link{font-family:var(--font-display);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--dark);border-bottom:1px solid var(--dark);padding-bottom:3px;transition:color .2s,border-color .2s}.underline-link:hover{color:var(--olive);border-color:var(--olive)}
-@media(max-width:1024px){.lto-section__header{padding:56px 32px 36px;flex-direction:column;align-items:flex-start}.lto-section__cta-wrap{align-items:flex-start}}
 .skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}#cursor-wheel{display:none}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{display:block;position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block;animation:cursor-spin 9s linear infinite}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg{animation-duration:1.6s}body.cursor-hidden #cursor-wheel{opacity:0}@keyframes cursor-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}}</style>
 <style>
 .hero{position:relative;background:var(--cream);min-height:calc(100vh - 108px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
@@ -192,13 +185,16 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
 <style>
 /* ══ LTO SLIDER — cinematic promo carousel ══════════════════════ */
-.lto-slider__wrap{padding:0 80px}
-.lto-slider{position:relative;width:100%;height:clamp(500px,60vh,600px);overflow:hidden;background:var(--dark);border-radius:3px;isolation:isolate}
+.lto-slider__wrap{padding:0}
+/* full-bleed, above-the-fold hero: fills the viewport below the topbar (36) + nav (72) + ticker (44) */
+.lto-slider{position:relative;width:100%;height:max(540px,calc(100svh - 152px));overflow:hidden;background:var(--dark);isolation:isolate}
+.lto-slider__viewall{position:absolute;z-index:5;top:26px;right:32px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(226,221,203,.72);background:rgba(21,22,22,.32);backdrop-filter:blur(4px);border:1px solid rgba(226,221,203,.22);border-radius:2px;padding:9px 16px;transition:color .2s,border-color .2s,background .2s}
+.lto-slider__viewall:hover{color:var(--cream);border-color:var(--cream);background:rgba(21,22,22,.5)}
 .lto-slider__viewport{position:absolute;inset:0}
 .lto-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s var(--ease),visibility 0s linear .9s;z-index:1}
 .lto-slide.is-active{opacity:1;visibility:visible;transition:opacity .9s var(--ease);z-index:2}
 /* image lives in a right-side panel — the narrow frame plus right-anchored zoom crops the promo images' baked-in text off screen */
-.lto-slide__media{position:absolute;top:0;bottom:0;right:0;left:58%;overflow:hidden;background:var(--dark)}
+.lto-slide__media{position:absolute;top:0;bottom:0;right:0;left:max(56%,calc(100% - 660px));overflow:hidden;background:var(--dark)}
 /* per-slide crop tuned to keep the promo images' baked-in text out of frame (see --s / --py on each slide) */
 .lto-slide__media img{--s:1.45;--se:1.53;--py:50%;width:100%;height:100%;object-fit:cover;object-position:100% var(--py);transform:scale(var(--s));transform-origin:right center}
 .lto-slide--l1 .lto-slide__media img{--s:1.7;--se:1.78;--py:55%}
@@ -206,7 +202,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @keyframes ltoKen{from{transform:scale(var(--s))}to{transform:scale(var(--se))}}
 /* soft seam blends the image's left edge into the dark content panel */
 .lto-slide__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 54%,rgba(21,22,22,.55) 62%,transparent 73%)}
-.lto-slide__inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:640px;padding:44px 56px}
+.lto-slide__inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:660px;padding:56px 72px}
 .lto-slide__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
 .lto-slide__eyebrow::before{content:'';width:24px;height:1px;background:var(--olive)}
 .lto-slide__name{font-family:var(--font-display);font-weight:900;font-size:clamp(38px,4.8vw,64px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
@@ -237,20 +233,20 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-slider__dot:hover{background:rgba(226,221,203,.42)}
 .lto-slider__dot span{position:absolute;inset:0;width:0;background:var(--amber);border-radius:3px}
 .lto-slider__dot.is-active{background:rgba(226,221,203,.24)}
-.lto-slider__dot.is-active span{width:100%;transition:width var(--lto-dur,6s) linear}
+.lto-slider__dot.is-active span{width:100%;transition:width var(--lto-dur,5s) linear}
 .lto-slider__dot.is-active.is-paused span{transition:none}
 .lto-slider.no-auto .lto-slider__dot.is-active span{width:100%;transition:none}
 .lto-slider__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:1024px){
-  .lto-slider__wrap{padding:0 32px}
   .lto-slide__media{left:52%}
-  .lto-slide__inner{padding:40px 40px;max-width:none}
-  .lto-slider__dots{left:40px;bottom:28px}
+  .lto-slide__inner{padding:40px 44px;max-width:none}
+  .lto-slider__dots{left:44px;bottom:28px}
   .lto-slider__arrows{right:24px;bottom:22px}
+  .lto-slider__viewall{top:22px;right:24px}
 }
 /* stack to a full-bleed background with bottom-anchored content on phones */
 @media(max-width:768px){
-  .lto-slider{height:clamp(540px,84vh,640px)}
+  .lto-slider{height:max(500px,calc(100svh - 148px))}
   .lto-slide__media{left:0}
   .lto-slide__media img{object-position:78% 50%;transform:scale(1.16)}
   .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.16)}
@@ -261,6 +257,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   .lto-slide__actions .btn{justify-content:center;padding:15px 24px}
   .lto-slider__arrows{display:none}
   .lto-slider__dots{left:24px;bottom:34px}
+  .lto-slider__viewall{top:18px;right:18px;padding:8px 12px;letter-spacing:.22em}
 }
 @media(prefers-reduced-motion:reduce){
   .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(var(--s))}
@@ -301,6 +298,55 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 </div>
 <!-- ══ END LTO BANNER ══ -->
 
+<!-- ══ LTO SLIDER HERO — add/edit a .lto-slide to update the carousel ══ -->
+<div class="lto-slider__wrap">
+  <div class="lto-slider" id="ltoSlider" role="group" aria-roledescription="carousel" aria-label="Limited time offers">
+    <div class="lto-slider__sr" aria-live="polite" id="ltoLive"></div>
+    <a href="ltos.html" class="lto-slider__viewall">View all offers &#x2192;</a>
+    <div class="lto-slider__viewport" id="ltoViewport">
+
+      <div class="lto-slide lto-slide--l1 is-active" role="group" aria-roledescription="slide" aria-label="1 of 2: Mango Chipotle Pollo Asado">
+        <div class="lto-slide__media"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado — fire-grilled chicken with sweet mango heat and smoky chipotle"></div>
+        <div class="lto-slide__scrim"></div>
+        <div class="lto-slide__inner">
+          <span class="lto-slide__eyebrow">Limited Time Only</span>
+          <h2 class="lto-slide__name">Mango Chipotle<br>Pollo Asado</h2>
+          <div class="lto-slide__price"><small>Starting at</small><sup>$</sup>14<sup>.19</sup></div>
+          <p class="lto-slide__desc">Fire-grilled pollo asado with sweet mango heat and smoky chipotle &mdash; plus a complimentary Passion Fruit Agua.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">Bowl</span><span class="lto-slide__tag">Burrito</span><span class="lto-slide__tag">Tacos</span><span class="lto-slide__tag">Quesadilla</span></div>
+          <div class="lto-slide__actions">
+            <a href="ltos.html#mango-chipotle" class="btn btn--cream">See Details &#x2192;</a>
+            <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lto-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
+        <div class="lto-slide__media"><img data-img="LTO_2" alt="The Lunch Ritual — a classic burrito with rice, beans and house protein"></div>
+        <div class="lto-slide__scrim"></div>
+        <div class="lto-slide__inner">
+          <span class="lto-slide__eyebrow">Limited Time Only</span>
+          <h2 class="lto-slide__name">The Lunch<br>Ritual</h2>
+          <div class="lto-slide__price"><sup>$</sup>9<sup>.99</sup></div>
+          <p class="lto-slide__desc">A classic burrito with rice, beans, and your choice of house protein &mdash; the lunch that means business. Students save 15% with valid ID.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">Classic Burrito</span><span class="lto-slide__tag">Rice</span><span class="lto-slide__tag">Beans</span><span class="lto-slide__tag">Student Deal</span></div>
+          <div class="lto-slide__actions">
+            <a href="ltos.html#lunch-ritual" class="btn btn--cream">See Details &#x2192;</a>
+            <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose offer"></div>
+    <div class="lto-slider__arrows">
+      <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</div>
+<!-- ══ END LTO SLIDER HERO ══ -->
+
 <section class="hero">
   <div class="hero__left">
     <div class="eyebrow hero__eyebrow">Tex-Mex Soul · Canadian Born</div>
@@ -328,65 +374,6 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   <div class="pillar"><img data-img="ICON_HOUSE_MADE" class="pillar__icon" alt="House-Made"><div><div class="pillar__name">House-Made</div><div class="pillar__desc">Made daily — guac, salsas, marinades, all in-house.</div></div></div>
   <div class="pillar"><img data-img="ICON_FIRE_ROASTED" class="pillar__icon" alt="Fire-Roasted"><div><div class="pillar__name">Fire-Roasted</div><div class="pillar__desc">The char is intentional. Real heat, real depth.</div></div></div>
 </div>
-
-<section class="lto-section" id="lto-section">
-  <div class="lto-section__header reveal">
-    <div>
-      <div class="eyebrow">What&rsquo;s On Now</div>
-      <h2 class="lto-section__headline">Limited<br><em>Time.</em><br>Bold Flavour.</h2>
-    </div>
-    <div class="lto-section__cta-wrap">
-      <a href="ltos.html" class="underline-link">View All LTOs →</a>
-    </div>
-  </div>
-  <!-- ══ LTO SLIDER — add/edit a .lto-slide to update the carousel ══ -->
-  <div class="lto-slider__wrap reveal">
-    <div class="lto-slider" id="ltoSlider" role="group" aria-roledescription="carousel" aria-label="Limited time offers">
-      <div class="lto-slider__sr" aria-live="polite" id="ltoLive"></div>
-      <div class="lto-slider__viewport" id="ltoViewport">
-
-        <div class="lto-slide lto-slide--l1 is-active" role="group" aria-roledescription="slide" aria-label="1 of 2: Mango Chipotle Pollo Asado">
-          <div class="lto-slide__media"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado — fire-grilled chicken with sweet mango heat and smoky chipotle"></div>
-          <div class="lto-slide__scrim"></div>
-          <div class="lto-slide__inner">
-            <span class="lto-slide__eyebrow">Limited Time Only</span>
-            <h3 class="lto-slide__name">Mango Chipotle<br>Pollo Asado</h3>
-            <div class="lto-slide__price"><small>Starting at</small><sup>$</sup>14<sup>.19</sup></div>
-            <p class="lto-slide__desc">Fire-grilled pollo asado with sweet mango heat and smoky chipotle &mdash; plus a complimentary Passion Fruit Agua.</p>
-            <div class="lto-slide__tags"><span class="lto-slide__tag">Bowl</span><span class="lto-slide__tag">Burrito</span><span class="lto-slide__tag">Tacos</span><span class="lto-slide__tag">Quesadilla</span></div>
-            <div class="lto-slide__actions">
-              <a href="ltos.html#mango-chipotle" class="btn btn--cream">See Details &#x2192;</a>
-              <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="lto-slide" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
-          <div class="lto-slide__media"><img data-img="LTO_2" alt="The Lunch Ritual — a classic burrito with rice, beans and house protein"></div>
-          <div class="lto-slide__scrim"></div>
-          <div class="lto-slide__inner">
-            <span class="lto-slide__eyebrow">Limited Time Only</span>
-            <h3 class="lto-slide__name">The Lunch<br>Ritual</h3>
-            <div class="lto-slide__price"><sup>$</sup>9<sup>.99</sup></div>
-            <p class="lto-slide__desc">A classic burrito with rice, beans, and your choice of house protein &mdash; the lunch that means business. Students save 15% with valid ID.</p>
-            <div class="lto-slide__tags"><span class="lto-slide__tag">Classic Burrito</span><span class="lto-slide__tag">Rice</span><span class="lto-slide__tag">Beans</span><span class="lto-slide__tag">Student Deal</span></div>
-            <div class="lto-slide__actions">
-              <a href="ltos.html#lunch-ritual" class="btn btn--cream">See Details &#x2192;</a>
-              <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose offer"></div>
-      <div class="lto-slider__arrows">
-        <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
-      </div>
-    </div>
-  </div>
-  <!-- ══ END LTO SLIDER ══ -->
-</section>
 
 <section class="welcome">
   <div class="reveal">
@@ -538,7 +525,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   var live=document.getElementById('ltoLive');
   var dotsWrap=document.getElementById('ltoDots');
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var DURATION=6000;
+  var DURATION=5000;
   root.style.setProperty('--lto-dur',(DURATION/1000)+'s');
   var current=0,timer=null,paused=false;
 
