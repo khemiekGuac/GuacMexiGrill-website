@@ -104,20 +104,19 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .underline-link{font-family:var(--font-display);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--dark);border-bottom:1px solid var(--dark);padding-bottom:3px;transition:color .2s,border-color .2s}.underline-link:hover{color:var(--olive);border-color:var(--olive)}
 .skip-link{position:absolute;top:-48px;left:6px;background:#3b5e20;color:#fff;padding:8px 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.1em;text-decoration:none;z-index:10000;border-radius:0 0 4px 4px;transition:top .15s ease}.skip-link:focus{top:0}:focus-visible{outline:2px solid #5a7a3a;outline-offset:3px;border-radius:2px}.newsletter__consent{font-size:11px;color:rgba(226,221,203,.45);margin-top:10px;max-width:480px;text-align:center;line-height:1.5}.newsletter__consent a{color:rgba(226,221,203,.65);text-decoration:underline}#cursor-wheel{display:none}@media(pointer:fine){body.js-cursor,body.js-cursor *{cursor:none!important}#cursor-wheel{display:block;position:fixed;margin-left:-22px;margin-top:-22px;pointer-events:none;z-index:99999;transition:opacity .3s,transform .4s var(--ease);will-change:left,top}#cursor-wheel svg{display:block}#cursor-wheel svg path{transition:fill .25s ease}body.cursor-active #cursor-wheel{transform:scale(1.4)}body.cursor-active #cursor-wheel svg path{fill:#D9854A}body.cursor-hidden #cursor-wheel{opacity:0}}</style>
 <style>
-.hero{position:relative;background:var(--cream);min-height:calc(100vh - 108px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero__left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;z-index:2}
-.hero__eyebrow{margin-bottom:22px;opacity:0;animation:fadeUp .8s var(--ease) .2s forwards}
-.hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(70px,9vw,118px);line-height:.9;letter-spacing:-.02em;color:var(--dark);text-transform:uppercase;margin-bottom:32px;opacity:0;animation:fadeUp .9s var(--ease) .35s forwards}
+/* stacked hero: full-width centered title, nachos image centered below */
+.hero{position:relative;background:var(--cream);display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}
+.hero__intro{width:100%;max-width:1180px;padding:76px 40px 46px;display:flex;flex-direction:column;align-items:center}
+.hero__eyebrow{margin-bottom:20px;opacity:0;animation:fadeUp .8s var(--ease) .1s forwards}
+.hero__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(54px,9.5vw,140px);line-height:.9;letter-spacing:-.02em;color:var(--dark);text-transform:uppercase;text-wrap:balance;margin-bottom:24px;opacity:0;animation:fadeUp .9s var(--ease) .2s forwards}
 .hero__headline span{color:var(--olive)}
-.hero__sub{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(14px,1.5vw,17px);color:rgba(22,33,31,.65);max-width:340px;line-height:1.75;margin-bottom:40px;opacity:0;animation:fadeUp .9s var(--ease) .5s forwards}
-.hero__actions{display:flex;flex-direction:column;gap:20px;opacity:0;animation:fadeUp .9s var(--ease) .65s forwards}
-.hero__btns{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero__sub{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,18px);color:rgba(22,33,31,.65);max-width:580px;line-height:1.75;margin-bottom:34px;opacity:0;animation:fadeUp .9s var(--ease) .32s forwards}
+.hero__actions{display:flex;flex-direction:column;align-items:center;gap:18px;opacity:0;animation:fadeUp .9s var(--ease) .44s forwards}
+.hero__btns{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
 .btn--hero{font-size:14px!important;padding:22px 56px!important;letter-spacing:.32em!important;font-weight:800!important;border-width:2px!important}
 .hero__location-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:500;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:rgba(22,33,31,.45);transition:color .25s var(--ease)}.hero__location-link:hover{color:var(--olive)}.hero__location-link svg{flex-shrink:0;transition:transform .25s var(--ease)}.hero__location-link:hover svg{transform:translateX(3px)}
-.hero__right{position:relative;overflow:hidden}
-.hero__right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.05);animation:scaleIn 1.4s var(--ease) forwards}
-.hero__scroll{position:absolute;bottom:36px;left:80px;display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(22,33,31,.35);animation:fadeIn 1s 1.2s forwards;opacity:0}
-.hero__scroll::before{content:'';width:1px;height:38px;background:linear-gradient(to bottom,transparent,var(--dark));animation:scrollLine 1.5s ease 1.4s infinite}
+.hero__image{width:100%;padding:0 40px 84px;display:flex;justify-content:center}
+.hero__image img{width:100%;max-width:1200px;height:clamp(280px,40vh,440px);object-fit:cover;object-position:center 42%;border-radius:4px;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{to{opacity:1}}
 @keyframes scaleIn{to{transform:scale(1)}}
@@ -181,7 +180,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .newsletter__submit{background:var(--cream);color:var(--dark);border:none;padding:15px 26px;font-family:var(--font-display);font-weight:700;font-size:10px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;flex-shrink:0;transition:background .3s}
 .newsletter__submit:hover{background:var(--olive)}
 @media(max-width:480px){.btn--hero{font-size:13px!important;padding:19px 36px!important}.hero__btns{flex-direction:column;align-items:stretch}.hero__btns .btn--hero{text-align:center;justify-content:center}}
-@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero__right{height:50vw;position:relative}.hero__left{padding:60px 32px}.hero__scroll{display:none}.welcome{grid-template-columns:1fr;padding:60px 32px;gap:44px}.welcome__right{grid-template-columns:1fr}.welcome__img--accent{display:none}.menu-preview{padding:60px 32px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values-band{grid-template-columns:1fr;padding:56px 32px;gap:36px}.values-band__div{display:none}.story-band{grid-template-columns:1fr}.story-band__img{height:360px;position:relative}.story-band__content{padding:56px 32px}.pillars{grid-template-columns:1fr}.pillar{border-right:none;border-bottom:1px solid rgba(203,180,129,.07)}.gc-band__content{padding:56px 32px}.newsletter{padding:56px 32px}}
+@media(max-width:1024px){.hero__intro{padding:56px 24px 36px}.hero__image{padding:0 24px 60px}.welcome{grid-template-columns:1fr;padding:60px 32px;gap:44px}.welcome__right{grid-template-columns:1fr}.welcome__img--accent{display:none}.menu-preview{padding:60px 32px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values-band{grid-template-columns:1fr;padding:56px 32px;gap:36px}.values-band__div{display:none}.story-band{grid-template-columns:1fr}.story-band__img{height:360px;position:relative}.story-band__content{padding:56px 32px}.pillars{grid-template-columns:1fr}.pillar{border-right:none;border-bottom:1px solid rgba(203,180,129,.07)}.gc-band__content{padding:56px 32px}.newsletter{padding:56px 32px}}
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
 <style>
 /* ══ LTO SLIDER — cinematic promo carousel ══════════════════════ */
@@ -350,9 +349,9 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 <!-- ══ END LTO SLIDER HERO ══ -->
 
 <section class="hero">
-  <div class="hero__left">
+  <div class="hero__intro">
     <div class="eyebrow hero__eyebrow">Tex-Mex Soul · Canadian Born</div>
-    <h1 class="hero__headline">Bold<br><span>Flavour</span><br>Starts<br>Here</h1>
+    <h1 class="hero__headline">Bold <span>Flavour</span> Starts Here</h1>
     <p class="hero__sub">Real ingredients. House-made everything. Fire-roasted flavour you can taste in every bite.</p>
     <div class="hero__actions">
       <div class="hero__btns">
@@ -366,9 +365,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
       </a>
     </div>
   </div>
-  <div class="hero__right"><img data-img="HERO_FOOD" alt="Bold Tex-Mex"></div>
-  <div class="hero__scroll">Scroll to explore</div>
-<p class="newsletter__consent">By selecting &#8220;Subscribe,&#8221; you consent to receive promotional emails from ATM Holdings Inc., including news, offers, and restaurant updates. You can withdraw your consent at any time. View our <a href="privacy.html">Privacy Policy</a> or contact us at <a href="mailto:info@guacmexigrill.ca">info@guacmexigrill.ca</a>.</p>
+  <div class="hero__image"><img data-img="HERO_FOOD" alt="Loaded Tex-Mex nachos"></div>
 </section>
 
 <div class="pillars reveal">
@@ -429,6 +426,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     <input type="email" class="newsletter__input" id="newsletterEmail" aria-label="Email address" placeholder="your@email.com">
     <button class="newsletter__submit" id="subBtn">Subscribe</button>
   </div>
+  <p class="newsletter__consent reveal d3">By selecting &#8220;Subscribe,&#8221; you consent to receive promotional emails from ATM Holdings Inc., including news, offers, and restaurant updates. You can withdraw your consent at any time. View our <a href="privacy.html">Privacy Policy</a> or contact us at <a href="mailto:info@guacmexigrill.ca">info@guacmexigrill.ca</a>.</p>
 </section>
 <script>
 document.getElementById('subBtn').addEventListener('click',function(){
