@@ -115,7 +115,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .m-showcase__opt.active .m-showcase__opt-from{color:var(--sand)}
 .m-showcase__media{position:relative;min-height:460px;background:#0d0e0d;overflow:hidden}
 .m-showcase__imgwrap{position:absolute;inset:0}
-.m-showcase__imgwrap img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform 6s linear;transform:scale(1.02)}
+.m-showcase__imgwrap img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform 6s linear;transform:scale(1.02)}
 .m-showcase__imgwrap img.on{opacity:1;transform:scale(1.08)}
 .m-showcase__media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,13,.05) 0%,rgba(13,14,13,.35) 55%,rgba(13,14,13,.92) 100%);pointer-events:none}
 .m-showcase__cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 34px}
@@ -390,7 +390,7 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
       </div>
     </div>
     <div class="m-builder__panel">
-      <div class="m-receipt__photo"><img id="r-img" src="images/menu-burrito.jpg" alt=""></div>
+      <div class="m-receipt__photo"><img id="r-img" src="images/build/burrito-chicken.jpg" alt=""></div>
       <div class="m-receipt">
         <div class="m-receipt__k">Your Build</div>
         <div class="m-receipt__name" id="r-name">Signature Burrito</div>
@@ -812,20 +812,38 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
   // ---------- INTERACTIVE BUILDER ----------
   (function(){
     var bases=[
-      {id:"classic-burrito",name:"Classic Burrito",e:10.69,c:14.99,gf:false,img:"images/menu-burrito.jpg"},
-      {id:"signature-burrito",name:"Signature Burrito",e:12.69,c:16.99,gf:true,img:"images/menu-burrito.jpg"},
-      {id:"grande-burrito",name:"Grande Burrito",e:15.09,c:19.39,gf:false,img:"images/menu-burrito.jpg"},
-      {id:"signature-bowl",name:"Signature Bowl",e:13.99,c:18.29,gf:false,img:"images/menu-bowl.jpg"},
-      {id:"taco-bowl",name:"Taco Bowl",e:15.69,c:19.99,gf:false,img:"images/menu-bowl.jpg"},
-      {id:"single-taco",name:"Single Taco",e:4.69,c:8.99,gf:false,img:"images/menu-tacos.jpg"},
-      {id:"taco-trio",name:"Taco Trio",e:12.99,c:17.29,gf:false,img:"images/menu-tacos.jpg"},
-      {id:"signature-quesadilla",name:"Signature Quesadilla",e:13.99,c:18.29,gf:true,img:"images/menu-quesadilla.jpg"},
-      {id:"classic-enchilada",name:"Classic Enchilada",e:14.19,c:18.49,gf:false,img:"images/menu-enchilada.jpg"},
-      {id:"signature-enchilada",name:"Signature Enchilada",e:16.19,c:20.49,gf:true,img:"images/menu-enchilada.jpg"},
-      {id:"grande-enchilada",name:"Grande Enchilada",e:19.99,c:24.29,gf:false,img:"images/menu-enchilada.jpg"}
+      {id:"classic-burrito",name:"Classic Burrito",e:10.69,c:14.99,gf:false,fmt:"burrito"},
+      {id:"signature-burrito",name:"Signature Burrito",e:12.69,c:16.99,gf:true,fmt:"burrito"},
+      {id:"grande-burrito",name:"Grande Burrito",e:15.09,c:19.39,gf:false,fmt:"burrito"},
+      {id:"signature-bowl",name:"Signature Bowl",e:13.99,c:18.29,gf:false,fmt:"bowl"},
+      {id:"taco-bowl",name:"Taco Bowl",e:15.69,c:19.99,gf:false,fmt:"tacobowl"},
+      {id:"single-taco",name:"Single Taco",e:4.69,c:8.99,gf:false,fmt:"tacos"},
+      {id:"taco-trio",name:"Taco Trio",e:12.99,c:17.29,gf:false,fmt:"tacos"},
+      {id:"signature-quesadilla",name:"Signature Quesadilla",e:13.99,c:18.29,gf:true,fmt:"quesadilla"},
+      {id:"classic-enchilada",name:"Classic Enchilada",e:14.19,c:18.49,gf:false,fmt:"enchilada"},
+      {id:"signature-enchilada",name:"Signature Enchilada",e:16.19,c:20.49,gf:true,fmt:"enchilada"},
+      {id:"grande-enchilada",name:"Grande Enchilada",e:19.99,c:24.29,gf:false,fmt:"enchilada"}
     ];
     var houseProteins=["Chicken","Carnitas","Ground Beef","Plant-Based Crumble","Veggie"];
     var premiumProteins=["Barbacoa","Steak","Shrimp"];
+    // Image = format + protein. Formats with a full protein set live in images/build/;
+    // tacos & quesadilla have a single shot. Missing combos fall back sensibly.
+    var PROTEIN_KEY={"Chicken":"chicken","Carnitas":"carnitas","Ground Beef":"groundbeef","Plant-Based Crumble":"plantbased","Veggie":"veggie","Barbacoa":"barbacoa","Steak":"steak","Shrimp":"shrimp"};
+    var FMT_SETS={
+      burrito:["chicken","carnitas","groundbeef","barbacoa","steak","shrimp","veggie"],
+      bowl:["chicken","carnitas","groundbeef","barbacoa","steak","shrimp","veggie"],
+      tacobowl:["chicken","groundbeef","barbacoa","steak","shrimp","veggie"],
+      enchilada:["chicken","carnitas","groundbeef","barbacoa","steak","shrimp","veggie","plantbased"]
+    };
+    var FMT_SINGLE={tacos:"images/menu-tacos.jpg",quesadilla:"images/menu-quesadilla.jpg"};
+    function buildImg(base){
+      var fmt=base.fmt;
+      if(FMT_SINGLE[fmt])return FMT_SINGLE[fmt];
+      var set=FMT_SETS[fmt]||["chicken"];
+      var pk=PROTEIN_KEY[state.protein]||"chicken";
+      if(set.indexOf(pk)<0){ if(pk==="plantbased")pk="veggie"; if(set.indexOf(pk)<0)pk="chicken"; }
+      return "images/build/"+fmt+"-"+pk+".jpg";
+    }
     var PREMIUM_UP=1.50;
     var upgrades=[
       {id:"guac",label:"Add Guac",price:1.50},
@@ -897,8 +915,9 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
       var basePrice=state.combo?base.c:base.e;
       rName.textContent=base.name;
       rSub.innerHTML=(state.combo?'Combo':'Entrée')+' &middot; '+state.protein;
-      if(rImg.getAttribute('src')!==base.img){rImg.src=base.img;}
-      rImg.alt=base.name;
+      var img=buildImg(base);
+      if(rImg.getAttribute('src')!==img){rImg.src=img;}
+      rImg.alt=state.protein+' '+base.name;
 
       var lines=[];
       lines.push({l:base.name+(state.combo?' Combo':' Entrée'),v:basePrice,base:true});
