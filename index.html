@@ -183,7 +183,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:1024px){.hero__intro{padding:56px 24px 36px}.hero__image{padding:0 24px 60px}.welcome{grid-template-columns:1fr;padding:60px 32px;gap:44px}.welcome__right{grid-template-columns:1fr}.welcome__img--accent{display:none}.menu-preview{padding:60px 32px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values-band{grid-template-columns:1fr;padding:56px 32px;gap:36px}.values-band__div{display:none}.story-band{grid-template-columns:1fr}.story-band__img{height:360px;position:relative}.story-band__content{padding:56px 32px}.pillars{grid-template-columns:1fr}.pillar{border-right:none;border-bottom:1px solid rgba(203,180,129,.07)}.gc-band__content{padding:56px 32px}.newsletter{padding:56px 32px}}
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
 <style>
-/* ══ LTO SLIDER — cinematic promo carousel ══════════════════════ */
+/* ══ FEATURED SLIDER — cinematic promo carousel ══════════════════════ */
 .lto-slider__wrap{padding:0}
 /* full-bleed, above-the-fold hero: fills the viewport below the topbar (36) + nav (72) + ticker (44) */
 .lto-slider{position:relative;width:100%;height:max(540px,calc(100svh - 152px));overflow:hidden;background:var(--dark);isolation:isolate}
@@ -194,14 +194,15 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-slide.is-active{opacity:1;visibility:visible;transition:opacity .9s var(--ease);z-index:2}
 /* image lives in a right-side panel — the narrow frame plus right-anchored zoom crops the promo images' baked-in text off screen */
 .lto-slide__media{position:absolute;top:0;bottom:0;right:0;left:max(56%,calc(100% - 660px));overflow:hidden;background:var(--dark)}
-/* per-slide crop (--s zoom, --px/--py focal point). Slide 1 zooms to keep the poster's baked-in text off frame; slide 2 uses a clean photo at natural framing */
-.lto-slide__media img{--s:1.45;--se:1.53;--px:100%;--py:50%;width:100%;height:100%;object-fit:cover;object-position:var(--px) var(--py);transform:scale(var(--s));transform-origin:right center}
-.lto-slide--l1 .lto-slide__media img{--s:1.7;--se:1.78;--py:55%}
-.lto-slide--l2 .lto-slide__media img{--s:1.02;--se:1.07;--px:60%;--py:50%}
+/* per-slide crop (--s zoom, --px/--py focal point). Featured slides use clean square menu photos at natural framing */
+.lto-slide__media img{--s:1.02;--se:1.07;--px:50%;--py:50%;width:100%;height:100%;object-fit:cover;object-position:var(--px) var(--py);transform:scale(var(--s));transform-origin:center center}
+/* duo: two photos stacked in the panel (side by side on mobile) */
+.lto-slide__media--duo{display:grid;grid-template-rows:1fr 1fr;gap:2px}
+.lto-slide__media--duo img{min-height:0}
 .lto-slide.is-active .lto-slide__media img{animation:ltoKen 8s var(--ease) forwards}
 @keyframes ltoKen{from{transform:scale(var(--s))}to{transform:scale(var(--se))}}
 /* soft seam blends the image's left edge into the dark content panel */
-.lto-slide__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 54%,rgba(21,22,22,.55) 62%,transparent 73%)}
+.lto-slide__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 54%,rgba(21,22,22,.35) 59%,transparent 63%)}
 .lto-slide__inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:660px;padding:56px 72px}
 .lto-slide__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
 .lto-slide__eyebrow::before{content:'';width:24px;height:1px;background:var(--olive)}
@@ -248,9 +249,9 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:768px){
   .lto-slider{height:max(500px,calc(100svh - 148px))}
   .lto-slide__media{left:0}
-  .lto-slide__media img{object-position:78% 50%;transform:scale(1.16)}
-  .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.16)}
-  .lto-slide--l2 .lto-slide__media img,.lto-slide--l2.is-active .lto-slide__media img{object-position:56% 50%;transform:scale(1.03)}
+  .lto-slide__media img{object-position:50% 50%;transform:scale(1.02)}
+  .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.02)}
+  .lto-slide__media--duo{grid-template-rows:none;grid-template-columns:1fr 1fr}
   .lto-slide__inner{justify-content:flex-end;padding:32px 24px 84px;max-width:none}
   .lto-slide__scrim{background:linear-gradient(to top,rgba(21,22,22,.97) 6%,rgba(21,22,22,.76) 42%,rgba(21,22,22,.55) 70%,rgba(21,22,22,.76) 100%)}
   .lto-slide__name{font-size:clamp(36px,9vw,50px)}
@@ -291,58 +292,74 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 </div>
 <div id="main-content" tabindex="-1"></div>
 
-<!-- ══ LTO BANNER — edit .lto-item elements to update promotions ══ -->
+<!-- ══ TICKER BANNER — edit .lto-item elements to update featured items / promotions ══ -->
 <div class="lto-banner" id="ltoBanner">
   <div class="lto-banner__fade lto-banner__fade--left"></div>
-  <div class="lto-banner__track" id="ltoTrack"><div class="lto-item"><span class="lto-item__text"><a href="ltos.html#mango-chipotle">Mango Chipotle Pollo Asado — From $14.19 · Limited Time</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="ltos.html#lunch-ritual">The Lunch Ritual — $9.99 · Limited Time Only</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="gift-card.html">Gift Cards Available In-Store — Never Expires</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="ltos.html#mango-chipotle">Mango Chipotle Pollo Asado — From $14.19 · Limited Time</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="ltos.html#lunch-ritual">The Lunch Ritual — $9.99 · Limited Time Only</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="gift-card.html">Gift Cards Available In-Store — Never Expires</a></span><span class="lto-item__dot"></span></div></div>
+  <div class="lto-banner__track" id="ltoTrack"><div class="lto-item"><span class="lto-item__text"><a href="menu.html#featured">Featured: Guac Crunch — $10.69</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="menu.html">Loaded Potatoes — $7.49</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="menu.html">Corn Crisps &amp; Cauliflower Crunch — Free Dipping Sauce Included</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="gift-card.html">Gift Cards Available In-Store — Never Expires</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="menu.html#featured">Featured: Guac Crunch — $10.69</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="menu.html">Loaded Potatoes — $7.49</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="menu.html">Corn Crisps &amp; Cauliflower Crunch — Free Dipping Sauce Included</a></span><span class="lto-item__dot"></span></div><div class="lto-item"><span class="lto-item__text"><a href="gift-card.html">Gift Cards Available In-Store — Never Expires</a></span><span class="lto-item__dot"></span></div></div>
   <div class="lto-banner__fade lto-banner__fade--right"></div>
 </div>
 <!-- ══ END LTO BANNER ══ -->
 
-<!-- ══ LTO SLIDER HERO — add/edit a .lto-slide to update the carousel ══ -->
+<!-- ══ FEATURED SLIDER HERO — add/edit a .lto-slide to update the carousel ══ -->
 <div class="lto-slider__wrap">
-  <div class="lto-slider" id="ltoSlider" role="group" aria-roledescription="carousel" aria-label="Limited time offers">
+  <div class="lto-slider" id="ltoSlider" role="group" aria-roledescription="carousel" aria-label="Featured menu items">
     <div class="lto-slider__sr" aria-live="polite" id="ltoLive"></div>
-    <a href="ltos.html" class="lto-slider__viewall">View all offers &#x2192;</a>
+    <a href="menu.html" class="lto-slider__viewall">View full menu &#x2192;</a>
     <div class="lto-slider__viewport" id="ltoViewport">
 
-      <div class="lto-slide lto-slide--l1 is-active" role="group" aria-roledescription="slide" aria-label="1 of 2: Mango Chipotle Pollo Asado">
-        <div class="lto-slide__media"><img data-img="LTO_1" alt="Mango Chipotle Pollo Asado — fire-grilled chicken with sweet mango heat and smoky chipotle"></div>
+      <div class="lto-slide lto-slide--f1 is-active" role="group" aria-roledescription="slide" aria-label="1 of 3: Guac Crunch">
+        <div class="lto-slide__media"><img data-img="FEATURE_1" alt="Guac Crunch — crispy tostada with queso, lettuce, tomatoes, mango salsa, sour cream and house protein"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
-          <span class="lto-slide__eyebrow">Limited Time &middot; Ends Sept 30</span>
-          <h2 class="lto-slide__name">Mango Chipotle<br>Pollo Asado</h2>
-          <div class="lto-slide__price"><small>Starting at</small><sup>$</sup>14<sup>.19</sup></div>
-          <p class="lto-slide__desc">Fire-grilled pollo asado with sweet mango heat and smoky chipotle &mdash; plus a complimentary Passion Fruit Agua.</p>
-          <div class="lto-slide__tags"><span class="lto-slide__tag">Bowl</span><span class="lto-slide__tag">Burrito</span><span class="lto-slide__tag">Tacos</span><span class="lto-slide__tag">Quesadilla</span></div>
+          <span class="lto-slide__eyebrow">Featured &middot; Fan Favourite</span>
+          <h2 class="lto-slide__name">Guac<br>Crunch</h2>
+          <div class="lto-slide__price"><sup>$</sup>10<sup>.69</sup></div>
+          <p class="lto-slide__desc">Queso cheese, tostada, lettuce, tomatoes, mango salsa, sour cream and your choice of a house protein &mdash; crunch in every bite.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">House Protein</span><span class="lto-slide__tag">Mango Salsa</span><span class="lto-slide__tag">Queso</span><span class="lto-slide__tag">850&ndash;1050 cal</span></div>
           <div class="lto-slide__actions">
-            <a href="ltos.html#mango-chipotle" class="btn btn--cream">See Details &#x2192;</a>
+            <a href="menu.html#featured" class="btn btn--cream">View On Menu &#x2192;</a>
             <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
           </div>
         </div>
       </div>
 
-      <div class="lto-slide lto-slide--l2" role="group" aria-roledescription="slide" aria-label="2 of 2: The Lunch Ritual">
-        <div class="lto-slide__media"><img data-img="LTO_2" alt="The Lunch Ritual — a classic burrito with rice, beans and house protein"></div>
+      <div class="lto-slide lto-slide--f2" role="group" aria-roledescription="slide" aria-label="2 of 3: Loaded Potatoes">
+        <div class="lto-slide__media"><img data-img="FEATURE_2" alt="Loaded Potatoes topped with ground beef, queso, tomatoes and sour cream"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
-          <span class="lto-slide__eyebrow">Limited Time &middot; Ends Sept 30</span>
-          <h2 class="lto-slide__name">The Lunch<br>Ritual</h2>
-          <div class="lto-slide__price"><sup>$</sup>9<sup>.99</sup></div>
-          <p class="lto-slide__desc">A classic burrito with rice, beans, and your choice of house protein &mdash; the lunch that means business. Students save 15% with valid ID.</p>
-          <div class="lto-slide__tags"><span class="lto-slide__tag">Classic Burrito</span><span class="lto-slide__tag">Rice</span><span class="lto-slide__tag">Beans</span><span class="lto-slide__tag">Student Deal</span></div>
+          <span class="lto-slide__eyebrow">Featured &middot; Sides</span>
+          <h2 class="lto-slide__name">Loaded<br>Potatoes</h2>
+          <div class="lto-slide__price"><sup>$</sup>7<sup>.49</sup></div>
+          <p class="lto-slide__desc">Ground beef, queso, tomatoes, sour cream and our signature guac seasoning.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">Ground Beef</span><span class="lto-slide__tag">Queso</span><span class="lto-slide__tag">Guac Seasoning</span></div>
           <div class="lto-slide__actions">
-            <a href="ltos.html#lunch-ritual" class="btn btn--cream">See Details &#x2192;</a>
+            <a href="menu.html" class="btn btn--cream">View On Menu &#x2192;</a>
+            <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lto-slide lto-slide--f3" role="group" aria-roledescription="slide" aria-label="3 of 3: Corn Crisps &amp; Cauliflower Crunch">
+        <div class="lto-slide__media lto-slide__media--duo"><img data-img="FEATURE_3A" alt="Golden corn crisps"><img data-img="FEATURE_3B" alt="Battered cauliflower crunch florets"></div>
+        <div class="lto-slide__scrim"></div>
+        <div class="lto-slide__inner">
+          <span class="lto-slide__eyebrow">Featured &middot; Free Dipping Sauce</span>
+          <h2 class="lto-slide__name">Corn Crisps<br>&amp; Cauliflower</h2>
+          <div class="lto-slide__price"><small>From</small><sup>$</sup>4<sup>.49</sup></div>
+          <p class="lto-slide__desc">Crunchy golden corn bites and battered cauliflower florets &mdash; each order comes with one free dipping sauce.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">Corn Crisps $4.49</span><span class="lto-slide__tag">Cauliflower Crunch $4.99</span><span class="lto-slide__tag">1 Free Dip</span></div>
+          <div class="lto-slide__actions">
+            <a href="menu.html" class="btn btn--cream">View On Menu &#x2192;</a>
             <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" rel="noopener" class="btn btn--outline-light">Order Now</a>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose offer"></div>
+    <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose featured item"></div>
     <div class="lto-slider__arrows">
-      <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
 </div>
@@ -478,10 +495,13 @@ document.getElementById('subBtn').addEventListener('click',function(){
   var IMAGE_CONFIG = {
     // REPLACEABLE — update path here to swap this image
     HERO_FOOD: "images/hero-food.jpg",
-    // REPLACEABLE — update path here to swap this image (LTO slider slide 1)
-    LTO_1: "images/lto-1.jpg",
-    // REPLACEABLE — update path here to swap this image (LTO slider slide 2)
-    LTO_2: "images/lto-2-hero.jpg",
+    // REPLACEABLE — update path here to swap this image (featured slider slide 1)
+    FEATURE_1: "images/menu-guac-crunch.jpg",
+    // REPLACEABLE — update path here to swap this image (featured slider slide 2)
+    FEATURE_2: "images/menu-loaded-potatoes.jpg",
+    // REPLACEABLE — update paths here to swap these images (featured slider slide 3)
+    FEATURE_3A: "images/menu-corn-crisps.jpg",
+    FEATURE_3B: "images/menu-cauliflower.jpg",
     // REPLACEABLE — update path here to swap this image
     GIFT_CARD_BG: "images/gift-card-bg.jpg",
     // REPLACEABLE — update path here to swap this image
@@ -516,7 +536,7 @@ closeNavBtn.addEventListener('click',closeMobileNav);
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* ── LTO SLIDER ─────────────────────────────────────────── */
+/* ── FEATURED SLIDER ─────────────────────────────────────────── */
 (function(){
   var root=document.getElementById('ltoSlider');
   if(!root)return;
