@@ -15,6 +15,9 @@
  *     /com-site) are deployed alongside the site because the Pages project
  *     serves the repo root. They are answered with a 404 on every host.
  *
+ *  4. www.*  — permanently redirected (301) to the bare domain so search
+ *     engines see one copy of each page.
+ *
  * NOTE: this only affects the staging domain if that domain is served by a
  * deployment built from this repository. If staging is a separate/stale
  * Cloudflare project, the custom domain + DNS record must be removed in the
@@ -31,6 +34,14 @@ export async function onRequest(context) {
     path = decodeURIComponent(path);
   } catch (e) {
     // Malformed escapes: test the raw path.
+  }
+
+  // 4. Send www.* to the bare domain (one canonical host).
+  if (host.startsWith("www.")) {
+    const url = new URL(context.request.url);
+    url.hostname = host.slice(4);
+    url.protocol = "https:";
+    return Response.redirect(url.toString(), 301);
   }
 
   // 3. Block internal repo files.
