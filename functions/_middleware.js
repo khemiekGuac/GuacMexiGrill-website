@@ -11,13 +11,39 @@
  *  2. *.pages.dev — Cloudflare preview URLs stay reachable for staff but are
  *     kept out of search with an `X-Robots-Tag: noindex` response header.
  *
+ *  3. Internal repo files (scripts, config, docs, the US site's source under
+ *     /com-site) are deployed alongside the site because the Pages project
+ *     serves the repo root. They are answered with a 404 on every host.
+ *
  * NOTE: this only affects the staging domain if that domain is served by a
  * deployment built from this repository. If staging is a separate/stale
  * Cloudflare project, the custom domain + DNS record must be removed in the
  * dashboard for the URL to actually go away.
  */
+// Files in the repo that must never be served publicly.
+const BLOCKED_PATH =
+  /^\/(com-site(\/|$)|functions(\/|$)|\.(?!well-known\/)|[^/]*\.(py|md|jsonc?|toml)$)/i;
+
 export async function onRequest(context) {
   const host = (context.request.headers.get("host") || "").toLowerCase();
+  let path = new URL(context.request.url).pathname;
+  try {
+    path = decodeURIComponent(path);
+  } catch (e) {
+    // Malformed escapes: test the raw path.
+  }
+
+  // 3. Block internal repo files.
+  if (BLOCKED_PATH.test(path)) {
+    return new Response("Not found", {
+      status: 404,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "x-robots-tag": "noindex, nofollow",
+        "cache-control": "no-store",
+      },
+    });
+  }
 
   // 1. Retire the public staging custom domain.
   if (host.startsWith("staging.")) {
