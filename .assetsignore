@@ -1,0 +1,11 @@
+# Files the Workers static-assets upload must skip (gitignore syntax).
+# The Pages deployments are covered by functions/_middleware.js.
+.*
+!.well-known
+*.py
+*.md
+*.jsonc
+*.toml
+com-site/
+functions/
+node_modules/
