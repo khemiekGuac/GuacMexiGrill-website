@@ -41,3 +41,11 @@ Locations are cards in `locations.html`; the loyalty sign-up store list is in `l
 The public "56+" count lives in `site-config.js` (`SITE.locationCount`, drives
 `data-loc-count` elements) and is also hard-coded in page titles, meta/OG/Twitter
 descriptions, JSON-LD and body copy. Update all of them together.
+
+## Newsletter (GUAC Network Brief)
+
+Monthly franchise-partner newsletter in `newsletter/`, documented in `newsletter/README.md`.
+It is NOT hosted on the site: the middleware 404s all of `/newsletter/`. Content is
+`newsletter/issues/YYYY-MM.json`, photos `newsletter/images/YYYY-MM/`; run
+`python3 newsletter/build.py YYYY-MM --pdf` to regenerate `newsletter/output/YYYY-MM.html`
+(self-contained, images embedded) and its PDF — never hand-edit those.

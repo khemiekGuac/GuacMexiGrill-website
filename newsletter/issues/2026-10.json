@@ -1,0 +1,250 @@
+{
+  "issue": 7,
+  "month": "October",
+  "year": 2026,
+  "subject": "GUAC Network Brief — October 2026: Let's Push Catering!",
+  "preheader": "Catering push, Make Less, More Often standards, store spotlights and marketing updates.",
+  "pdf_url": "",
+
+  "sections": [
+    { "type": "masthead" },
+
+    { "type": "headline", "kicker": "Let's push", "title": "Catering!" },
+
+    { "type": "image", "src": "hero.jpg", "alt": "Barbacoa taco topped with guacamole, black beans and pico de gallo" },
+
+    {
+      "type": "letter",
+      "heading": "From the Founder",
+      "salutation": "Team,",
+      "paragraphs": [
+        "Over the past few months, we have seen stronger alignment across the network, greater consistency in execution, and continued momentum across the business. That progress is worth recognizing, and it only happens when we move together.",
+        "As we look ahead to the months leading into the holiday season, now is the time to keep building. Strengthen local partnerships. Introduce catering to neighbouring businesses. Create relationships today that can turn into repeat business in the months ahead.",
+        "Thank you for the continued effort, consistency and commitment. Let’s keep the momentum going."
+      ],
+      "signoff": "Sincerely,",
+      "name": "Trushna Makadia",
+      "photo": "founder.png"
+    },
+
+    {
+      "type": "panel",
+      "theme": "sand",
+      "inset": true,
+      "heading": "Operational Update",
+      "blocks": [
+        { "type": "subhead", "text": "Product Freshness & Quality Standards" },
+        { "type": "p", "text": "Make Less, More Often – Delivering Freshness, Reducing Waste, Elevating Guest Experience" },
+        { "type": "p", "text": "**Why This Matters:** Freshness is one of the strongest drivers of guest satisfaction. Our commitment to Make Less, More Often ensures every product served meets Guac Mexi Grill’s quality promise. Smaller batch production protects freshness, improves appearance, and reduces unnecessary waste — all while supporting operational excellence." },
+        {
+          "type": "tagged",
+          "tag": "October Priorities",
+          "blocks": [
+            {
+              "type": "numbered",
+              "items": [
+                {
+                  "title": "Guacamole Standards",
+                  "bullets": [
+                    "Prepare guacamole in single batches.",
+                    "At opening, prepare enough for lunch and dinner business periods.",
+                    "After the dinner rush, prepare one fresh batch for the next business day.",
+                    "Monitor usage throughout the day and avoid overproduction.",
+                    "Discard immediately any product that is oxidizing or does not meet freshness, appearance, or food safety standards."
+                  ]
+                },
+                {
+                  "title": "Salsa Standards",
+                  "bullets": [
+                    "Transfer all remaining salsa nightly into a clean, sanitized pan.",
+                    "Label and store according to food safety procedures.",
+                    "Follow FIFO (First In, First Out) — older product must be used before fresh product.",
+                    "Never place fresh salsa on top of existing product.",
+                    "Replace pans as needed to maintain presentation and sanitation."
+                  ]
+                },
+                {
+                  "title": "Vegetable Preparation Standards",
+                  "text": "Prep vegetables in smaller quantities throughout the day.",
+                  "bullets": [
+                    "Only prepare what is needed to support anticipated business levels while maintaining freshness, color, and crispness.",
+                    "Rotate product using FIFO to ensure older product is used first.",
+                    "Store vegetables in clean, sanitized, properly labeled containers.",
+                    "Never mix fresh product with existing product unless FIFO procedures are followed.",
+                    "Replenish in small batches as needed.",
+                    "Discard any vegetables that no longer meet freshness, quality, or food safety standards."
+                  ]
+                },
+                {
+                  "title": "Freshness Reminder",
+                  "text": "Vegetables are one of the first products guests see. Preparing smaller batches more frequently keeps them crisp, vibrant, and visually appealing, reinforcing the quality guests expect from Guac Mexi Grill."
+                },
+                {
+                  "title": "Key Expectations",
+                  "bullets": [
+                    "Prioritize freshness over volume production.",
+                    "Maintain clean and sanitized containers, utensils, and storage areas.",
+                    "Follow FIFO procedures consistently.",
+                    "Report any product quality concerns to management immediately."
+                  ]
+                }
+              ]
+            },
+            { "type": "p", "text": "**Remember:** Guests notice freshness. Smaller batches prepared more often deliver a superior guest experience." },
+            { "type": "subhead", "text": "Our Commitment to Excellence" },
+            { "type": "p", "text": "By embracing the Make Less, More Often standard, we protect product quality, reduce waste, and strengthen our brand promise. Freshness is not just a procedure; it is a daily discipline that sets our brand apart from others." }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "spotlight",
+      "heading": "Store Spotlight",
+      "stores": [
+        {
+          "name": "Alliston, ON",
+          "photo": "store-alliston.png",
+          "story": "The Alliston team successfully launched a Customer Appreciation Day designed to strengthen community engagement and increase awareness of the location. The event was a tremendous success, serving more than 135 burritos while offering family-friendly activities including balloon twisting and face painting. Most impressively, the event raised an outstanding $254 in a single day for Food Banks of Canada. The franchise partners were fully engaged throughout the event, creating a welcoming atmosphere and demonstrating their commitment to both the local community and the Guac Mexi Grill brand.",
+          "reviews": [
+            { "author": "Amanda M.", "text": "My favourite take out tacos to get anywhere, even better how quick yet fresh it is. Lovely people, clean establishment. Safe to say I'm a regular." },
+            { "author": "Alexzandra", "text": "Very good service. The members there are so kind, polite and welcoming. I would come back again. The food is always amazing." }
+          ]
+        },
+        {
+          "name": "Dauphin, MB",
+          "photo": "store-dauphin.png",
+          "story": "The Dauphin location proudly participated in the Dauphin Street Festival, providing an excellent opportunity to connect with the local community and build awareness for the restaurant. Guests enjoyed a variety of snack menu items, Jarritos beverages, and other tasty treats while interacting with the team. Despite the rainy weather, the festival was filled with energy, excitement, and community spirit. The event allowed the location to showcase the Guac Mexi Grill brand while contributing to a fun and memorable experience for festival attendees.",
+          "reviews": [
+            { "author": "Annie H.", "text": "We go there usually once a week on a Saturday. The food is always so good. Love that you can get your burrito or quesadilla made to your liking. That is why we go back time after time. Staff are always friendly and helpful. Highly recommend Guac Mexi Grill." },
+            { "author": "Hima P.", "text": "Very satisfied with the food and service. My wife and I were especially looking for options without onion and garlic. Kevin suggested some choices and was happy to answer any questions regarding the food. It was a great experience!" }
+          ]
+        },
+        {
+          "name": "St. Thomas, ON",
+          "photo": "store-st-thomas.png",
+          "story": "Guac Mexi Grill St. Thomas launched a meaningful local store marketing initiative, “Guac Mexi Grill St. Thomas Gives Back,” in partnership with the St. Thomas/Elgin Food Bank. To celebrate the location's 6-year anniversary, the franchise partner collaborated closely with the food bank and generously pledged 50% of all proceeds from the event to support the organization. This initiative not only reinforced the location's commitment to giving back to the community but also created a strong opportunity to engage guests in a cause that directly benefits local families in need.",
+          "reviews": [
+            { "author": "Mark T.", "text": "Excellent! Delicious food, clean place, good presentation, and kind people." },
+            { "author": "Carla M.", "text": "The food is delicious and the service was great! Olivia served me and made my burrito sooooo good. She was also very friendly, and all the staff are great. I would definitely recommend eating here!" }
+          ]
+        },
+        {
+          "name": "Cornwall, ON",
+          "photo": "store-cornwall.png",
+          "story": "The Cornwall team has been actively investing in local community engagement, partnering with two area junior hockey teams, the Cornwall Colts and the Glengarry Brigade. These partnerships have put the Guac Mexi Grill brand in front of local families and hockey fans and positioned the store as a genuine supporter of the community. That commitment shows up in the restaurant as well. Cornwall holds a 4.9 star Google rating across more than 400 reviews, the highest in my region, with guests consistently praising the fresh food, generous portions and quick, attentive service.",
+          "reviews": [
+            { "author": "Amanda P.", "text": "Everything was terrific, fast and tasty." },
+            { "author": "Cole E.", "text": "Their food is great, value is good too!" }
+          ]
+        },
+        {
+          "name": "Bradford, ON",
+          "photo": "store-bradford.png",
+          "story": "Mohit has been working closely with the GoodLife Fitness in the same plaza to create cross-business incentives for gym goers. This has built a steady stream of health-focused guests and a strong relationship with a neighbouring business. He carried that momentum into the Protein Cup campaign and truly nailed it, putting the product in front of exactly the right audience and showing how well a national campaign can perform when it is paired with smart local store marketing.",
+          "reviews": [
+            { "author": "Sukh K.", "text": "Service was awesome. In particular Mohit was extremely pleasant and helpful." },
+            { "author": "Neel R.", "text": "Exceptional experience at GUAC MEXI GRILL. The food was fresh, flavorful, and expertly prepared." }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "promo",
+      "title": "Let’s turn up your sales",
+      "tag": "Catering",
+      "image": "hero.jpg",
+      "image_alt": "Catering taco spread",
+      "subtitle": "Catering materials are ready.\nNow put them to work.",
+      "steps": [
+        "Visit nearby businesses and hand out catering menus and hand stuffers.",
+        "Target offices, clinics, dealerships, gyms and other local workplaces.",
+        "Keep catering materials visible and available in-store.",
+        "Order materials at [guacmerch.ca](https://guacmerch.ca).",
+        "Train your team to close each sale with a simple catering mention."
+      ],
+      "line_label": "Suggested line:",
+      "line": "“Thanks for coming in. And if you’re ever feeding a group, here are our catering specials.”"
+    },
+
+    {
+      "type": "panel",
+      "theme": "sand",
+      "inset": true,
+      "heading": "Marketing Update",
+      "blocks": [
+        {
+          "type": "tagged",
+          "tag": "Important",
+          "blocks": [
+            { "type": "lines", "items": [
+              "Mango LTO is now completed – Sept 30",
+              "Lunch Ritual is now completed – Sept 30",
+              "Protein Cup is now completed – Aug 31"
+            ] }
+          ]
+        },
+        {
+          "type": "tagged",
+          "tag": "Upcoming Promos",
+          "blocks": [
+            { "type": "numbered", "compact": true, "items": [
+              { "title": "Guac Sauce Launch", "text": "Details coming shortly" },
+              { "title": "Taco Cup LTO", "text": "Details coming shortly" },
+              { "title": "Soup LTO", "text": "Details coming shortly" }
+            ] }
+          ]
+        },
+        {
+          "type": "tagged",
+          "tag": "Social",
+          "blocks": [
+            { "type": "p", "text": "**Like, comment, and engage with Head Office social media content.** Consistent engagement helps increase reach, build awareness, and strengthen the brand across all markets." },
+            { "type": "button", "text": "Guac Mexi Grill – LinkedIn", "href": "@linkedin" },
+            { "type": "subhead", "text": "Printable Take-Out & Catering Menus" },
+            { "type": "p", "text": "Both menus are now live on the [guacmerch.ca](https://guacmerch.ca) portal. Submit your orders directly on the portal." },
+            { "type": "images", "href": "https://guacmerch.ca", "items": [
+              { "src": "menu-catering.jpg", "alt": "Printable catering menu" },
+              { "src": "menu-takeout.jpg", "alt": "Printable take-out menu" }
+            ] }
+          ]
+        },
+        {
+          "type": "tagged",
+          "tag": "Marketing Media Kit",
+          "blocks": [
+            { "type": "p", "text": "The Marketing Media Kit remains available for all franchise partners." },
+            { "type": "p", "text": "Includes:" },
+            { "type": "bullets", "items": [
+              "Official logos",
+              "Brand descriptions",
+              "Approved company information",
+              "Lawn sign templates",
+              "Hand stuffer templates",
+              "Community partnership resources",
+              "Local marketing assets",
+              "Children's activity sheets"
+            ] },
+            { "type": "button", "text": "Media Kit", "href": "@media_kit" }
+          ]
+        },
+        {
+          "type": "tagged",
+          "tag": "Marketing Requests",
+          "blocks": [
+            { "type": "subhead", "text": "We’re Open Campaign — Now Live" },
+            { "type": "p", "text": "Our **“We’re Open” feather flags and lawn signs** are now available on [guacmerch.ca](https://guacmerch.ca)." },
+            { "type": "p", "text": "Use these tools to increase drive-by visibility during **slower sales periods, high-competition periods or whenever your store needs an added local traffic push.**" },
+            { "type": "p", "text": "Please note: landlord and/or municipal approval may be required before installation. **Obtaining all required approvals or permits is the responsibility of the franchise partner.**" },
+            { "type": "p", "text": "This is consistent with the store-opening visibility strategy, which already recommends feather flags where permitted to increase drive-by awareness." }
+          ]
+        }
+      ]
+    },
+
+    { "type": "button", "text": "Click here to download the {month} newsletter", "href": "@pdf" },
+
+    { "type": "footer" }
+  ]
+}
