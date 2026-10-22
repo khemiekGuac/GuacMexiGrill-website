@@ -12,7 +12,7 @@
  *     kept out of search with an `X-Robots-Tag: noindex` response header.
  *
  *  3. Internal repo files (scripts, config, docs, the US site's source under
- *     /com-site) are deployed alongside the site because the Pages project
+ *     /com-site, the newsletter generator under /newsletter/src) are deployed alongside the site because the Pages project
  *     serves the repo root. They are answered with a 404 on every host.
  *
  *  4. www.*  — permanently redirected (301) to the bare domain so search
@@ -25,7 +25,7 @@
  */
 // Files in the repo that must never be served publicly.
 const BLOCKED_PATH =
-  /^\/(com-site(\/|$)|functions(\/|$)|\.(?!well-known\/)|[^/]*\.(py|md|jsonc?|toml)$)/i;
+  /^\/(com-site(\/|$)|functions(\/|$)|newsletter\/src(\/|$)|\.(?!well-known\/)|[^/]*\.(py|md|jsonc?|toml)$)/i;
 
 export async function onRequest(context) {
   const host = (context.request.headers.get("host") || "").toLowerCase();
