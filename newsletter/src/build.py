@@ -7,9 +7,10 @@ Build the GUAC Network Brief (franchise-partner newsletter) from JSON.
     python3 newsletter/src/build.py 2026-10 --pdf   # ...and its PDF + PNG preview
 
 Content lives in newsletter/src/issues/<YYYY-MM>.json, shared settings in
-newsletter/src/config.json. Output is newsletter/<YYYY-MM>/index.html: one
-email-safe file (tables + inline styles, absolute image URLs) that is both
-the web version and the HTML you paste into the email platform.
+newsletter/src/config.json. Output per issue, both email-safe (tables +
+inline styles):
+  newsletter/<YYYY-MM>/index.html  web version, relative image paths
+  newsletter/<YYYY-MM>/email.html  paste into the email platform, absolute URLs
 
 Standard library only. See newsletter/src/README.md for the section types.
 """
@@ -49,23 +50,27 @@ THEMES = {
 class Ctx:
     """Per-issue build context: resolves URLs and holds the current text colour."""
 
-    def __init__(self, config, issue, slug):
+    def __init__(self, config, issue, slug, email=False):
         self.config = config
         self.issue = issue
         self.slug = slug
+        self.email = email
+        # Email copies need absolute URLs; the web copy uses relative ones so it
+        # also works on Pages previews and when opened from disk.
         self.base = config["base_url"].rstrip("/")
+        self.issue_url = f"{self.base}/{slug}/" if email else ""
         self.fg = DARK
 
     def asset(self, src):
         if re.match(r"^https?://", src):
             return src
         if src.startswith("shared/"):
-            return f"{self.base}/{src}"
-        return f"{self.base}/{self.slug}/{src}"
+            return f"{self.base}/{src}" if self.email else f"../{src}"
+        return self.issue_url + src
 
     def href(self, ref):
         if ref == "@pdf":
-            return f"{self.base}/{self.slug}/{pdf_name(self.slug)}"
+            return self.issue_url + pdf_name(self.slug)
         if ref == "@web":
             return f"{self.base}/{self.slug}/"
         if ref.startswith("@"):
@@ -418,8 +423,8 @@ HEAD_CSS = f"""
 """
 
 
-def render_issue(config, issue, slug):
-    ctx = Ctx(config, issue, slug)
+def render_issue(config, issue, slug, email=False):
+    ctx = Ctx(config, issue, slug, email)
     body = []
     for s in issue["sections"]:
         if s["type"] not in SECTIONS:
@@ -428,6 +433,8 @@ def render_issue(config, issue, slug):
         body.append(SECTIONS[s["type"]](s, ctx))
 
     title = f'{config["title"]} — {issue["month"]} {issue["year"]}'
+    web_link = (f'<a href="{ctx.href("@web")}" style="color:#6b675c;">View in browser</a> &nbsp;&middot;&nbsp;\n'
+                if email else "")
     pre = html.escape(issue.get("preheader", ""))
     return f"""<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -447,8 +454,7 @@ def render_issue(config, issue, slug):
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{PAGE_BG}" style="background-color:{PAGE_BG};">
 <tr><td align="center" style="padding:0;">
 <p style="{text_style(12, 400, '#6b675c', 1.4)}text-align:center;padding:12px 10px;">
-<a href="{ctx.href('@web')}" style="color:#6b675c;">View in browser</a> &nbsp;&middot;&nbsp;
-<a href="{ctx.href('@pdf')}" style="color:#6b675c;">Download PDF</a></p>
+{web_link}<a href="{ctx.href('@pdf')}" style="color:#6b675c;">Download PDF</a></p>
 <table role="presentation" class="wrap" width="{WIDTH}" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="border-collapse:collapse;width:{WIDTH}px;max-width:100%;background-color:#ffffff;">
 {"".join(body)}</table>
 <div style="height:24px;line-height:24px;font-size:0;">&nbsp;</div>
@@ -504,10 +510,11 @@ def main(argv):
         all_issues.append((slug, issue))
         if slugs and slug not in slugs:
             continue
-        out = ROOT / slug / "index.html"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render_issue(config, issue, slug), encoding="utf-8")
-        print(f"wrote {out.relative_to(ROOT.parent)}")
+        (ROOT / slug).mkdir(parents=True, exist_ok=True)
+        for name, email in (("index.html", False), ("email.html", True)):
+            out = ROOT / slug / name
+            out.write_text(render_issue(config, issue, slug, email), encoding="utf-8")
+            print(f"wrote {out.relative_to(ROOT.parent)}")
         if want_pdf:
             subprocess.run(["node", str(SRC / "snapshot.mjs"), slug, config["base_url"], pdf_name(slug)], check=True)
     for s in slugs:

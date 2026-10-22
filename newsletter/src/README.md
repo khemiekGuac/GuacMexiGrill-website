@@ -11,7 +11,8 @@ newsletter/
     issues/YYYY-MM.json       one file per issue: all the words
   shared/                   logos + social icons used by every issue
   YYYY-MM/                  published issue (public URL, noindex)
-    index.html                GENERATED — web version + email HTML
+    index.html                GENERATED — web version (relative image paths)
+    email.html                GENERATED — paste into the email platform (absolute URLs)
     guac-network-brief-YYYY-MM.pdf   GENERATED — the "download" PDF
     images/                   this issue's photos
   index.html                GENERATED — archive of all issues
@@ -28,10 +29,10 @@ Published at `https://guacmexigrill.ca/newsletter/YYYY-MM/` once merged.
    Reusing an older photo: `"src": "../2026-10/images/hero.jpg"`.
 3. Build: `python3 newsletter/src/build.py 2026-11 --pdf`
 4. Open `newsletter/2026-11/index.html` to review, commit, merge → live.
-5. Send: paste `newsletter/2026-11/index.html` into the email platform as
-   custom HTML (images load from guacmexigrill.ca, so merge before sending).
+5. Send: paste `newsletter/2026-11/email.html` into the email platform as
+   custom HTML. Its images load from guacmexigrill.ca, so merge before sending.
 
-Never hand-edit the generated `index.html` / PDF — edit the JSON and rebuild.
+Never hand-edit the generated `index.html` / `email.html` / PDF — edit the JSON and rebuild.
 
 ## Writing text
 

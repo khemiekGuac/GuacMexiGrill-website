@@ -47,5 +47,6 @@ descriptions, JSON-LD and body copy. Update all of them together.
 Monthly franchise-partner newsletter under `newsletter/` (.ca site), documented in
 `newsletter/src/README.md`. Content is `newsletter/src/issues/YYYY-MM.json`; run
 `python3 newsletter/src/build.py YYYY-MM --pdf` to regenerate `newsletter/YYYY-MM/index.html`
-(email-safe HTML) and its PDF — never hand-edit those. `newsletter/src/` is 404'd by the
+(web copy, relative image paths), `email.html` (absolute URLs, for the email platform) and the
+PDF — never hand-edit those. `newsletter/src/` is 404'd by the
 middleware; `/newsletter/` is disallowed in robots.txt, noindex, and kept out of the sitemap.
