@@ -3,43 +3,49 @@
 Franchise-partner newsletter, built from JSON into one email-safe HTML file.
 
 ```
-newsletter/
-  src/                      ← source (404'd by functions/_middleware.js)
-    build.py                  generator (Python 3, stdlib only)
-    snapshot.mjs              HTML → PDF via Playwright (used by --pdf)
-    config.json               links, footer, base URL — shared by every issue
-    issues/YYYY-MM.json       one file per issue: all the words
-  shared/                   logos + social icons used by every issue
-  YYYY-MM/                  published issue (public URL, noindex)
-    index.html                GENERATED — web version (relative image paths)
-    email.html                GENERATED — paste into the email platform (absolute URLs)
-    guac-network-brief-YYYY-MM.pdf   GENERATED — the "download" PDF
-    images/                   this issue's photos
-  index.html                GENERATED — archive of all issues
+newsletter/                 (whole folder is 404'd on the website — never hosted)
+  build.py                    generator (Python 3, stdlib only)
+  snapshot.mjs                HTML → PDF via Playwright (used by --pdf)
+  config.json                 links, footer, optional image_base_url
+  issues/YYYY-MM.json         one file per issue: all the words
+  images/shared/              logos + social icons used by every issue
+  images/YYYY-MM/             this issue's photos
+  output/YYYY-MM.html         GENERATED — the newsletter, images embedded
+  output/YYYY-MM.pdf          GENERATED with --pdf
 ```
-
-Published at `https://guacmexigrill.ca/newsletter/YYYY-MM/` once merged.
-`/newsletter/` is disallowed in robots.txt and every page is `noindex`.
 
 ## Monthly update
 
-1. Copy last month's issue: `cp src/issues/2026-10.json src/issues/2026-11.json`
+1. Copy last month's issue: `cp issues/2026-10.json issues/2026-11.json`
 2. Edit the copy: bump `issue`, `month`, `year`, `subject`, `preheader`, then
-   rewrite the sections. Put new photos in `newsletter/2026-11/images/`.
-   Reusing an older photo: `"src": "../2026-10/images/hero.jpg"`.
-3. Build: `python3 newsletter/src/build.py 2026-11 --pdf`
-4. Open `newsletter/2026-11/index.html` to review, commit, merge → live.
-5. Send: paste `newsletter/2026-11/email.html` into the email platform as
-   custom HTML. Its images load from guacmexigrill.ca, so merge before sending.
+   rewrite the sections. Put new photos in `images/2026-11/` and refer to them
+   by file name (`"photo": "store-alliston.png"`). Reusing an older photo:
+   `"src": "../2026-10/hero.jpg"`.
+3. Build: `python3 newsletter/build.py 2026-11 --pdf`
+4. Use `output/2026-11.html` — open it in a browser to review, then copy its code.
 
-Never hand-edit the generated `index.html` / `email.html` / PDF — edit the JSON and rebuild.
+Never hand-edit the files in `output/` — edit the JSON and rebuild.
+
+## Images and email clients
+
+`output/YYYY-MM.html` embeds every image inside the file, so it is fully
+self-contained: it looks right opened in a browser, attached, or pasted into
+most editors. Gmail and some other inboxes block embedded images, though. To
+send it as an email to those, upload the `images/` folder to your email
+platform (or any image host), set `image_base_url` in `config.json` to that
+folder's URL, and rebuild — `output/YYYY-MM.hosted.html` then links to the
+uploaded images instead (`<image_base_url>/2026-11/hero.jpg`,
+`<image_base_url>/shared/logo-dark.png`).
+
+The "download the newsletter" button only appears when the issue's `pdf_url`
+is set (e.g. a shared-drive link to the PDF).
 
 ## Writing text
 
 - `**bold**`, `[label](https://url)` and `\n` (line break) work in any text field.
 - `{month}`, `{year}`, `{issue}` are filled in from the issue file.
 - Link values starting with `@` come from `config.json` → `links`
-  (`@linkedin`, `@media_kit`, …). `@pdf` = this issue's PDF, `@web` = its web page.
+  (`@linkedin`, `@media_kit`, …). `@pdf` = the issue's `pdf_url`.
 
 ## Section types (`sections`, top to bottom)
 

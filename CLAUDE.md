@@ -44,9 +44,8 @@ descriptions, JSON-LD and body copy. Update all of them together.
 
 ## Newsletter (GUAC Network Brief)
 
-Monthly franchise-partner newsletter under `newsletter/` (.ca site), documented in
-`newsletter/src/README.md`. Content is `newsletter/src/issues/YYYY-MM.json`; run
-`python3 newsletter/src/build.py YYYY-MM --pdf` to regenerate `newsletter/YYYY-MM/index.html`
-(web copy, relative image paths), `email.html` (absolute URLs, for the email platform) and the
-PDF — never hand-edit those. `newsletter/src/` is 404'd by the
-middleware; `/newsletter/` is disallowed in robots.txt, noindex, and kept out of the sitemap.
+Monthly franchise-partner newsletter in `newsletter/`, documented in `newsletter/README.md`.
+It is NOT hosted on the site: the middleware 404s all of `/newsletter/`. Content is
+`newsletter/issues/YYYY-MM.json`, photos `newsletter/images/YYYY-MM/`; run
+`python3 newsletter/build.py YYYY-MM --pdf` to regenerate `newsletter/output/YYYY-MM.html`
+(self-contained, images embedded) and its PDF — never hand-edit those.

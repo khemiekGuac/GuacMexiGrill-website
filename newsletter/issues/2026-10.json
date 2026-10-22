@@ -4,13 +4,14 @@
   "year": 2026,
   "subject": "GUAC Network Brief — October 2026: Let's Push Catering!",
   "preheader": "Catering push, Make Less, More Often standards, store spotlights and marketing updates.",
+  "pdf_url": "",
 
   "sections": [
     { "type": "masthead" },
 
     { "type": "headline", "kicker": "Let's push", "title": "Catering!" },
 
-    { "type": "image", "src": "images/hero.jpg", "alt": "Barbacoa taco topped with guacamole, black beans and pico de gallo" },
+    { "type": "image", "src": "hero.jpg", "alt": "Barbacoa taco topped with guacamole, black beans and pico de gallo" },
 
     {
       "type": "letter",
@@ -23,7 +24,7 @@
       ],
       "signoff": "Sincerely,",
       "name": "Trushna Makadia",
-      "photo": "images/founder.png"
+      "photo": "founder.png"
     },
 
     {
@@ -103,7 +104,7 @@
       "stores": [
         {
           "name": "Alliston, ON",
-          "photo": "images/store-alliston.png",
+          "photo": "store-alliston.png",
           "story": "The Alliston team successfully launched a Customer Appreciation Day designed to strengthen community engagement and increase awareness of the location. The event was a tremendous success, serving more than 135 burritos while offering family-friendly activities including balloon twisting and face painting. Most impressively, the event raised an outstanding $254 in a single day for Food Banks of Canada. The franchise partners were fully engaged throughout the event, creating a welcoming atmosphere and demonstrating their commitment to both the local community and the Guac Mexi Grill brand.",
           "reviews": [
             { "author": "Amanda M.", "text": "My favourite take out tacos to get anywhere, even better how quick yet fresh it is. Lovely people, clean establishment. Safe to say I'm a regular." },
@@ -112,7 +113,7 @@
         },
         {
           "name": "Dauphin, MB",
-          "photo": "images/store-dauphin.png",
+          "photo": "store-dauphin.png",
           "story": "The Dauphin location proudly participated in the Dauphin Street Festival, providing an excellent opportunity to connect with the local community and build awareness for the restaurant. Guests enjoyed a variety of snack menu items, Jarritos beverages, and other tasty treats while interacting with the team. Despite the rainy weather, the festival was filled with energy, excitement, and community spirit. The event allowed the location to showcase the Guac Mexi Grill brand while contributing to a fun and memorable experience for festival attendees.",
           "reviews": [
             { "author": "Annie H.", "text": "We go there usually once a week on a Saturday. The food is always so good. Love that you can get your burrito or quesadilla made to your liking. That is why we go back time after time. Staff are always friendly and helpful. Highly recommend Guac Mexi Grill." },
@@ -121,7 +122,7 @@
         },
         {
           "name": "St. Thomas, ON",
-          "photo": "images/store-st-thomas.png",
+          "photo": "store-st-thomas.png",
           "story": "Guac Mexi Grill St. Thomas launched a meaningful local store marketing initiative, “Guac Mexi Grill St. Thomas Gives Back,” in partnership with the St. Thomas/Elgin Food Bank. To celebrate the location's 6-year anniversary, the franchise partner collaborated closely with the food bank and generously pledged 50% of all proceeds from the event to support the organization. This initiative not only reinforced the location's commitment to giving back to the community but also created a strong opportunity to engage guests in a cause that directly benefits local families in need.",
           "reviews": [
             { "author": "Mark T.", "text": "Excellent! Delicious food, clean place, good presentation, and kind people." },
@@ -130,7 +131,7 @@
         },
         {
           "name": "Cornwall, ON",
-          "photo": "images/store-cornwall.png",
+          "photo": "store-cornwall.png",
           "story": "The Cornwall team has been actively investing in local community engagement, partnering with two area junior hockey teams, the Cornwall Colts and the Glengarry Brigade. These partnerships have put the Guac Mexi Grill brand in front of local families and hockey fans and positioned the store as a genuine supporter of the community. That commitment shows up in the restaurant as well. Cornwall holds a 4.9 star Google rating across more than 400 reviews, the highest in my region, with guests consistently praising the fresh food, generous portions and quick, attentive service.",
           "reviews": [
             { "author": "Amanda P.", "text": "Everything was terrific, fast and tasty." },
@@ -139,7 +140,7 @@
         },
         {
           "name": "Bradford, ON",
-          "photo": "images/store-bradford.png",
+          "photo": "store-bradford.png",
           "story": "Mohit has been working closely with the GoodLife Fitness in the same plaza to create cross-business incentives for gym goers. This has built a steady stream of health-focused guests and a strong relationship with a neighbouring business. He carried that momentum into the Protein Cup campaign and truly nailed it, putting the product in front of exactly the right audience and showing how well a national campaign can perform when it is paired with smart local store marketing.",
           "reviews": [
             { "author": "Sukh K.", "text": "Service was awesome. In particular Mohit was extremely pleasant and helpful." },
@@ -153,7 +154,7 @@
       "type": "promo",
       "title": "Let’s turn up your sales",
       "tag": "Catering",
-      "image": "images/hero.jpg",
+      "image": "hero.jpg",
       "image_alt": "Catering taco spread",
       "subtitle": "Catering materials are ready.\nNow put them to work.",
       "steps": [
@@ -204,8 +205,8 @@
             { "type": "subhead", "text": "Printable Take-Out & Catering Menus" },
             { "type": "p", "text": "Both menus are now live on the [guacmerch.ca](https://guacmerch.ca) portal. Submit your orders directly on the portal." },
             { "type": "images", "href": "https://guacmerch.ca", "items": [
-              { "src": "images/menu-catering.jpg", "alt": "Printable catering menu" },
-              { "src": "images/menu-takeout.jpg", "alt": "Printable take-out menu" }
+              { "src": "menu-catering.jpg", "alt": "Printable catering menu" },
+              { "src": "menu-takeout.jpg", "alt": "Printable take-out menu" }
             ] }
           ]
         },

@@ -1,7 +1,6 @@
 {
-  "base_url": "https://guacmexigrill.ca/newsletter",
   "title": "GUAC Network Brief",
-
+  "image_base_url": "",
   "links": {
     "linkedin": "https://www.linkedin.com/company/guac-mexi-grill/",
     "media_kit": "https://guacmerch.ca",
@@ -9,10 +8,13 @@
     "instagram": "https://www.instagram.com/guacmexigrill/",
     "website": "https://guacmexigrill.ca"
   },
-
   "footer": {
     "address": "2275 Upper Middle Rd E Suite 101, Oakville, ON L6H 0C3",
     "website_label": "guacmexigrill.ca",
-    "social": ["facebook", "instagram", "linkedin"]
+    "social": [
+      "facebook",
+      "instagram",
+      "linkedin"
+    ]
   }
 }

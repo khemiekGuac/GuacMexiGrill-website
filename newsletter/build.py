@@ -2,18 +2,23 @@
 """
 Build the GUAC Network Brief (franchise-partner newsletter) from JSON.
 
-    python3 newsletter/src/build.py                 # build every issue + archive
-    python3 newsletter/src/build.py 2026-10         # build one issue
-    python3 newsletter/src/build.py 2026-10 --pdf   # ...and its PDF + PNG preview
+    python3 newsletter/build.py 2026-10         # build one issue
+    python3 newsletter/build.py 2026-10 --pdf   # ...and its PDF
+    python3 newsletter/build.py                 # build every issue
 
-Content lives in newsletter/src/issues/<YYYY-MM>.json, shared settings in
-newsletter/src/config.json. Output per issue, both email-safe (tables +
-inline styles):
-  newsletter/<YYYY-MM>/index.html  web version, relative image paths
-  newsletter/<YYYY-MM>/email.html  paste into the email platform, absolute URLs
+Content lives in newsletter/issues/<YYYY-MM>.json, shared settings in
+newsletter/config.json, photos in newsletter/images/<YYYY-MM>/ (and
+images/shared/ for logos and icons). Output goes to newsletter/output/:
 
-Standard library only. See newsletter/src/README.md for the section types.
+  <YYYY-MM>.html         one self-contained, email-safe HTML file (tables +
+                         inline styles) with every image embedded in it
+  <YYYY-MM>.hosted.html  only when config.json sets image_base_url: same HTML
+                         but images point at <image_base_url>/<YYYY-MM>/...
+  <YYYY-MM>.pdf          with --pdf
+
+Standard library only. See newsletter/README.md for the section types.
 """
+import base64
 import html
 import json
 import re
@@ -21,9 +26,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-SRC = Path(__file__).resolve().parent
-ROOT = SRC.parent  # newsletter/
-ISSUES = SRC / "issues"
+ROOT = Path(__file__).resolve().parent  # newsletter/
+ISSUES = ROOT / "issues"
+IMAGES = ROOT / "images"
+OUTPUT = ROOT / "output"
+MIME = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif"}
 
 # ---------------------------------------------------------------- design tokens
 DARK = "#181716"
@@ -48,38 +55,33 @@ THEMES = {
 
 
 class Ctx:
-    """Per-issue build context: resolves URLs and holds the current text colour."""
+    """Per-issue build context: resolves image/link URLs and holds the current text colour."""
 
-    def __init__(self, config, issue, slug, email=False):
+    def __init__(self, config, issue, slug, image_base=None):
         self.config = config
         self.issue = issue
         self.slug = slug
-        self.email = email
-        # Email copies need absolute URLs; the web copy uses relative ones so it
-        # also works on Pages previews and when opened from disk.
-        self.base = config["base_url"].rstrip("/")
-        self.issue_url = f"{self.base}/{slug}/" if email else ""
+        # None embeds every image as a data: URI; a URL points images there instead.
+        self.image_base = image_base.rstrip("/") if image_base else None
         self.fg = DARK
 
     def asset(self, src):
         if re.match(r"^https?://", src):
             return src
-        if src.startswith("shared/"):
-            return f"{self.base}/{src}" if self.email else f"../{src}"
-        return self.issue_url + src
+        rel = src if src.startswith("shared/") else f"{self.slug}/{src}"
+        if self.image_base:
+            return f"{self.image_base}/{rel}"
+        path = IMAGES / rel
+        if not path.is_file():
+            sys.exit(f"{self.slug}: missing image newsletter/images/{rel}")
+        return f"data:{MIME[path.suffix.lower()]};base64,{base64.b64encode(path.read_bytes()).decode()}"
 
     def href(self, ref):
         if ref == "@pdf":
-            return self.issue_url + pdf_name(self.slug)
-        if ref == "@web":
-            return f"{self.base}/{self.slug}/"
+            return self.issue.get("pdf_url", "")
         if ref.startswith("@"):
             return self.config["links"][ref[1:]]
         return ref
-
-
-def pdf_name(slug):
-    return f"guac-network-brief-{slug}.pdf"
 
 
 # ---------------------------------------------------------------- text helpers
@@ -363,6 +365,8 @@ def sec_promo(s, ctx):
 
 
 def sec_button(s, ctx):
+    if not ctx.href(s["href"]):
+        return ""  # e.g. a download button with no pdf_url yet
     return row(button(s["text"], s["href"], ctx, size=24, full=True, upper=s.get("uppercase", False)),
                s.get("bg", "#ffffff"), "26px 40px 22px", "inset")
 
@@ -423,8 +427,8 @@ HEAD_CSS = f"""
 """
 
 
-def render_issue(config, issue, slug, email=False):
-    ctx = Ctx(config, issue, slug, email)
+def render_issue(config, issue, slug, image_base=None):
+    ctx = Ctx(config, issue, slug, image_base)
     body = []
     for s in issue["sections"]:
         if s["type"] not in SECTIONS:
@@ -433,8 +437,6 @@ def render_issue(config, issue, slug, email=False):
         body.append(SECTIONS[s["type"]](s, ctx))
 
     title = f'{config["title"]} — {issue["month"]} {issue["year"]}'
-    web_link = (f'<a href="{ctx.href("@web")}" style="color:#6b675c;">View in browser</a> &nbsp;&middot;&nbsp;\n'
-                if email else "")
     pre = html.escape(issue.get("preheader", ""))
     return f"""<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -442,51 +444,21 @@ def render_issue(config, issue, slug, email=False):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="robots" content="noindex, nofollow">
 <meta name="x-apple-disable-message-reformatting">
 <title>{html.escape(issue.get("subject", title))}</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>{HEAD_CSS}</style>
 </head>
 <body style="margin:0;padding:0;background-color:{PAGE_BG};">
-<!-- Generated by newsletter/src/build.py from issues/{slug}.json. Edit the JSON, not this file. -->
+<!-- Generated by newsletter/build.py from issues/{slug}.json. Edit the JSON, not this file. -->
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{pre}&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{PAGE_BG}" style="background-color:{PAGE_BG};">
 <tr><td align="center" style="padding:0;">
-<p style="{text_style(12, 400, '#6b675c', 1.4)}text-align:center;padding:12px 10px;">
-{web_link}<a href="{ctx.href('@pdf')}" style="color:#6b675c;">Download PDF</a></p>
+<div style="height:20px;line-height:20px;font-size:0;">&nbsp;</div>
 <table role="presentation" class="wrap" width="{WIDTH}" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="border-collapse:collapse;width:{WIDTH}px;max-width:100%;background-color:#ffffff;">
 {"".join(body)}</table>
 <div style="height:24px;line-height:24px;font-size:0;">&nbsp;</div>
 </td></tr></table>
-</body>
-</html>
-"""
-
-
-def render_archive(config, issues):
-    rows = "".join(
-        f'<li style="margin:0 0 10px;"><a href="{slug}/" style="color:{DARK};">'
-        f'Issue {iss["issue"]} — {iss["month"]} {iss["year"]}</a> &nbsp;·&nbsp; '
-        f'<a href="{slug}/{pdf_name(slug)}" style="color:#6b675c;">PDF</a></li>'
-        for slug, iss in sorted(issues, reverse=True)
-    )
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>{html.escape(config["title"])} — Archive</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body style="margin:0;background:{SAND};font-family:{FONT};color:{DARK};">
-<!-- Generated by newsletter/src/build.py. -->
-<main style="max-width:600px;margin:0 auto;padding:48px 22px;">
-<img src="shared/logo-dark.png" width="220" alt="GUAC Mexi Grill" style="display:block;margin:0 0 28px;">
-<h1 style="font-size:34px;margin:0 0 24px;">{html.escape(config["title"])}</h1>
-<ul style="list-style:none;padding:0;margin:0;font-size:18px;">{rows}</ul>
-</main>
 </body>
 </html>
 """
@@ -500,28 +472,29 @@ def load(path):
 def main(argv):
     want_pdf = "--pdf" in argv
     slugs = [a for a in argv if not a.startswith("--")]
-    config = load(SRC / "config.json")
-    all_issues = []
+    config = load(ROOT / "config.json")
+    found = set()
+    OUTPUT.mkdir(exist_ok=True)
     for path in sorted(ISSUES.glob("*.json")):
         slug = path.stem
         if not re.fullmatch(r"\d{4}-\d{2}", slug):
             sys.exit(f"Issue files must be named YYYY-MM.json, got {path.name}")
-        issue = load(path)
-        all_issues.append((slug, issue))
+        found.add(slug)
         if slugs and slug not in slugs:
             continue
-        (ROOT / slug).mkdir(parents=True, exist_ok=True)
-        for name, email in (("index.html", False), ("email.html", True)):
-            out = ROOT / slug / name
-            out.write_text(render_issue(config, issue, slug, email), encoding="utf-8")
-            print(f"wrote {out.relative_to(ROOT.parent)}")
+        issue = load(path)
+        out = OUTPUT / f"{slug}.html"
+        out.write_text(render_issue(config, issue, slug), encoding="utf-8")
+        print(f"wrote newsletter/output/{out.name} ({out.stat().st_size // 1024} KB)")
+        if config.get("image_base_url"):
+            hosted = OUTPUT / f"{slug}.hosted.html"
+            hosted.write_text(render_issue(config, issue, slug, config["image_base_url"]), encoding="utf-8")
+            print(f"wrote newsletter/output/{hosted.name}")
         if want_pdf:
-            subprocess.run(["node", str(SRC / "snapshot.mjs"), slug, config["base_url"], pdf_name(slug)], check=True)
+            subprocess.run(["node", str(ROOT / "snapshot.mjs"), str(out), str(OUTPUT / f"{slug}.pdf")], check=True)
     for s in slugs:
-        if s not in dict(all_issues):
-            sys.exit(f"No issue file: newsletter/src/issues/{s}.json")
-    (ROOT / "index.html").write_text(render_archive(config, all_issues), encoding="utf-8")
-    print("wrote newsletter/index.html")
+        if s not in found:
+            sys.exit(f"No issue file: newsletter/issues/{s}.json")
 
 
 if __name__ == "__main__":

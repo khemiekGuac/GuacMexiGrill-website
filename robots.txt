@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /newsletter/
 
 Sitemap: https://guacmexigrill.ca/sitemap.xml
