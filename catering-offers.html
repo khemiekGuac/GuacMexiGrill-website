@@ -49,7 +49,8 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .mobile-nav.open{display:flex;opacity:1;pointer-events:all}
 .mobile-nav a{font-family:var(--font-display);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--cream);letter-spacing:.08em;transition:color .2s}.mobile-nav a:hover{color:var(--sage)}
 .mobile-nav__close{position:absolute;top:28px;right:28px;font-size:26px;color:var(--cream);cursor:pointer;opacity:.5}.mobile-nav__close:hover{opacity:1}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}
+/* content is only hidden for the scroll-in once the observer is running (html.reveal-on), so it always shows in limited in-app browsers */
+.reveal-on .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .75s var(--ease)}.reveal-on .reveal.visible{opacity:1;transform:translateY(0)}
 .footer{background:var(--dark);border-top:1px solid rgba(203,180,129,.06)}
 .footer__main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:56px;padding:72px 80px 60px}
 .footer__brand img{height:40px;margin-bottom:22px;filter:invert(1)}
@@ -179,7 +180,8 @@ body.cat{background:var(--dark)}
   <a href="https://order.koomi.com/guac-mexi-grill-njlPG8BB1v/en" target="_blank" class="btn btn--cream" style="margin-top:16px" onclick="closeMobileNav()">Order Now</a>
 </div>
 <!-- ══ CATERING OFFERS — unlisted page shared by direct link only.
-     Keep it out of nav/footer/sitemap and keep the noindex meta. Update deals, prices and options below. ══ -->
+     Keep it out of nav/footer/sitemap and keep the noindex meta. Update deals, prices and options below.
+     Catering photos use plain src (no data-img / .reveal) so they show even where JS is limited, e.g. in-app browsers. ══ -->
 <header class="cat-hero">
   <div class="cat-hero__content">
     <div class="eyebrow eyebrow--light">Catering · Exclusive Offers</div>
@@ -191,7 +193,7 @@ body.cat{background:var(--dark)}
       <a href="#deals" class="btn btn--outline-light">See the Deals</a>
     </div>
   </div>
-  <div class="cat-hero__img"><img data-img="CAT_HERO" alt="Barbacoa tacos topped with guacamole, pico de gallo and black beans"></div>
+  <div class="cat-hero__img"><img src="images/catering-hero-tacos.jpg" width="780" height="1060" fetchpriority="high" alt="Barbacoa tacos topped with guacamole, pico de gallo and black beans"></div>
 </header>
 
 <section class="cat-sec cat-deals" id="deals">
@@ -213,7 +215,7 @@ body.cat{background:var(--dark)}
 
 <section class="cat-sec" id="taco-bowl-bar">
   <div class="cat-inner cat-pkg">
-    <div class="cat-pkg__media reveal"><img data-img="CAT_TACO_BAR" alt="Tacos with ground beef, salsa, sour cream and lettuce on a serving board"></div>
+    <div class="cat-pkg__media"><img src="images/catering-taco-bar.jpg" width="770" height="420" loading="lazy" alt="Tacos with ground beef, salsa, sour cream and lettuce on a serving board"></div>
     <div class="reveal d1">
       <div class="eyebrow eyebrow--light">Build Your Own</div>
       <h2 class="cat-sec__title">Tacos or Bowls</h2>
@@ -237,7 +239,7 @@ body.cat{background:var(--dark)}
 
 <section class="cat-sec" id="burrito-boxes">
   <div class="cat-inner cat-pkg cat-pkg--rev">
-    <div class="cat-pkg__media reveal"><img data-img="CAT_BURRITO" alt="Burrito cut open to show rice, beans, ground beef and peppers"></div>
+    <div class="cat-pkg__media"><img src="images/catering-burrito.jpg" width="770" height="460" loading="lazy" alt="Burrito cut open to show rice, beans, ground beef and peppers"></div>
     <div class="reveal d1">
       <div class="eyebrow eyebrow--light">Each box includes 8 burritos</div>
       <h2 class="cat-sec__title">Burrito Boxes</h2>
@@ -263,7 +265,7 @@ body.cat{background:var(--dark)}
       <ul><li>Chips &amp; guacamole</li><li>Chips &amp; salsa</li><li>Chips &amp; queso</li><li>Triple chocolate brownie</li><li>Chocolate chunk cookie</li></ul></div>
     <div class="cat-list reveal d1"><h2 class="cat-list__title">Drinks</h2><div class="cat-list__sub">Keep the table cold</div>
       <ul><li>Canned pop</li><li>Bottled pop</li><li>Bottled juice</li><li>Bottled water</li><li>Jarritos</li></ul></div>
-    <div class="cat-sides__img reveal d2"><img data-img="CAT_SIDES" alt="Tortilla chips with salsa and an iced cola"></div>
+    <div class="cat-sides__img"><img src="images/catering-chips-drink.jpg" width="470" height="440" loading="lazy" alt="Tortilla chips with salsa and an iced cola"></div>
   </div>
 </section>
 
@@ -329,11 +331,6 @@ body.cat{background:var(--dark)}
   var IMAGE_CONFIG = {
     // REPLACEABLE — update path here to swap this image
     LOGO: "images/logo.png",
-    // REPLACEABLE — update paths here to swap catering photos
-    CAT_HERO: "images/catering-hero-tacos.jpg",
-    CAT_TACO_BAR: "images/catering-taco-bar.jpg",
-    CAT_BURRITO: "images/catering-burrito.jpg",
-    CAT_SIDES: "images/catering-chips-drink.jpg",
   };
   // Apply image config — resolves data-img attributes to src paths
   document.querySelectorAll('[data-img]').forEach(function(el){
@@ -347,9 +344,12 @@ document.getElementById('burgerBtn').addEventListener('click',()=>{
   document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';});
 function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('closeNav').addEventListener('click',closeMobileNav);
+if('IntersectionObserver' in window){
+document.documentElement.classList.add('reveal-on');
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
 </script>
 <script>(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var wheel=document.getElementById("cursor-wheel");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;wheel.style.left=rx+"px";wheel.style.top=ry+"px";requestAnimationFrame(animate);})();})();</script>
 <script src="/assets/js/geo-banner.js"></script>
