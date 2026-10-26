@@ -179,6 +179,35 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .newsletter__input::placeholder{color:rgba(226,221,203,.38)}
 .newsletter__submit{background:var(--cream);color:var(--dark);border:none;padding:15px 26px;font-family:var(--font-display);font-weight:700;font-size:10px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;flex-shrink:0;transition:background .3s}
 .newsletter__submit:hover{background:var(--olive)}
+/* NEWS — featured story + side rail of press items */
+.news{background:var(--cream);padding:100px 80px}
+.news__header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:52px}
+.news__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(46px,6vw,78px);line-height:.9;text-transform:uppercase;color:var(--dark);letter-spacing:-.02em;margin-top:14px}
+.news__headline em{font-style:normal;color:var(--olive)}
+.news__grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:stretch}
+.news-feature{position:relative;display:flex;flex-direction:column;background:var(--dark);border-radius:3px;overflow:hidden}
+.news-feature__img{position:relative;aspect-ratio:16/9;overflow:hidden}
+.news-feature__img img{width:100%;height:100%;object-fit:cover;filter:brightness(.78);transition:transform .8s var(--ease)}
+.news-feature:hover .news-feature__img img{transform:scale(1.04)}
+.news-feature__date{position:absolute;top:22px;left:22px;background:var(--amber);color:var(--dark);border-radius:2px;padding:10px 14px 8px;text-align:center;font-family:var(--font-display);line-height:1}
+.news-feature__date b{display:block;font-weight:900;font-size:34px;letter-spacing:-.02em}
+.news-feature__date span{display:block;font-weight:700;font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-top:4px}
+.news-feature__body{padding:36px 40px 40px;display:flex;flex-direction:column;flex:1}
+.news-feature__title{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,3.6vw,48px);line-height:.92;letter-spacing:-.01em;text-transform:uppercase;color:var(--cream);margin:14px 0 18px}
+.news-feature__title span{color:var(--olive)}
+.news-feature__text{font-size:15px;line-height:1.8;color:rgba(226,221,203,.6);max-width:520px;margin-bottom:28px}
+.news-feature__actions{margin-top:auto;display:flex;gap:14px;flex-wrap:wrap}
+.news-rail{list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(22,33,31,.14)}
+.news-rail__item{border-bottom:1px solid rgba(22,33,31,.14)}
+.news-rail__link{display:block;padding:26px 0;transition:padding .3s var(--ease)}
+.news-rail__link:hover{padding-left:10px}
+.news-rail__meta{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,33,31,.45);margin-bottom:10px}
+.news-tag{color:var(--olive)} .news-tag--media{color:var(--rust)}
+.news-rail__title{font-family:var(--font-display);font-weight:800;font-size:22px;line-height:1.08;text-transform:uppercase;color:var(--dark);letter-spacing:.01em;margin-bottom:8px;transition:color .2s}
+.news-rail__link:hover .news-rail__title{color:var(--olive)}
+.news-rail__excerpt{font-size:13.5px;line-height:1.7;color:rgba(22,33,31,.6)}
+@media(max-width:1024px){.news{padding:60px 32px}.news__grid{grid-template-columns:1fr;gap:40px}.news-feature__body{padding:28px 26px 32px}}
+@media(max-width:640px){.news__header{flex-direction:column;align-items:flex-start}}
 @media(max-width:480px){.btn--hero{font-size:13px!important;padding:19px 36px!important}.hero__btns{flex-direction:column;align-items:stretch}.hero__btns .btn--hero{text-align:center;justify-content:center}}
 @media(max-width:1024px){.hero__intro{padding:56px 24px 36px}.hero__image{padding:0 24px 60px}.welcome{grid-template-columns:1fr;padding:60px 32px;gap:44px}.welcome__right{grid-template-columns:1fr}.welcome__img--accent{display:none}.menu-preview{padding:60px 32px}.menu-grid{grid-template-columns:repeat(2,1fr)}.values-band{grid-template-columns:1fr;padding:56px 32px;gap:36px}.values-band__div{display:none}.story-band{grid-template-columns:1fr}.story-band__img{height:360px;position:relative}.story-band__content{padding:56px 32px}.pillars{grid-template-columns:1fr}.pillar{border-right:none;border-bottom:1px solid rgba(203,180,129,.07)}.gc-band__content{padding:56px 32px}.newsletter{padding:56px 32px}}
 @media(max-width:640px){.menu-grid{grid-template-columns:1fr}}</style>
@@ -413,6 +442,56 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   <div class="value-item"><div class="value-item__num" data-loc-count>56+</div><div class="value-item__label">Locations Across Canada</div></div>
 </div>
 
+<!-- ══ NEWS — swap the featured story or add a .news-rail__item (newest first, keep 4); full releases live in news.html ══ -->
+<section class="news" aria-labelledby="newsHeadline">
+  <div class="news__header">
+    <div class="reveal">
+      <div class="eyebrow">Newsroom</div>
+      <h2 class="news__headline" id="newsHeadline">What's New<br>At <em>Guac</em></h2>
+    </div>
+    <a href="news.html" class="underline-link reveal d1">All news &amp; press →</a>
+  </div>
+  <div class="news__grid">
+    <article class="news-feature reveal">
+      <div class="news-feature__img">
+        <img data-img="NEWS_FEATURE" alt="GUAC Mexi Grill storefront">
+        <div class="news-feature__date"><b>31</b><span>Oct</span></div>
+      </div>
+      <div class="news-feature__body">
+        <span class="eyebrow eyebrow--light" data-event-date="2026-10-31" data-past-label="Now Open · Waterloo, ON">Grand Opening · Waterloo, ON</span>
+        <h3 class="news-feature__title">Hello,<br><span>Waterloo.</span></h3>
+        <p class="news-feature__text">Our Waterloo restaurant celebrates its grand opening on Saturday, October 31. House-made guac, fire-grilled proteins and bold Tex-Mex flavour &mdash; come hungry.</p>
+        <div class="news-feature__actions">
+          <a href="locations.html" class="btn btn--cream">Find Waterloo →</a>
+          <a href="news.html#waterloo-grand-opening" class="btn btn--outline-light">Read More</a>
+        </div>
+      </div>
+    </article>
+    <ul class="news-rail reveal d2">
+      <li class="news-rail__item"><a class="news-rail__link" href="news.html#us-expansion">
+        <div class="news-rail__meta"><span class="news-tag">Press Release</span><span aria-hidden="true">·</span><time datetime="2026-10-26">Oct 26, 2026</time></div>
+        <h3 class="news-rail__title">95-Unit U.S. Franchise Expansion Deal</h3>
+        <p class="news-rail__excerpt">Georgia, South Carolina and Florida, with the first U.S. restaurants planned for 2027.</p>
+      </a></li>
+      <li class="news-rail__item"><a class="news-rail__link" href="https://retail-insider.com/retail-insider/2026/09/guac-mexi-grill-marks-10-years-with-56-locations-eyes-u-s-expansion/" target="_blank" rel="noopener">
+        <div class="news-rail__meta"><span class="news-tag news-tag--media">Retail Insider</span><span aria-hidden="true">·</span><time datetime="2026-09-25">Sep 25, 2026</time></div>
+        <h3 class="news-rail__title">Guac Marks 10 Years, Eyes U.S. Expansion ↗</h3>
+        <p class="news-rail__excerpt">A decade of growth, a refreshed brand and what's next for Canada's bold Tex-Mex.</p>
+      </a></li>
+      <li class="news-rail__item"><a class="news-rail__link" href="news.html#10-years-bold">
+        <div class="news-rail__meta"><span class="news-tag">Press Release</span><span aria-hidden="true">·</span><time datetime="2026-06">June 2026</time></div>
+        <h3 class="news-rail__title">10 Years Bold</h3>
+        <p class="news-rail__excerpt">Our anniversary campaign with Food Banks Canada &mdash; a minimum of 50,000 meals nationwide.</p>
+      </a></li>
+      <li class="news-rail__item"><a class="news-rail__link" href="news.html#india-expansion">
+        <div class="news-rail__meta"><span class="news-tag">Press Release</span><span aria-hidden="true">·</span><time datetime="2026-05-13">May 13, 2026</time></div>
+        <h3 class="news-rail__title">Guac Expands Into India</h3>
+        <p class="news-rail__excerpt">A master franchise partnership with FranGlobal brings Guac to the Indian market.</p>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
 <section class="story-band">
   <div class="story-band__img"><img data-img="INDEX_STOREFRONT" alt="GUAC Storefront"></div>
   <div class="story-band__content">
@@ -454,6 +533,10 @@ document.getElementById('subBtn').addEventListener('click',function(){
     f.innerHTML='<p style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);padding:16px 0">Thank you for subscribing</p>';
     if(c)c.style.display='none';
   }});
+// Event labels flip to their past-tense wording the day after the event (local time).
+document.querySelectorAll('[data-event-date]').forEach(function(el){
+  if(new Date()>new Date(el.getAttribute('data-event-date')+'T23:59:59'))el.textContent=el.getAttribute('data-past-label');
+});
 </script>
 <footer class="footer">
   <div class="footer__main">
@@ -472,7 +555,7 @@ document.getElementById('subBtn').addEventListener('click',function(){
       </ul></div>
     <div><div class="footer__col-title">About Us</div>
       <ul class="footer__col-links">
-        <li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li>
+        <li><a href="about.html">Our Story</a></li><li><a href="about.html#values">Our Values</a></li><li><a href="news.html">News &amp; Press</a></li>
         <li><a href="contact.html#faq">FAQs</a></li>
       </ul></div>
     <div><div class="footer__col-title">Explore More</div>
@@ -518,6 +601,8 @@ document.getElementById('subBtn').addEventListener('click',function(){
     WELCOME_ACCENT: "images/welcome-accent.jpg",
     // REPLACEABLE — update path here to swap this image
     INDEX_STOREFRONT: "images/index-storefront.jpg",
+    // REPLACEABLE — update path here to swap this image (news featured story)
+    NEWS_FEATURE: "images/locations-storefront.jpg",
   };
   // Apply image config — resolves data-img attributes to src paths
   document.querySelectorAll('[data-img]').forEach(function(el){
