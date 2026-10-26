@@ -41,3 +41,9 @@ Locations are cards in `locations.html`; the loyalty sign-up store list is in `l
 The public "56+" count lives in `site-config.js` (`SITE.locationCount`, drives
 `data-loc-count` elements) and is also hard-coded in page titles, meta/OG/Twitter
 descriptions, JSON-LD and body copy. Update all of them together.
+
+## Unlisted pages
+
+`catering-offers.html` is shared with customers by direct link only. Keep its
+`noindex, nofollow` robots meta, and don't add it to the nav, footer or `sitemap.xml`
+(and don't `Disallow` it in `robots.txt`, which would stop crawlers seeing the noindex).
