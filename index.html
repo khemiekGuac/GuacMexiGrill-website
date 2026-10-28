@@ -258,7 +258,11 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-slider__arrow{width:48px;height:48px;border:1px solid rgba(226,221,203,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);background:rgba(21,22,22,.35);backdrop-filter:blur(4px);transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
 .lto-slider__arrow:hover{background:var(--olive);border-color:var(--olive);transform:scale(1.06)}
 .lto-slider__arrow svg{width:16px;height:16px}
-.lto-slider__dots{position:absolute;z-index:5;bottom:34px;left:64px;display:flex;gap:12px}
+.lto-slider__controls{position:absolute;z-index:5;bottom:34px;left:64px;display:flex;align-items:center;gap:16px}
+.lto-slider__dots{display:flex;gap:12px}
+.lto-slider__toggle{width:28px;height:28px;margin:-12px 0;border:1px solid rgba(226,221,203,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream);background:rgba(21,22,22,.35);transition:background .25s,border-color .25s}
+.lto-slider__toggle:hover{background:var(--olive);border-color:var(--olive)}
+.lto-slider__toggle svg{width:10px;height:10px}
 .lto-slider__dot{position:relative;width:34px;height:4px;border-radius:3px;background:rgba(226,221,203,.24);overflow:hidden;transition:background .25s}
 .lto-slider__dot:hover{background:rgba(226,221,203,.42)}
 .lto-slider__dot span{position:absolute;inset:0;width:0;background:var(--amber);border-radius:3px}
@@ -270,7 +274,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 @media(max-width:1024px){
   .lto-slide__media{left:52%}
   .lto-slide__inner{padding:40px 44px;max-width:none}
-  .lto-slider__dots{left:44px;bottom:28px}
+  .lto-slider__controls{left:44px;bottom:28px}
   .lto-slider__arrows{right:24px;bottom:22px}
   .lto-slider__viewall{top:22px;right:24px}
 }
@@ -287,7 +291,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   .lto-slide__actions{width:100%;flex-direction:column;align-items:stretch;gap:12px}
   .lto-slide__actions .btn{justify-content:center;padding:15px 24px}
   .lto-slider__arrows{display:none}
-  .lto-slider__dots{left:24px;bottom:34px}
+  .lto-slider__controls{left:24px;bottom:34px}
   .lto-slider__viewall{top:18px;right:18px;padding:8px 12px;letter-spacing:.22em}
 }
 @media(prefers-reduced-motion:reduce){
@@ -401,7 +405,10 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
       </div>
 
     </div>
-    <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose featured item"></div>
+    <div class="lto-slider__controls">
+      <div class="lto-slider__dots" id="ltoDots" role="tablist" aria-label="Choose featured item"></div>
+      <button class="lto-slider__toggle" id="ltoToggle" type="button" aria-label="Pause slideshow"><svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="1.5" y="1" width="2.5" height="8"/><rect x="6" y="1" width="2.5" height="8"/></svg></button>
+    </div>
     <div class="lto-slider__arrows">
       <button class="lto-slider__arrow" id="ltoPrev" type="button" aria-label="Previous item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="lto-slider__arrow" id="ltoNext" type="button" aria-label="Next item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -647,10 +654,9 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   if(slides.length<2){root.classList.add('no-auto');return;}
   var live=document.getElementById('ltoLive');
   var dotsWrap=document.getElementById('ltoDots');
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   var DURATION=5000;
   root.style.setProperty('--lto-dur',(DURATION/1000)+'s');
-  var current=0,timer=null,paused=false;
+  var current=0,timer=null,paused=false,holds={};
 
   // build dots
   var dots=slides.map(function(s,i){
@@ -687,26 +693,31 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     clearTimeout(timer);
     // retrigger the progress-bar animation on the active dot
     var span=dots[current].querySelector('span');
-    if(span&&!reduce){span.style.transition='none';span.style.width='0';void span.offsetWidth;span.style.transition='';}
-    if(reduce)return;                 // no autoplay when motion reduced
+    if(span){span.style.transition='none';span.style.width='0';void span.offsetWidth;span.style.transition='';}
     if(paused){dots[current].classList.add('is-paused');return;}
     dots[current].classList.remove('is-paused');
     timer=setTimeout(function(){next(false);},DURATION);
   }
 
-  function pause(){if(paused)return;paused=true;clearTimeout(timer);dots[current].classList.add('is-paused');
+  // autoplay stops while any hold is set: 'user' (pause button), 'focus' (keyboard focus inside), 'hidden' (tab hidden)
+  function pause(why){holds[why]=true;if(paused)return;paused=true;clearTimeout(timer);dots[current].classList.add('is-paused');
     var span=dots[current].querySelector('span');if(span){var w=getComputedStyle(span).width;span.style.transition='none';span.style.width=w;}}
-  function resume(){if(!paused)return;paused=false;dots[current].classList.remove('is-paused');restart(false);}
+  function resume(why){delete holds[why];if(!paused||Object.keys(holds).length)return;paused=false;dots[current].classList.remove('is-paused');restart(false);}
 
   document.getElementById('ltoNext').addEventListener('click',function(){next(true);});
   document.getElementById('ltoPrev').addEventListener('click',function(){prev(true);});
 
-  // pause on hover / focus within / tab hidden
-  root.addEventListener('mouseenter',pause);
-  root.addEventListener('mouseleave',resume);
-  root.addEventListener('focusin',pause);
-  root.addEventListener('focusout',resume);
-  document.addEventListener('visibilitychange',function(){document.hidden?pause():resume();});
+  // pause/play button (WCAG 2.2.2). Autoplay also runs under reduced motion; CSS swaps the zoom for a short fade there
+  var toggle=document.getElementById('ltoToggle');
+  var PAUSE_ICON=toggle.innerHTML,PLAY_ICON='<svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M2 1l7 4-7 4z"/></svg>';
+  function setToggle(){var on=!!holds.user;toggle.innerHTML=on?PLAY_ICON:PAUSE_ICON;toggle.setAttribute('aria-label',on?'Play slideshow':'Pause slideshow');}
+  toggle.addEventListener('click',function(){holds.user?resume('user'):pause('user');setToggle();});
+
+  // pause while keyboard focus is inside (not on mouse clicks) and while the tab is hidden; hover no longer pauses
+  // because the hero fills the viewport, so the pointer is almost always over it
+  root.addEventListener('focusin',function(e){if(e.target.matches(':focus-visible'))pause('focus');});
+  root.addEventListener('focusout',function(e){if(!root.contains(e.relatedTarget))resume('focus');});
+  document.addEventListener('visibilitychange',function(){document.hidden?pause('hidden'):resume('hidden');});
 
   // keyboard when slider focused
   root.addEventListener('keydown',function(e){
@@ -726,13 +737,10 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
   // only autoplay once scrolled into view (keeps first slide's reveal intact)
   setActive(0);
-  if(reduce){root.classList.add('no-auto');}
-  else{
-    var startObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){if(en.isIntersecting){restart(false);startObs.disconnect();}});
-    },{threshold:0.35});
-    startObs.observe(root);
-  }
+  var startObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){restart(false);startObs.disconnect();}});
+  },{threshold:0.35});
+  startObs.observe(root);
 })();
 </script>
 <script>(function(){if(!window.matchMedia("(pointer:fine)").matches)return;document.body.classList.add("js-cursor");var wheel=document.getElementById("cursor-wheel");var mx=-200,my=-200,rx=-200,ry=-200,ease=0.11;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;document.body.classList.remove("cursor-hidden");});document.addEventListener("mouseleave",function(){document.body.classList.add("cursor-hidden");});document.addEventListener("mouseenter",function(){document.body.classList.remove("cursor-hidden");});document.querySelectorAll("a,button,[onclick],input,textarea,select,label").forEach(function(el){el.addEventListener("mouseenter",function(){document.body.classList.add("cursor-active");});el.addEventListener("mouseleave",function(){document.body.classList.remove("cursor-active");});});(function animate(){rx+=(mx-rx)*ease;ry+=(my-ry)*ease;wheel.style.left=rx+"px";wheel.style.top=ry+"px";requestAnimationFrame(animate);})();})();</script>
