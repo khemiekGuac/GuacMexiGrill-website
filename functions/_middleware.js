@@ -11,7 +11,8 @@
  *  2. *.pages.dev — Cloudflare preview URLs stay reachable for staff but are
  *     kept out of search with an `X-Robots-Tag: noindex` response header.
  *
- *  3. Internal repo files (scripts, config, docs, the US site's source under
+ *  3. Internal repo files (scripts, config, docs, email templates in /emails,
+ *     the US site's source under
  *     /com-site) are deployed alongside the site because the Pages project
  *     serves the repo root. They are answered with a 404 on every host.
  *
@@ -25,7 +26,7 @@
  */
 // Files in the repo that must never be served publicly.
 const BLOCKED_PATH =
-  /^\/(com-site(\/|$)|functions(\/|$)|\.(?!well-known\/)|[^/]*\.(py|md|jsonc?|toml)$)/i;
+  /^\/(com-site(\/|$)|functions(\/|$)|emails(\/|$)|\.(?!well-known\/)|[^/]*\.(py|md|jsonc?|toml)$)/i;
 
 export async function onRequest(context) {
   const host = (context.request.headers.get("host") || "").toLowerCase();
@@ -70,9 +71,10 @@ export async function onRequest(context) {
 
   const response = await context.next();
 
-  // 2. Keep *.pages.dev previews out of search (still reachable for staff).
+  // 2. Keep *.pages.dev previews, and email-campaign images (public so
+  //    inboxes can load them), out of search.
   try {
-    if (host.endsWith(".pages.dev")) {
+    if (host.endsWith(".pages.dev") || /^\/images\/email\//i.test(path)) {
       const headers = new Headers(response.headers);
       headers.set("X-Robots-Tag", "noindex, nofollow");
       return new Response(response.body, {

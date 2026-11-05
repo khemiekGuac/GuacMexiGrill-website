@@ -9,7 +9,7 @@ Two static sites in one repo, each deployed by its own Cloudflare Pages project:
 
 - No build step. Pages Functions live in `functions/` (.ca) and `com-site/functions/` (US).
 - Each site's `functions/_middleware.js` 301-redirects `www.*` to the bare domain and
-  404s internal files (`*.md`, `*.py`, `*.json(c)`, dotfiles, `/functions/`, and
+  404s internal files (`*.md`, `*.py`, `*.json(c)`, dotfiles, `/functions/`, `/emails/`, and
   `/com-site/` on .ca). Keep new internal files covered by that blocklist.
 - Canonical, `og:url`, hreflang and JSON-LD URLs use extensionless paths
   (`https://guacmexigrill.ca/about`), because Cloudflare 308-redirects `*.html`.
@@ -47,3 +47,11 @@ descriptions, JSON-LD and body copy. Update all of them together.
 `catering-offers.html` is shared with customers by direct link only. Keep its
 `noindex, nofollow` robots meta, and don't add it to the nav, footer or `sitemap.xml`
 (and don't `Disallow` it in `robots.txt`, which would stop crawlers seeing the noindex).
+
+## Marketing emails
+
+Constant Contact email templates live in `emails/` (404'd by the .ca middleware, so they're
+never served as pages). Their images live in `images/email/<campaign>/` and are referenced by
+absolute `https://guacmexigrill.ca/...` URLs, so they must stay public and be deployed before
+the email is sent. The middleware sends `X-Robots-Tag: noindex` on `/images/email/` so they stay
+out of search.
