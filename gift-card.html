@@ -109,6 +109,16 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
 .faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--olive);transition:transform .3s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
 .faq-a{font-size:14px;line-height:1.8;color:rgba(22,33,31,.55);max-height:0;overflow:hidden;transition:max-height .35s var(--ease),padding .35s}.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
 
+/* holiday promo banner (hidden automatically from Dec 27, 2026 via data-expires) */
+.gc-holiday{background:#F7EFE6;scroll-margin-top:120px}
+.gc-holiday__banner{display:block;width:100%;height:auto;max-width:1893px;margin:0 auto}
+.gc-holiday__bar{background:var(--dark);padding:28px 80px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.gc-holiday__text{max-width:720px}
+.gc-holiday__eyebrow{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.gc-holiday__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,3vw,36px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:var(--cream)}
+.gc-holiday__headline span{color:var(--sage)}
+.gc-holiday__fine{font-size:12px;line-height:1.6;color:rgba(226,221,203,.55);margin-top:10px}
+@media(max-width:768px){.gc-holiday__bar{padding:24px 24px 28px}.gc-holiday__bar .btn{width:100%;justify-content:center}}
 .gc-buyonline{background:var(--olive);padding:72px 80px;text-align:center}
 .gc-buyonline__inner{max-width:640px;margin:0 auto}
 .gc-buyonline__headline{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,4vw,48px);text-transform:uppercase;color:var(--cream);letter-spacing:-.02em;line-height:.95;margin:14px 0 18px}
@@ -161,6 +171,22 @@ img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{cur
     <div class="gc-hero__badge reveal" style="transition-delay:.3s;margin-top:32px">Never expires · Any denomination · Participating locations</div>
   </div>
 </div>
+
+<section class="gc-holiday" id="holiday-offer" data-expires="2026-12-27" aria-labelledby="gcHolidayTitle">
+  <img class="gc-holiday__banner" src="images/holiday-gift-card-banner.jpg" width="1893" height="760" alt="Gift Bold. Purchase a GUAC Mexi Grill gift card valued at $25 or more and receive a free burrito. Offer available in-store only through December 26, 2026.">
+  <div class="gc-holiday__bar">
+    <div class="gc-holiday__text">
+      <div class="gc-holiday__eyebrow">Holiday Offer &middot; In-Store Only</div>
+      <h2 class="gc-holiday__headline" id="gcHolidayTitle">Buy a $25+ gift card, get a <span>free burrito.</span></h2>
+      <p class="gc-holiday__fine">Offer valid with a qualifying gift card purchase of $25 or more. Offer available in-store only. Free burrito must be redeemed in-store. Offer valid through December 26, 2026. Additional terms and conditions may apply.</p>
+    </div>
+    <a href="locations.html" class="btn btn--cream">Find Your Nearest GUAC &#x2192;</a>
+  </div>
+</section>
+<script>
+(function(){var el=document.getElementById('holiday-offer');if(!el)return;var d=el.getAttribute('data-expires').split('-');
+if(new Date()>=new Date(+d[0],+d[1]-1,+d[2]))el.parentNode.removeChild(el);})();
+</script>
 
 <section class="gc-buyonline">
   <div class="gc-buyonline__inner reveal">

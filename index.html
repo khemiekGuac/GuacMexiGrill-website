@@ -230,6 +230,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
 .lto-slide__media--duo img{min-height:0}
 .lto-slide.is-active .lto-slide__media img{animation:ltoKen 8s var(--ease) forwards}
 @keyframes ltoKen{from{transform:scale(var(--s))}to{transform:scale(var(--se))}}
+.lto-slide--holiday .lto-slide__media img{--px:74%;--py:62%}
 /* soft seam blends the image's left edge into the dark content panel */
 .lto-slide__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 54%,rgba(21,22,22,.35) 59%,transparent 63%)}
 .lto-slide__inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:660px;padding:56px 72px}
@@ -340,7 +341,24 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
     <a href="menu.html" class="lto-slider__viewall">View full menu &#x2192;</a>
     <div class="lto-slider__viewport" id="ltoViewport">
 
-      <div class="lto-slide lto-slide--kstacks is-active" role="group" aria-roledescription="slide" aria-label="1 of 4: K-Stacks">
+      <!-- Holiday gift card promo: hidden automatically from Dec 27, 2026 (data-expires) -->
+      <div class="lto-slide lto-slide--holiday is-active" data-expires="2026-12-27" role="group" aria-roledescription="slide" aria-label="1 of 5: Gift Bold">
+        <div class="lto-slide__media"><img data-img="FEATURE_HOLIDAY_GC" alt="A GUAC Mexi Grill gift card tied with a green ribbon next to a loaded burrito and lime wedges, under snowy pine branches"></div>
+        <div class="lto-slide__scrim"></div>
+        <div class="lto-slide__inner">
+          <span class="lto-slide__eyebrow">Holiday Offer &middot; In-Store Only</span>
+          <h2 class="lto-slide__name">Gift <br>Bold.</h2>
+          <div class="lto-slide__price"><small>$25+ Gift Card =</small>Free Burrito</div>
+          <p class="lto-slide__desc">Purchase a GUAC gift card valued at $25 or more in-store and receive a free burrito. Offer valid through December 26, 2026.</p>
+          <div class="lto-slide__tags"><span class="lto-slide__tag">In-Store Only</span><span class="lto-slide__tag">$25+ Gift Card</span><span class="lto-slide__tag">Ends Dec 26</span></div>
+          <div class="lto-slide__actions">
+            <a href="gift-card.html#holiday-offer" class="btn btn--cream">See The Offer &#x2192;</a>
+            <a href="locations.html" class="btn btn--outline-light">Find Your Nearest GUAC</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lto-slide lto-slide--kstacks" role="group" aria-roledescription="slide" aria-label="2 of 5: K-Stacks">
         <div class="lto-slide__media"><img data-img="FEATURE_KSTACKS" alt="Two K-Stacks — crispy tortilla cups loaded with gochujang-glazed tofu, sesame seeds and greens, on a dark board with red chilies"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
@@ -356,7 +374,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
         </div>
       </div>
 
-      <div class="lto-slide lto-slide--f1" role="group" aria-roledescription="slide" aria-label="2 of 4: Guac Crunch">
+      <div class="lto-slide lto-slide--f1" role="group" aria-roledescription="slide" aria-label="3 of 5: Guac Crunch">
         <div class="lto-slide__media"><img data-img="FEATURE_1" alt="Guac Crunch — crispy tostada with queso, lettuce, tomatoes, mango salsa, sour cream and house protein"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
@@ -372,7 +390,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
         </div>
       </div>
 
-      <div class="lto-slide lto-slide--f2" role="group" aria-roledescription="slide" aria-label="3 of 4: Loaded Potatoes">
+      <div class="lto-slide lto-slide--f2" role="group" aria-roledescription="slide" aria-label="4 of 5: Loaded Potatoes">
         <div class="lto-slide__media"><img data-img="FEATURE_2" alt="Loaded Potatoes topped with ground beef, queso, tomatoes and sour cream"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
@@ -388,7 +406,7 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
         </div>
       </div>
 
-      <div class="lto-slide lto-slide--f3" role="group" aria-roledescription="slide" aria-label="4 of 4: Corn Crisps &amp; Cauliflower Crunch">
+      <div class="lto-slide lto-slide--f3" role="group" aria-roledescription="slide" aria-label="5 of 5: Corn Crisps &amp; Cauliflower Crunch">
         <div class="lto-slide__media lto-slide__media--duo"><img data-img="FEATURE_3A" alt="Golden corn crisps"><img data-img="FEATURE_3B" alt="Battered cauliflower crunch florets"></div>
         <div class="lto-slide__scrim"></div>
         <div class="lto-slide__inner">
@@ -601,7 +619,9 @@ document.querySelectorAll('[data-event-date]').forEach(function(el){
   var IMAGE_CONFIG = {
     // REPLACEABLE — update path here to swap this image
     HERO_FOOD: "images/hero-food.jpg",
-    // REPLACEABLE — update path here to swap this image (featured slider slide 1, K-Stacks LTO)
+    // REPLACEABLE — update path here to swap this image (featured slider: holiday gift card promo)
+    FEATURE_HOLIDAY_GC: "images/holiday-gift-card-slide.jpg",
+    // REPLACEABLE — update path here to swap this image (featured slider, K-Stacks LTO)
     FEATURE_KSTACKS: "images/lto-kstacks.jpg",
     // REPLACEABLE — update path here to swap this image (featured slider slide 2)
     FEATURE_1: "images/menu-guac-crunch.jpg",
@@ -650,7 +670,18 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 (function(){
   var root=document.getElementById('ltoSlider');
   if(!root)return;
+  // drop time-limited slides once their data-expires date (local time) is reached
+  var now=new Date();
+  Array.prototype.slice.call(root.querySelectorAll('.lto-slide[data-expires]')).forEach(function(s){
+    var d=(s.getAttribute('data-expires')||'').split('-');
+    if(d.length===3&&now>=new Date(+d[0],+d[1]-1,+d[2]))s.parentNode.removeChild(s);
+  });
   var slides=Array.prototype.slice.call(root.querySelectorAll('.lto-slide'));
+  if(slides.length&&!root.querySelector('.lto-slide.is-active'))slides[0].classList.add('is-active');
+  slides.forEach(function(s,i){
+    var n=(s.querySelector('.lto-slide__name')||{}).textContent||'';
+    s.setAttribute('aria-label',(i+1)+' of '+slides.length+': '+n.replace(/\s+/g,' ').trim());
+  });
   if(slides.length<2){root.classList.add('no-auto');return;}
   var live=document.getElementById('ltoLive');
   var dotsWrap=document.getElementById('ltoDots');
