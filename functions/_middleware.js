@@ -71,9 +71,10 @@ export async function onRequest(context) {
 
   const response = await context.next();
 
-  // 2. Keep *.pages.dev previews out of search (still reachable for staff).
+  // 2. Keep *.pages.dev previews, and email-campaign images (public so
+  //    inboxes can load them), out of search.
   try {
-    if (host.endsWith(".pages.dev")) {
+    if (host.endsWith(".pages.dev") || /^\/images\/email\//i.test(path)) {
       const headers = new Headers(response.headers);
       headers.set("X-Robots-Tag", "noindex, nofollow");
       return new Response(response.body, {

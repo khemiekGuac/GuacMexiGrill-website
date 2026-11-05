@@ -53,4 +53,5 @@ descriptions, JSON-LD and body copy. Update all of them together.
 Constant Contact email templates live in `emails/` (404'd by the .ca middleware, so they're
 never served as pages). Their images live in `images/email/<campaign>/` and are referenced by
 absolute `https://guacmexigrill.ca/...` URLs, so they must stay public and be deployed before
-the email is sent.
+the email is sent. The middleware sends `X-Robots-Tag: noindex` on `/images/email/` so they stay
+out of search.
