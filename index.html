@@ -287,14 +287,26 @@ img{display:block;max-width:100%} a{text-decoration:none;color:inherit} button{c
   .lto-slide__media img{object-position:50% 50%;transform:scale(1.02)}
   .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(1.02)}
   .lto-slide__media--duo{grid-template-rows:none;grid-template-columns:1fr 1fr}
-  .lto-slide__inner{justify-content:flex-end;padding:32px 24px 84px;max-width:none}
-  .lto-slide__scrim{background:linear-gradient(to top,rgba(21,22,22,.97) 6%,rgba(21,22,22,.76) 42%,rgba(21,22,22,.55) 70%,rgba(21,22,22,.76) 100%)}
+  .lto-slide__inner{position:absolute;left:12px;right:12px;bottom:76px;height:auto;max-height:calc(100% - 140px);justify-content:flex-end;padding:22px 18px 20px;max-width:none;background:rgba(22,33,31,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-left:3px solid var(--olive);border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .lto-slide__desc{color:rgba(226,221,203,.88)}
+  .lto-slide__eyebrow{font-size:10px;letter-spacing:.26em;margin-bottom:12px}
+  .lto-slide__fine{color:rgba(226,221,203,.68)}
+  .lto-slide__scrim{background:linear-gradient(to top,rgba(21,22,22,.6) 0%,rgba(21,22,22,.15) 50%,rgba(21,22,22,.4) 100%)}
   .lto-slide__name{font-size:clamp(36px,9vw,50px)}
   .lto-slide__actions{width:100%;flex-direction:column;align-items:stretch;gap:12px}
   .lto-slide__actions .btn{justify-content:center;padding:15px 24px}
   .lto-slider__arrows{display:none}
   .lto-slider__controls{left:24px;bottom:34px}
   .lto-slider__viewall{top:18px;right:18px;padding:8px 12px;letter-spacing:.22em}
+}
+/* short phones: trim the panel so it never covers the whole photo */
+@media(max-width:768px) and (max-height:740px){
+  .lto-slide__tags{display:none}
+  .lto-slide__inner{bottom:68px;max-height:calc(100% - 120px);padding:18px 16px 16px}
+  .lto-slide__actions .btn--outline-light{display:none}
+  .lto-slide__fine{margin-top:12px}
+  .lto-slide__desc{font-size:13.5px;line-height:1.55;margin-bottom:14px}
+  .lto-slide__name{margin-bottom:10px}
 }
 @media(prefers-reduced-motion:reduce){
   .lto-slide.is-active .lto-slide__media img{animation:none;transform:scale(var(--s))}
