@@ -43,3 +43,47 @@ to avoid duplicate parameters.
 - [ ] Schedule a reminder send around Dec 19–22 to non-openers or non-clickers
 
 `creative-full.jpg` is the original creative, resized, for social posts or a single-image fallback.
+
+---
+
+# Holiday Catering email (Nov–Dec 2026)
+
+Template: `holiday-catering-2026.html` (Constant Contact → Create → Email → **Custom Code**).
+Images: `images/email/holiday-catering-2026/`, live at `https://guacmexigrill.ca/images/email/holiday-catering-2026/`
+once this branch is merged and deployed. **Merge before sending a test**, or images will break.
+Source: Communication #108 (Holiday Catering Campaign) and the "Cater Your Holidays" / "Scan. Order. Enjoy." creative.
+
+## Offer
+Save up to 20% on catering orders **placed in-store** (not valid online or for delivery):
+$250+ 10% off · $500+ 10% off + 20 cookies · $1,000+ 15% off + 40 churros · $1,500+ 20% off + 50 churros.
+Tiers and fine print mirror `catering-offers.html` (unlisted page; the email is a direct link to it).
+Action CTAs go to the deals page and to Locations, never to online checkout.
+
+## Subject lines (A/B test the first two)
+| | Subject | Preheader |
+|---|---|---|
+| A | Holiday party? We'll feed the whole crew 🎄 | Taco bars, burrito boxes & more for the whole crew. Order in-store and save up to 20%. |
+| B | Save up to 20% on holiday catering 🌮 | Office lunch, team party or family feast. Order in-store and save. |
+| C | The office party is handled. | Taco bars and burrito boxes for 10 to 100+. Up to 20% off in-store. |
+| Reminder (Dec 8–12) | Still planning the holiday party? | Up to 20% off catering when you order in-store. Free churros on big orders. |
+
+The preheader is hard-coded at the top of the HTML (matches A); update it to match the subject you send.
+
+## Email flow
+1. Hero: "Cater Your Holidays." headline (live text) + creative photo with the text cropped out
+2. Offer: "Save up to 20% OFF" + primary CTA: See Catering Deals (catering-offers#deals)
+3. Savings tiers (4 cards; $1,500+ flagged Best Value)
+4. Packages: Taco & Bowl Bar, Burrito Boxes, each linking to its section
+5. How to order (3 steps, step 02 = order in-store)
+6. Urgency band + Find Your Nearest GUAC
+7. Footer + fine print. Constant Contact adds the address and unsubscribe block automatically.
+
+## Tracking
+`utm_campaign=holiday_catering_2026`, `utm_content` = `hero_image`, `primary_cta`, `tiers`,
+`taco_bowl_bar`, `burrito_boxes`, `urgency_cta`, `footer_*`. Turn off Constant Contact's own UTM
+tagging for this email to avoid duplicate parameters.
+
+## Before sending
+- [ ] Send to the same lists as the Holiday Gift Card email
+- [ ] Send tests to Gmail (web + app), Outlook desktop, and iPhone Mail
+- [ ] Schedule the reminder to non-clickers around Dec 8–12 (office parties book early)
