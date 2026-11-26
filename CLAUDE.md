@@ -33,8 +33,6 @@ Locations are cards in `locations.html`; the loyalty sign-up store list is in `l
 | Red Deer, AB (GMG039) | Permanently closed |
 | Winnipeg, MB (GMG041) — 584 Pembina Hwy | Permanently closed (closed in 2025) |
 | Edmonton — Harvest Hill, AB | Temporarily closed |
-| Grande Prairie, AB | Temporarily closed |
-| Moose Jaw, SK | Temporarily closed |
 
 ## Location count
 
